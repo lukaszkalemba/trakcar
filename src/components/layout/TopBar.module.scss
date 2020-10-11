@@ -1,7 +1,16 @@
 @import 'styles/theme/colors';
 @import 'styles/theme/box-shadow';
+@import 'styles/theme/media';
 
 .topBar {
   background-color: $white;
   box-shadow: $layout-elements;
+}
+
+.logo {
+  width: 125px;
+
+  @include media('>900px') {
+    width: 200px;
+  }
 }
