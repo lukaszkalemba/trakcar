@@ -5,6 +5,7 @@ import Calendar from 'pages/Calendar';
 import Positions from 'pages/Positions';
 import Organization from 'pages/Organization';
 import Profile from 'pages/Profile';
+import NotFound from 'pages/NotFound';
 import 'styles/index.scss';
 
 const App = () => {
@@ -12,18 +13,11 @@ const App = () => {
     <React.StrictMode>
       <Router>
         <Switch>
-          <Route exact path="/">
-            <Calendar />
-          </Route>
-          <Route exact path="/positions">
-            <Positions />
-          </Route>
-          <Route exact path="/organization">
-            <Organization />
-          </Route>
-          <Route exact path="/profile">
-            <Profile />
-          </Route>
+          <Route exact path="/" component={Calendar} />
+          <Route exact path="/positions" component={Positions} />
+          <Route exact path="/organization" component={Organization} />
+          <Route exact path="/profile" component={Profile} />
+          <Route component={NotFound} />
         </Switch>
       </Router>
     </React.StrictMode>
