@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styles from './Button.module.scss';
+import styles from './button/Button.module.scss';
 
 const Button: React.FC<ButtonProps> = ({ children }) => {
   return (
