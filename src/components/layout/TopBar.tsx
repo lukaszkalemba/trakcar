@@ -6,7 +6,7 @@ import styles from './TopBar.module.scss';
 const TopBar: React.FC = () => {
   return (
     <div className={styles.topBar}>
-      <Icon src={logo} />
+      <Icon className={styles.logo} src={logo} />
     </div>
   );
 };
