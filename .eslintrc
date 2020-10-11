@@ -21,12 +21,9 @@
       "rules": {
         "react/prop-types": "off"
       }
-    },
-    {
-      "files": ["**/*.stories.tsx"],
-      "rules": {
-        "react/jsx-props-no-spreading": "off"
-      }
     }
-  ]
+  ],
+  "rules": {
+    "react/jsx-props-no-spreading": "off"
+  }
 }
