@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Calendar from 'pages/Calendar';
+import 'styles/index.scss';
 
 const App = () => {
   return (

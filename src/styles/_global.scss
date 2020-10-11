@@ -1,3 +1,27 @@
+@import './theme/fonts';
+
+@font-face {
+  font-family: $montserrat;
+  src: url('../assets/fonts/montserrat-semibold.woff2') format('woff2'),
+    url('../assets/fonts/montserrat-semibold.woff') format('woff');
+  font-weight: $semibold;
+  font-style: normal;
+}
+@font-face {
+  font-family: $montserrat;
+  src: url('../assets/fonts/montserrat-medium.woff') format('woff2'),
+    url('../assets/fonts/montserrat-medium.woff') format('woff');
+  font-weight: $medium;
+  font-style: normal;
+}
+@font-face {
+  font-family: $montserrat;
+  src: url('../assets/fonts/montserrat-regular.woff') format('woff2'),
+    url('../assets/fonts/montserrat-regular.woff') format('woff');
+  font-weight: $regular;
+  font-style: normal;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -6,4 +30,5 @@ body {
   font-size: 1.6rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: $montserrat, sans-serif;
 }
