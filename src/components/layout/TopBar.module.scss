@@ -1,5 +1,7 @@
 @import 'styles/theme/colors';
+@import 'styles/theme/box-shadow';
 
 .topBar {
   background-color: $white;
+  box-shadow: $layout-elements;
 }
