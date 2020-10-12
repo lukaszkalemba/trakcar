@@ -1,0 +1,55 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $black;
+  padding: 2px;
+  border-radius: 3px;
+  width: 25px;
+  height: 25px;
+
+  @include media('>=tablet') {
+    width: 30px;
+    height: 30px;
+  }
+
+  @include media('>=laptop') {
+    width: 25px;
+    height: 25px;
+  }
+
+  .avatar {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.user {
+  display: none;
+
+  @include media('>=tablet') {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .username {
+    font-size: $l;
+    font-weight: $semibold;
+    padding: 0 12px;
+  }
+
+  .expandArrow {
+    width: 20px;
+  }
+}
