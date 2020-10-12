@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Layout from 'components/Layout';
-import Calendar from 'pages/Calendar';
-import Positions from 'pages/Positions';
-import Organization from 'pages/Organization';
-import Profile from 'pages/Profile';
-import NotFound from 'pages/NotFound';
+import Layout from 'components/layout/Layout';
+import Calendar from 'views/calendar/Calendar';
+import Positions from 'views/positions/Positions';
+import Organization from 'views/organization/Organization';
+import Profile from 'views/profile/Profile';
+import NotFound from 'views/not-found/NotFound';
 import 'normalize.css';
 import 'styles/global.scss';
 

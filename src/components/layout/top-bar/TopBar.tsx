@@ -1,7 +1,7 @@
 import React from 'react';
-import Icon from 'components/Icon';
+import Icon from 'components/icon/Icon';
 import logo from 'assets/svgs/logo_trakcar.svg';
-import User from './topBar/User';
+import User from './user/User';
 import styles from './TopBar.module.scss';
 
 const TopBar: React.FC = () => {
