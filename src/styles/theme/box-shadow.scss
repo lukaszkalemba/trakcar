@@ -1,1 +1,3 @@
-$layout-elements: 0 0 4px 0 hsla(0, 0%, 0%, 0.08);
+@import './colors.scss';
+
+$layout-elements: 0 0 4px 0 lighten($black, 90);
