@@ -7,7 +7,8 @@ import Positions from 'pages/Positions';
 import Organization from 'pages/Organization';
 import Profile from 'pages/Profile';
 import NotFound from 'pages/NotFound';
-import 'styles/index.scss';
+import 'normalize.css';
+import 'styles/global.scss';
 
 const App = () => {
   return (

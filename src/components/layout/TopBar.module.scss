@@ -10,7 +10,7 @@
 .logo {
   width: 125px;
 
-  @include media('>900px') {
+  @include media('>tablet') {
     width: 200px;
   }
 }
