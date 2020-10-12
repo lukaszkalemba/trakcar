@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import TopBar from './layout/TopBar';
 
-const Layout: React.FC<Props> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div>
       <TopBar />
@@ -10,7 +10,7 @@ const Layout: React.FC<Props> = ({ children }) => {
   );
 };
 
-interface Props {
+export interface LayoutProps {
   children: ReactNode;
 }
 
