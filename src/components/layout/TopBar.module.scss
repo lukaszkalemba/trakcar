@@ -2,7 +2,10 @@
 @import 'styles/theme/box-shadow';
 @import 'styles/theme/media';
 
-.topBar {
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: $white;
   box-shadow: $layout-elements;
 
@@ -13,7 +16,7 @@
   }
 
   @include media('>=laptop') {
-    padding: 5px 50px;
+    padding: 7px 50px;
   }
 }
 
