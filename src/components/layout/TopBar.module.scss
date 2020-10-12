@@ -5,12 +5,26 @@
 .topBar {
   background-color: $white;
   box-shadow: $layout-elements;
+
+  padding: 5px 20px;
+
+  @include media('>=tablet') {
+    padding: 10px 30px;
+  }
+
+  @include media('>=laptop') {
+    padding: 5px 50px;
+  }
 }
 
 .logo {
   width: 125px;
 
-  @include media('>tablet') {
-    width: 200px;
+  @include media('>=tablet') {
+    width: 175px;
+  }
+
+  @include media('>=laptop') {
+    width: 150px;
   }
 }
