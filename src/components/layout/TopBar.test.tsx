@@ -3,9 +3,9 @@ import { render } from '@testing-library/react';
 import TopBar from './TopBar';
 
 describe('<TopBar />', () => {
-  it('renders correctly', () => {
-    const { debug } = render(<TopBar />);
+  it('renders with user avatar inside', () => {
+    const { getByAltText } = render(<TopBar />);
 
-    debug();
+    expect(getByAltText('user avatar')).toBeInTheDocument();
   });
 });
