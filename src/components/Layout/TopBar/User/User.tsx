@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from 'components/Icon';
+import Icon from 'components/Icon/Icon';
 import userImage from 'assets/images/image_user.png';
 import expandArrow from 'assets/svgs/icon_expand-arrow.svg';
 import styles from './User.module.scss';
