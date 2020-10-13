@@ -1,10 +1,13 @@
 import React from 'react';
+import Layout from 'components/layout/Layout';
 
 const Positions: React.FC = () => {
   return (
-    <div>
-      <h1>Positions.js</h1>
-    </div>
+    <Layout>
+      <div>
+        <h1>Positions.js</h1>
+      </div>
+    </Layout>
   );
 };
 

@@ -1,10 +1,13 @@
 import React from 'react';
+import Layout from 'components/layout/Layout';
 
 const Organization: React.FC = () => {
   return (
-    <div>
-      <h1>Organization.js</h1>
-    </div>
+    <Layout>
+      <div>
+        <h1>Organization.js</h1>
+      </div>
+    </Layout>
   );
 };
 

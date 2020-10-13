@@ -1,10 +1,13 @@
 import React from 'react';
+import Layout from 'components/layout/Layout';
 
 const Calendar: React.FC = () => {
   return (
-    <div>
-      <h1>Calendar.js</h1>
-    </div>
+    <Layout>
+      <div>
+        <h1>Calendar.js</h1>
+      </div>
+    </Layout>
   );
 };
 
