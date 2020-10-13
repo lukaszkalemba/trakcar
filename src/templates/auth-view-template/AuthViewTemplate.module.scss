@@ -37,13 +37,24 @@
 .board {
   background-color: $white;
   box-shadow: $layout-elements;
-  padding: 40px;
+  padding: 50px;
   width: 100%;
   z-index: $level1;
   position: relative;
-  max-width: 500px;
+  max-width: 375px;
 
   @include media('>=tablet') {
-    padding: 65px;
+    padding: 65px 70px;
+    max-width: 500px;
+  }
+
+  > form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+
+    @include media('>=tablet') {
+      margin-top: 40px;
+    }
   }
 }

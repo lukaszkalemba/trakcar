@@ -5,7 +5,7 @@ import styles from './Button.module.scss';
 const Button: React.FC<ButtonProps> = ({
   type = 'button',
   className,
-  onClick,
+  onClick = () => {},
   children,
 }) => {
   return (
