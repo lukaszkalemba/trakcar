@@ -1,0 +1,15 @@
+@import 'styles/theme/fonts';
+
+.button {
+  font-size: $xl;
+  font-weight: $semibold;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &::after {
+    content: url('../../assets/svgs/icon_arrow-right.svg');
+    margin-left: 15px;
+  }
+}

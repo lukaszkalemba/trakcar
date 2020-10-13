@@ -1,4 +1,6 @@
 import React, { ReactNode } from 'react';
+import cx from 'classnames';
+import styles from './Button.module.scss';
 
 const Button: React.FC<ButtonProps> = ({
   type = 'button',
@@ -7,7 +9,11 @@ const Button: React.FC<ButtonProps> = ({
   children,
 }) => {
   return (
-    <button type={type} className={className} onClick={onClick}>
+    <button
+      type={type}
+      className={cx(styles.button, className)}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
