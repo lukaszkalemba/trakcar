@@ -1,0 +1,49 @@
+@import 'styles/theme/media';
+@import 'styles/theme/colors';
+@import 'styles/theme/box-shadow';
+@import 'styles/theme/z-index';
+@import 'styles/mixins';
+
+.wrapper {
+  @include flex-center;
+  height: 100vh;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40vw;
+    height: 100%;
+    background: url('../../assets/images/image_auth-background.png') center
+      center no-repeat;
+    background-size: cover;
+    display: none;
+
+    @include media('>laptop') {
+      display: inline;
+    }
+  }
+
+  main {
+    @include flex-center;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+.board {
+  background-color: $white;
+  box-shadow: $layout-elements;
+  padding: 40px;
+  width: 100%;
+  z-index: $level1;
+  position: relative;
+  max-width: 500px;
+
+  @include media('>=tablet') {
+    padding: 65px;
+  }
+}
