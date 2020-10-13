@@ -1,10 +1,13 @@
 import React from 'react';
+import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
 
 const Signin: React.FC = () => {
   return (
-    <div>
-      <h1>Signin.js</h1>
-    </div>
+    <AuthViewTemplate>
+      <div>
+        <h1>Signin.js</h1>
+      </div>
+    </AuthViewTemplate>
   );
 };
 
