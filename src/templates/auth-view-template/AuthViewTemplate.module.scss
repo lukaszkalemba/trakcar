@@ -56,5 +56,14 @@
     @include media('>=tablet') {
       margin-top: 40px;
     }
+
+    > button[type='submit'] {
+      align-self: flex-end;
+      margin-top: 15px;
+
+      @include media('>=tablet') {
+        margin-top: 25px;
+      }
+    }
   }
 }

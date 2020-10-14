@@ -4,7 +4,6 @@ import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
 import Button from 'components/button/Button';
 import TextInput from 'components/text-input/TextInput';
 import { initialValues, validationSchema, onSubmit } from './SignUp.formik';
-import styles from './SignUp.module.scss';
 
 const SignUp: React.FC = () => {
   return (
@@ -19,9 +18,7 @@ const SignUp: React.FC = () => {
             <TextInput label="Name" name="name" type="text" />
             <TextInput label="Email" name="email" type="email" />
             <TextInput label="Password" name="password" type="password" />
-            <Button type="submit" className={styles.submit}>
-              sign up
-            </Button>
+            <Button type="submit">sign up</Button>
           </Form>
         )}
       </Formik>
