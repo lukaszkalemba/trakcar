@@ -1,0 +1,80 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+
+.wrapper {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.label {
+  font-size: $l;
+  font-weight: $regular;
+  color: darken($dark-gray, 30);
+  position: absolute;
+  pointer-events: none;
+  left: 3px;
+  top: 15px;
+  transition: all 0.2s ease;
+
+  @include media('>=tablet') {
+    font-size: $xl;
+    top: 10px;
+  }
+
+  &.active {
+    top: -13px;
+    left: 0;
+    font-size: $s;
+    color: $black;
+
+    @include media('>=tablet') {
+      font-size: $m;
+    }
+  }
+
+  &.error,
+  &.active.error {
+    color: $dark-red;
+  }
+}
+
+.input {
+  font-size: $xl;
+  padding: 10px 0;
+  display: block;
+  width: 100%;
+  color: $black;
+  background: none;
+  border: none;
+  border-bottom: 1px solid $dark-gray;
+  transition: all 0.2s ease-in-out;
+  max-width: 400px;
+
+  &.error,
+  &:focus.error {
+    border-bottom-color: $dark-red;
+  }
+
+  &:focus {
+    outline: none;
+    border-bottom-color: $black;
+
+    & ~ .label {
+      @extend .active;
+    }
+  }
+}
+
+.errorMessage {
+  font-size: $xs;
+  height: 12px;
+  margin-top: 7px;
+  margin-left: 1px;
+  color: $dark-red;
+
+  @include media('>=tablet') {
+    font-size: $s;
+  }
+}
