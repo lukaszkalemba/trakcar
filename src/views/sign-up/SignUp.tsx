@@ -3,10 +3,10 @@ import { Formik, Form } from 'formik';
 import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
 import Button from 'components/button/Button';
 import TextInput from 'components/text-input/TextInput';
-import { initialValues, validationSchema, onSubmit } from './Signin.formik';
-import styles from './Signin.module.scss';
+import { initialValues, validationSchema, onSubmit } from './SignUp.formik';
+import styles from './SignUp.module.scss';
 
-const Signin: React.FC = () => {
+const SignUp: React.FC = () => {
   return (
     <AuthViewTemplate>
       <Formik
@@ -16,10 +16,11 @@ const Signin: React.FC = () => {
       >
         {() => (
           <Form>
+            <TextInput label="Name" name="name" type="text" />
             <TextInput label="Email" name="email" type="email" />
             <TextInput label="Password" name="password" type="password" />
             <Button type="submit" className={styles.submit}>
-              sign in
+              sign up
             </Button>
           </Form>
         )}
@@ -28,4 +29,4 @@ const Signin: React.FC = () => {
   );
 };
 
-export default Signin;
+export default SignUp;

@@ -5,8 +5,8 @@ import Calendar from 'views/calendar/Calendar';
 import Positions from 'views/positions/Positions';
 import Organization from 'views/organization/Organization';
 import Profile from 'views/profile/Profile';
-import Signup from 'views/signup/Signup';
-import Signin from 'views/signin/Signin';
+import SignUp from 'views/sign-up/SignUp';
+import SignIn from 'views/sign-in/SignIn';
 import NotFound from 'views/not-found/NotFound';
 import 'normalize.css';
 import 'styles/global.scss';
@@ -20,8 +20,8 @@ const App = () => {
           <Route exact path="/positions" component={Positions} />
           <Route exact path="/organization" component={Organization} />
           <Route exact path="/profile" component={Profile} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/signin" component={Signin} />
+          <Route exact path="/sign_up" component={SignUp} />
+          <Route exact path="/sign_in" component={SignIn} />
           <Route component={NotFound} />
         </Switch>
       </Router>
