@@ -1,0 +1,25 @@
+@import 'styles/theme/colors';
+@import 'styles/theme/media';
+
+.nav {
+  background-color: $black;
+  display: flex;
+  justify-content: space-between;
+
+  @include media('>=laptop') {
+    display: none;
+  }
+
+  a {
+    height: 45px;
+    padding: 12px;
+
+    @include media('>=tablet') {
+      height: 53px;
+    }
+
+    svg {
+      height: 100%;
+    }
+  }
+}

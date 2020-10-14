@@ -1,9 +1,14 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import Layout, { LayoutProps } from './Layout';
 
 const renderLayout = (props: LayoutProps) => {
-  const utils = render(<Layout {...props} />);
+  const utils = render(
+    <MemoryRouter>
+      <Layout {...props} />
+    </MemoryRouter>
+  );
 
   return { ...utils };
 };
