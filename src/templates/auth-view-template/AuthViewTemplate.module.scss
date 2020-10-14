@@ -1,5 +1,6 @@
 @import 'styles/theme/media';
 @import 'styles/theme/colors';
+@import 'styles/theme/fonts';
 @import 'styles/theme/box-shadow';
 @import 'styles/theme/z-index';
 @import 'styles/mixins';
@@ -31,6 +32,30 @@
     flex-direction: column;
     width: 100%;
     padding: 20px;
+    max-width: 375px;
+    margin-top: -20px;
+
+    @include media('>=tablet') {
+      padding: 0;
+      max-width: 500px;
+    }
+
+    p {
+      font-size: $m;
+      width: 100%;
+      text-align: right;
+      color: darken($dark-gray, 30);
+
+      @include media('>=tablet') {
+        font-size: $l;
+      }
+
+      a {
+        color: $black;
+        font-weight: $semibold;
+        padding: 15px 0;
+      }
+    }
   }
 }
 
@@ -41,11 +66,9 @@
   width: 100%;
   z-index: $level1;
   position: relative;
-  max-width: 375px;
 
   @include media('>=tablet') {
     padding: 65px 70px;
-    max-width: 500px;
   }
 
   > form {
