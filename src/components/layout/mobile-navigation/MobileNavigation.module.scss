@@ -1,25 +1,14 @@
 @import 'styles/theme/colors';
 @import 'styles/theme/media';
+@import 'styles/theme/box-shadow';
 
 .nav {
   background-color: $black;
   display: flex;
   justify-content: space-between;
+  box-shadow: $layout-elements;
 
-  @include media('>=laptop') {
+  @include media('>laptop') {
     display: none;
-  }
-
-  a {
-    height: 45px;
-    padding: 12px;
-
-    @include media('>=tablet') {
-      height: 53px;
-    }
-
-    svg {
-      height: 100%;
-    }
   }
 }
