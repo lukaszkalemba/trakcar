@@ -9,7 +9,7 @@ import { initialValues, validationSchema, onSubmit } from './SignIn.formik';
 const SignIn: React.FC = () => {
   const togglePageMessage = (
     <p>
-      No account? <Link to="/sign_up">Sign up</Link>
+      No account? <Link to="/sign-up">Sign up</Link>
     </p>
   );
 
