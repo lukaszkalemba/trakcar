@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { configureStore, Action } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import signupSliceReducer, { SignupState } from 'modules/users/signup';
 import Calendar from 'views/calendar/Calendar';
 import Positions from 'views/positions/Positions';
 import Organization from 'views/organization/Organization';
@@ -13,6 +12,8 @@ import SignUp from 'views/sign-up/SignUp';
 import SignIn from 'views/sign-in/SignIn';
 import NotFound from 'views/not-found/NotFound';
 import PrivateRoute from 'components/private-route/PrivateRoute';
+import signupSliceReducer, { SignupState } from 'modules/users/signup';
+import { setAuthToken } from 'helpers/setAuthToken';
 import 'normalize.css';
 import 'styles/global.scss';
 
@@ -24,6 +25,10 @@ const store = configureStore({
   },
   devTools: process.env.NODE_ENV === 'development',
 });
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
   return (
