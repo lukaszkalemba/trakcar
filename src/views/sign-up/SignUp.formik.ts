@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import { SignupValues } from 'modules/user';
+import { SignupValues } from 'modules/users';
 
 export const initialValues: SignupValues = {
   name: '',

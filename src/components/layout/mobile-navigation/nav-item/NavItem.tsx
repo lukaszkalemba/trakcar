@@ -18,7 +18,7 @@ const NavItem: React.FC<NavItemProps> = ({ to, icon }) => {
 
 interface NavItemProps {
   to: string;
-  icon: any;
+  icon: string;
 }
 
 export default NavItem;

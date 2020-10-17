@@ -12,7 +12,7 @@ import SignUp from 'views/sign-up/SignUp';
 import SignIn from 'views/sign-in/SignIn';
 import NotFound from 'views/not-found/NotFound';
 import PrivateRoute from 'components/private-route/PrivateRoute';
-import userReducer, { UserState } from 'modules/user';
+import userReducer, { UserState } from 'modules/users';
 import { setAuthToken } from 'helpers/setAuthToken';
 import 'normalize.css';
 import 'styles/global.scss';

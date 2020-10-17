@@ -1,12 +1,25 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import { signInUser, SigninValues, userSelector } from 'modules/users';
 import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
 import Button from 'components/button/Button';
 import TextInput from 'components/text-input/TextInput';
-import { initialValues, validationSchema, onSubmit } from './SignIn.formik';
+import { initialValues, validationSchema } from './SignIn.formik';
 
 const SignIn: React.FC = () => {
+  const dispatch = useDispatch();
+  const { token } = useSelector(userSelector);
+
+  if (token) {
+    return <Redirect to="/" />;
+  }
+
+  const handleSubmit = (values: SigninValues) => {
+    dispatch(signInUser(values));
+  };
+
   const togglePageMessage = (
     <p>
       No account? <Link to="/sign-up">Sign up</Link>
@@ -18,7 +31,7 @@ const SignIn: React.FC = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={onSubmit}
+        onSubmit={handleSubmit}
       >
         {() => (
           <Form>

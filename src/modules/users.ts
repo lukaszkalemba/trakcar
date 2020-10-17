@@ -4,51 +4,49 @@ import { AppThunk } from 'index';
 import { rootApi } from 'utils/api';
 import { setAuthToken } from 'helpers/setAuthToken';
 
+interface UserData {
+  _id: string;
+  name: string;
+  email: string;
+  avatar: string;
+  date: string;
+}
+
 export interface UserState {
   token: string | null;
-  isAuthenticated: boolean | null;
+  user: UserData | null;
   loading: boolean;
-  user: any;
 }
 
 const initialState: UserState = {
   token: localStorage.getItem('token'),
-  isAuthenticated: null,
-  loading: true,
   user: null,
+  loading: true,
 };
 
 const userSlice = createSlice({
-  name: 'user',
+  name: 'users',
   initialState,
   reducers: {
-    getUser: (state, { payload }: PayloadAction<{ data: any }>) => {
-      state.isAuthenticated = true;
+    getUserData: (state, { payload }: PayloadAction<{ data: UserData }>) => {
       state.loading = false;
       state.user = payload.data;
     },
-    createUser: (state, { payload }: PayloadAction<{ data: string }>) => {
+    setUser: (state, { payload }: PayloadAction<{ data: string }>) => {
       localStorage.setItem('token', payload.data);
 
       state.token = payload.data;
-      state.isAuthenticated = true;
       state.loading = false;
     },
   },
 });
 
-export const { getUser, createUser } = userSlice.actions;
+export const { getUserData, setUser } = userSlice.actions;
 export default userSlice.reducer;
 
 export const userSelector = (state: { user: UserState }) => state.user;
 
-export interface SignupValues {
-  name: string;
-  email: string;
-  password: string;
-}
-
-export const loadUser = (): AppThunk => async (dispatch) => {
+export const loadUserData = (): AppThunk => async (dispatch) => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
@@ -56,11 +54,42 @@ export const loadUser = (): AppThunk => async (dispatch) => {
   try {
     const res = await axios.get(`${rootApi}/api/v1/users`);
 
-    dispatch(getUser(res.data));
+    dispatch(getUserData(res.data));
   } catch (error) {
     console.log(error);
   }
 };
+
+export interface SigninValues {
+  email: string;
+  password: string;
+}
+
+export const signInUser = ({
+  email,
+  password,
+}: SigninValues): AppThunk => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  const body = JSON.stringify({ email, password });
+
+  try {
+    const res = await axios.post(`${rootApi}/api/v1/users/login`, body, config);
+
+    dispatch(setUser(res.data));
+    dispatch(loadUserData());
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export interface SignupValues extends SigninValues {
+  name: string;
+}
 
 export const signUpUser = ({
   name,
@@ -78,8 +107,8 @@ export const signUpUser = ({
   try {
     const res = await axios.post(`${rootApi}/api/v1/users`, body, config);
 
-    dispatch(createUser(res.data));
-    dispatch(loadUser());
+    dispatch(setUser(res.data));
+    dispatch(loadUserData());
   } catch (error) {
     console.log(error);
   }
