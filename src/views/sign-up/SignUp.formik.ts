@@ -1,12 +1,7 @@
 import * as yup from 'yup';
+import { User } from 'modules/users/signup';
 
-interface SignupValues {
-  name: string;
-  email: string;
-  password: string;
-}
-
-export const initialValues: SignupValues = {
+export const initialValues: User = {
   name: '',
   email: '',
   password: '',
@@ -26,7 +21,3 @@ export const validationSchema = yup.object({
     .min(6, 'Password must be at least 6 characters')
     .required('Password is required'),
 });
-
-export const onSubmit = (values: SignupValues) => {
-  console.log(values);
-};
