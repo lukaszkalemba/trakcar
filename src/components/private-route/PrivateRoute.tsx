@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { userSelector } from 'modules/users/signup';
+import { userSelector } from 'modules/user';
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ Component, ...rest }) => {
   const { isAuthenticated, loading } = useSelector(userSelector);

@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import { signUpUser, User, userSelector } from 'modules/users/signup';
+import { signUpUser, SignupValues, userSelector } from 'modules/user';
 import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
 import Button from 'components/button/Button';
 import TextInput from 'components/text-input/TextInput';
@@ -16,7 +16,7 @@ const SignUp: React.FC = () => {
     return <Redirect to="/" />;
   }
 
-  const handleSubmit = (values: User) => {
+  const handleSubmit = (values: SignupValues) => {
     dispatch(signUpUser(values));
   };
 

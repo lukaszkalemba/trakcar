@@ -1,7 +1,7 @@
 import * as yup from 'yup';
-import { User } from 'modules/users/signup';
+import { SignupValues } from 'modules/user';
 
-export const initialValues: User = {
+export const initialValues: SignupValues = {
   name: '',
   email: '',
   password: '',

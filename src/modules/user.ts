@@ -3,52 +3,50 @@ import axios from 'axios';
 import { AppThunk } from 'index';
 import { rootApi } from 'utils/api';
 
-export interface SignupState {
+export interface UserState {
   token: string | null;
   isAuthenticated: boolean | null;
   loading: boolean;
   user: any;
 }
 
-const initialState: SignupState = {
+const initialState: UserState = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
-  // todo initial loading should be true
   loading: false,
   user: null,
 };
 
-const signupSlice = createSlice({
-  name: 'signup',
+const userSlice = createSlice({
+  name: 'user',
   initialState,
   reducers: {
     createUser: (state, { payload }: PayloadAction<{ data: string }>) => {
       localStorage.setItem('token', payload.data);
 
-      return {
-        ...state,
-        ...payload,
-        isAuthenticated: true,
-        loading: false,
-      };
+      state.token = payload.data;
+      state.isAuthenticated = true;
+      state.loading = false;
     },
   },
 });
 
-export const { createUser } = signupSlice.actions;
-export default signupSlice.reducer;
+export const { createUser } = userSlice.actions;
+export default userSlice.reducer;
 
-export const userSelector = (state: { signup: SignupState }) => state.signup;
+export const userSelector = (state: { user: UserState }) => state.user;
 
-export interface User {
+export interface SignupValues {
   name: string;
   email: string;
   password: string;
 }
 
-export const signUpUser = ({ name, email, password }: User): AppThunk => async (
-  dispatch
-) => {
+export const signUpUser = ({
+  name,
+  email,
+  password,
+}: SignupValues): AppThunk => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',

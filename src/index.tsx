@@ -12,16 +12,16 @@ import SignUp from 'views/sign-up/SignUp';
 import SignIn from 'views/sign-in/SignIn';
 import NotFound from 'views/not-found/NotFound';
 import PrivateRoute from 'components/private-route/PrivateRoute';
-import signupSliceReducer, { SignupState } from 'modules/users/signup';
+import userReducer, { UserState } from 'modules/user';
 import { setAuthToken } from 'helpers/setAuthToken';
 import 'normalize.css';
 import 'styles/global.scss';
 
-export type AppThunk = ThunkAction<void, SignupState, unknown, Action<string>>;
+export type AppThunk = ThunkAction<void, UserState, unknown, Action<string>>;
 
 const store = configureStore({
   reducer: {
-    signup: signupSliceReducer,
+    user: userReducer,
   },
   devTools: process.env.NODE_ENV === 'development',
 });
