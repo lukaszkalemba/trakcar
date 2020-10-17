@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { AppThunk } from 'index';
 import { rootApi } from 'utils/api';
+import { setAuthToken } from 'helpers/setAuthToken';
 
 export interface UserState {
   token: string | null;
@@ -13,7 +14,7 @@ export interface UserState {
 const initialState: UserState = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
-  loading: false,
+  loading: true,
   user: null,
 };
 
@@ -21,6 +22,11 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    getUser: (state, { payload }: PayloadAction<{ data: any }>) => {
+      state.isAuthenticated = true;
+      state.loading = false;
+      state.user = payload.data;
+    },
     createUser: (state, { payload }: PayloadAction<{ data: string }>) => {
       localStorage.setItem('token', payload.data);
 
@@ -31,7 +37,7 @@ const userSlice = createSlice({
   },
 });
 
-export const { createUser } = userSlice.actions;
+export const { getUser, createUser } = userSlice.actions;
 export default userSlice.reducer;
 
 export const userSelector = (state: { user: UserState }) => state.user;
@@ -41,6 +47,20 @@ export interface SignupValues {
   email: string;
   password: string;
 }
+
+export const loadUser = (): AppThunk => async (dispatch) => {
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+
+  try {
+    const res = await axios.get(`${rootApi}/api/v1/users`);
+
+    dispatch(getUser(res.data));
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const signUpUser = ({
   name,
@@ -59,6 +79,7 @@ export const signUpUser = ({
     const res = await axios.post(`${rootApi}/api/v1/users`, body, config);
 
     dispatch(createUser(res.data));
+    dispatch(loadUser());
   } catch (error) {
     console.log(error);
   }

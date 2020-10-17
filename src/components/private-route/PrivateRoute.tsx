@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { userSelector } from 'modules/user';
+import { useSelector, useDispatch } from 'react-redux';
+import { userSelector, loadUser } from 'modules/user';
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ Component, ...rest }) => {
-  const { isAuthenticated, loading } = useSelector(userSelector);
+  const dispatch = useDispatch();
+  const { token } = useSelector(userSelector);
+
+  useEffect(() => {
+    dispatch(loadUser());
+  }, [dispatch]);
 
   return (
     <Route
       {...rest}
-      render={(props: {}) =>
-        !isAuthenticated && !loading ? (
-          <Redirect to="/sign-in" />
-        ) : (
-          <Component {...props} />
-        )
-      }
+      render={() => (!token ? <Redirect to="/sign-in" /> : <Component />)}
     />
   );
 };
