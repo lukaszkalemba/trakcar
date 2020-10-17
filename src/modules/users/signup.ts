@@ -13,7 +13,8 @@ export interface SignupState {
 const initialState: SignupState = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
-  loading: true,
+  // todo initial loading should be true
+  loading: false,
   user: null,
 };
 
@@ -36,6 +37,8 @@ const signupSlice = createSlice({
 
 export const { createUser } = signupSlice.actions;
 export default signupSlice.reducer;
+
+export const userSelector = (state: { signup: SignupState }) => state.signup;
 
 export interface User {
   name: string;

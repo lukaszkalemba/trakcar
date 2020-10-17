@@ -12,6 +12,7 @@ import Profile from 'views/profile/Profile';
 import SignUp from 'views/sign-up/SignUp';
 import SignIn from 'views/sign-in/SignIn';
 import NotFound from 'views/not-found/NotFound';
+import PrivateRoute from 'components/private-route/PrivateRoute';
 import 'normalize.css';
 import 'styles/global.scss';
 
@@ -30,10 +31,10 @@ const App = () => {
       <Provider store={store}>
         <Router>
           <Switch>
-            <Route exact path="/" component={Calendar} />
-            <Route exact path="/positions" component={Positions} />
-            <Route exact path="/organization" component={Organization} />
-            <Route exact path="/profile" component={Profile} />
+            <PrivateRoute exact path="/" Component={Calendar} />
+            <PrivateRoute exact path="/positions" Component={Positions} />
+            <PrivateRoute exact path="/organization" Component={Organization} />
+            <PrivateRoute exact path="/profile" Component={Profile} />
             <Route exact path="/sign-up" component={SignUp} />
             <Route exact path="/sign-in" component={SignIn} />
             <Route component={NotFound} />
