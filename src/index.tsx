@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { configureStore, Action } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import signupSliceReducer, { SignupState } from 'modules/users/signup';
 import Calendar from 'views/calendar/Calendar';
 import Positions from 'views/positions/Positions';
 import Organization from 'views/organization/Organization';
@@ -14,10 +15,12 @@ import NotFound from 'views/not-found/NotFound';
 import 'normalize.css';
 import 'styles/global.scss';
 
-export type AppThunk = ThunkAction<void, null, unknown, Action<string>>;
+export type AppThunk = ThunkAction<void, SignupState, unknown, Action<string>>;
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    signup: signupSliceReducer,
+  },
   devTools: process.env.NODE_ENV === 'development',
 });
 
