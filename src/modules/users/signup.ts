@@ -22,8 +22,8 @@ const signupSlice = createSlice({
   name: 'signup',
   initialState,
   reducers: {
-    createUser: (state, { payload }: PayloadAction<{ token: string }>) => {
-      localStorage.setItem('token', payload.token);
+    createUser: (state, { payload }: PayloadAction<{ data: string }>) => {
+      localStorage.setItem('token', payload.data);
 
       return {
         ...state,

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { signUpUser, User } from 'modules/users/signup';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import { signUpUser, User, userSelector } from 'modules/users/signup';
 import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
 import Button from 'components/button/Button';
 import TextInput from 'components/text-input/TextInput';
@@ -10,6 +10,11 @@ import { initialValues, validationSchema } from './SignUp.formik';
 
 const SignUp: React.FC = () => {
   const dispatch = useDispatch();
+  const { isAuthenticated } = useSelector(userSelector);
+
+  if (isAuthenticated) {
+    return <Redirect to="/" />;
+  }
 
   const handleSubmit = (values: User) => {
     dispatch(signUpUser(values));
