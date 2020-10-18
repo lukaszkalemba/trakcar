@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render } from 'utils/test-utils';
 import TopBar from './TopBar';
 
 describe('<TopBar />', () => {

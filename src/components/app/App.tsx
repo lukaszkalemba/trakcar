@@ -18,7 +18,7 @@ import 'styles/global.scss';
 
 export type AppThunk = ThunkAction<void, UserState, unknown, Action<string>>;
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     user: userReducer,
   },
