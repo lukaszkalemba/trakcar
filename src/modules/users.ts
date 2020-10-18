@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { AppThunk } from 'index';
 import { rootApi } from 'utils/api';
 import { setAuthToken } from 'helpers/setAuthToken';
+import { AppThunk } from 'components/app/App';
 
 interface UserData {
   _id: string;
