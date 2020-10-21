@@ -1,11 +1,21 @@
 @import 'styles/theme/media';
 @import 'styles/theme/fonts';
 @import 'styles/theme/colors';
+@import 'styles/theme/box-shadow';
+@import 'styles/theme/z-index';
 
 .wrapper {
+  position: relative;
+}
+
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 3px;
 }
 
 .avatarWrapper {
@@ -51,5 +61,9 @@
 
   .expandArrow {
     width: 20px;
+
+    &.active {
+      transform: rotate(180deg);
+    }
   }
 }
