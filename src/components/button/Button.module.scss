@@ -1,15 +1,39 @@
 @import 'styles/theme/fonts';
 
-.button {
-  font-size: $xl;
-  font-weight: $semibold;
+@mixin button-shared {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
   border: none;
   background: none;
-  text-transform: uppercase;
-  cursor: pointer;
+  font-weight: $semibold;
 
-  &::after {
-    content: url('../../assets/svgs/icon_arrow-right.svg');
+  & > div {
+    width: auto;
+    & > svg {
+      width: auto;
+    }
+  }
+}
+
+.submit {
+  @include button-shared;
+  font-size: $xl;
+
+  svg {
     margin-left: 15px;
+  }
+}
+
+.button {
+  @include button-shared;
+  padding: 7px 5px;
+  font-size: $m;
+
+  svg {
+    margin-left: 9px;
+    max-height: 13px;
+    width: auto;
   }
 }

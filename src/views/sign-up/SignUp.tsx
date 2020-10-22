@@ -6,6 +6,7 @@ import { signUpUser, SignupValues, userSelector } from 'modules/users';
 import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
 import Button from 'components/button/Button';
 import TextInput from 'components/text-input/TextInput';
+import arrowRight from 'assets/svgs/icon_arrow-right.svg';
 import { initialValues, validationSchema } from './SignUp.formik';
 
 const SignUp: React.FC = () => {
@@ -38,7 +39,9 @@ const SignUp: React.FC = () => {
             <TextInput label="Name" name="name" type="text" />
             <TextInput label="Email" name="email" type="email" />
             <TextInput label="Password" name="password" type="password" />
-            <Button type="submit">sign up</Button>
+            <Button type="submit" iconSrc={arrowRight}>
+              sign up
+            </Button>
           </Form>
         )}
       </Formik>

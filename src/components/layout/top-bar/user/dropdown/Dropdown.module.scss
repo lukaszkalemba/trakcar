@@ -14,21 +14,8 @@
   padding: 10px;
 
   @include media('>=tablet') {
-    width: 85%;
+    width: calc(100% + 20px);
+    max-width: 250px;
     right: -10px;
-  }
-
-  button {
-    font-weight: $semibold;
-    text-transform: uppercase;
-    background: none;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-
-    &::after {
-      content: url('../../../../../assets/svgs/icon_arrow-right.svg');
-      margin-left: 9px;
-    }
   }
 }
