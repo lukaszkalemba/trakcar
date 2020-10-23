@@ -3,6 +3,7 @@ import axios from 'axios';
 import { rootApi } from 'utils/api';
 import { setAuthToken } from 'helpers/setAuthToken';
 import { AppThunk } from 'components/app/App';
+import { showAlert } from './alerts';
 
 interface UserData {
   _id: string;
@@ -63,7 +64,9 @@ export const loadUserData = (): AppThunk => async (dispatch) => {
 
     dispatch(getUserData(res.data));
   } catch (error) {
-    console.log(error);
+    dispatch(
+      showAlert({ message: error.response.data.error, alertType: 'error' })
+    );
   }
 };
 
@@ -90,7 +93,9 @@ export const signInUser = ({
     dispatch(setUser(res.data));
     dispatch(loadUserData());
   } catch (error) {
-    console.log(error);
+    dispatch(
+      showAlert({ message: error.response.data.error, alertType: 'error' })
+    );
   }
 };
 
@@ -121,6 +126,8 @@ export const signUpUser = ({
     dispatch(setUser(res.data));
     dispatch(loadUserData());
   } catch (error) {
-    console.log(error);
+    dispatch(
+      showAlert({ message: error.response.data.error, alertType: 'error' })
+    );
   }
 };
