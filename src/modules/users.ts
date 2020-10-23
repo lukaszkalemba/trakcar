@@ -38,10 +38,17 @@ const userSlice = createSlice({
       state.token = payload.data;
       state.loading = false;
     },
+    unsetUser: (state) => {
+      localStorage.removeItem('token');
+
+      state.token = null;
+      state.user = null;
+      state.loading = false;
+    },
   },
 });
 
-export const { getUserData, setUser } = userSlice.actions;
+export const { getUserData, setUser, unsetUser } = userSlice.actions;
 export default userSlice.reducer;
 
 export const userSelector = (state: { user: UserState }) => state.user;
@@ -85,6 +92,10 @@ export const signInUser = ({
   } catch (error) {
     console.log(error);
   }
+};
+
+export const signOutUser = (): AppThunk => async (dispatch) => {
+  dispatch(unsetUser());
 };
 
 export interface SignupValues extends SigninValues {

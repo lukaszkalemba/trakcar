@@ -42,6 +42,7 @@ const User: React.FC = () => {
   });
 
   return loading ? null : (
+    // TODO Refactor user element
     <div ref={wrapper} className={styles.wrapper}>
       <button className={styles.button} onClick={toggleDropdown}>
         <Avatar avatar={user?.avatar} />
