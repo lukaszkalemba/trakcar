@@ -13,6 +13,7 @@ import NotFound from 'views/not-found/NotFound';
 import usersReducer, { User } from 'modules/users';
 import alertsReducer, { Alert } from 'modules/alerts';
 import { setAuthToken } from 'helpers/setAuthToken';
+import Alerts from './alerts/Alerts';
 import PrivateRoute from './private-route/PrivateRoute';
 import 'normalize.css';
 import 'styles/global.scss';
@@ -40,6 +41,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
+        <Alerts />
         <Switch>
           <PrivateRoute exact path="/" Component={Calendar} />
           <PrivateRoute exact path="/positions" Component={Positions} />
