@@ -28,11 +28,17 @@ export default alertsSlice.reducer;
 
 export const alertsSelector = (state: { alerts: Alert[] }) => state.alerts;
 
+interface AlertProps {
+  message: string;
+  alertType: 'success' | 'error';
+  timeout?: number;
+}
+
 export const showAlert = ({
   message,
   alertType,
-  timeout = 5000,
-}: any): AppThunk => async (dispatch) => {
+  timeout = 2500,
+}: AlertProps): AppThunk => async (dispatch) => {
   const id = uuidv4();
 
   dispatch(setAlert({ id, message, alertType }));

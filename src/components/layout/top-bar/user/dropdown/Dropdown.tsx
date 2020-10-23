@@ -11,8 +11,6 @@ const Dropdown: React.FC = () => {
 
   const handleSignOutButtonClick = () => {
     dispatch(signOutUser());
-
-    console.log('handleSignOutButtonClick');
   };
 
   return (
