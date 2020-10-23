@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import cx from 'classnames';
 import { userSelector } from 'modules/users';
 import Icon from 'components/icon/Icon';
-import arrowDown from 'assets/svgs/icon_arrow-down.svg';
+import arrow_down_icon from 'assets/svgs/icon_arrow-down.svg';
 import Dropdown from './dropdown/Dropdown';
 import styles from './User.module.scss';
 
@@ -28,7 +28,7 @@ const User: React.FC = () => {
         </div>
         <div className={styles.user}>
           <div className={styles.username}>{user?.name}</div>
-          <Icon className={iconClass} src={arrowDown} />
+          <Icon className={iconClass} src={arrow_down_icon} />
         </div>
       </button>
       {isDropdownOpen && <Dropdown />}
