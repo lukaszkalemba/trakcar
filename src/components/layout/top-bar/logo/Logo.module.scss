@@ -1,0 +1,13 @@
+@import 'styles/theme/media';
+
+.logo {
+  width: 125px;
+
+  @include media('>=tablet') {
+    width: 160px;
+  }
+
+  @include media('>=laptop') {
+    width: 140px;
+  }
+}
