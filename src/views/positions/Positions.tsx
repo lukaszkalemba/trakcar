@@ -1,12 +1,11 @@
 import React from 'react';
 import Layout from 'components/layout/Layout';
+import styles from './Positions.module.scss';
 
 const Positions: React.FC = () => {
   return (
     <Layout>
-      <div>
-        <h1>Positions.js</h1>
-      </div>
+      <div className={styles.wrapper} />
     </Layout>
   );
 };

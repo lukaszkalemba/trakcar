@@ -1,12 +1,11 @@
 import React from 'react';
 import Layout from 'components/layout/Layout';
+import styles from './Organization.module.scss';
 
 const Organization: React.FC = () => {
   return (
     <Layout>
-      <div>
-        <h1>Organization.js</h1>
-      </div>
+      <div className={styles.wrapper} />
     </Layout>
   );
 };
