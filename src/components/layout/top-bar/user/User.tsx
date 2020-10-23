@@ -13,7 +13,6 @@ const User: React.FC = () => {
 
   const toggleDropdown = () => {
     setIsDropdownOpen((state) => !state);
-    console.log(isDropdownOpen);
   };
 
   const iconClass = cx(styles.expandArrow, {
