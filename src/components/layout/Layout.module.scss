@@ -1,6 +1,21 @@
+@import 'styles/theme/media';
+
 .wrapper {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  main {
+    height: 100%;
+    padding: 20px;
+
+    @include media('>=tablet') {
+      padding: 30px;
+    }
+
+    @include media('>=laptop') {
+      padding: 50px;
+    }
+  }
 }
