@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import cx from 'classnames';
 import { userSelector } from 'modules/users';
@@ -11,17 +11,38 @@ import styles from './User.module.scss';
 const User: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const { loading, user } = useSelector(userSelector);
+  const wrapper = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
     setIsDropdownOpen((state) => !state);
   };
+
+  const handleClickOutside = (e: Event) => {
+    if (wrapper.current?.contains(e.target as Node)) {
+      return;
+    }
+
+    setIsDropdownOpen(false);
+  };
+
+  useEffect(() => {
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
 
   const iconClass = cx(styles.expandArrow, {
     [styles.active]: isDropdownOpen,
   });
 
   return loading ? null : (
-    <div className={styles.wrapper}>
+    <div ref={wrapper} className={styles.wrapper}>
       <button className={styles.button} onClick={toggleDropdown}>
         <Avatar avatar={user?.avatar} />
         <div className={styles.user}>
