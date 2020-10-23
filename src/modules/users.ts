@@ -30,21 +30,30 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     getUserData: (state, { payload }: PayloadAction<{ data: UserData }>) => {
-      state.loading = false;
-      state.user = payload.data;
+      return {
+        ...state,
+        user: payload.data,
+        loading: false,
+      };
     },
     setUser: (state, { payload }: PayloadAction<{ data: string }>) => {
       localStorage.setItem('token', payload.data);
 
-      state.token = payload.data;
-      state.loading = false;
+      return {
+        ...state,
+        token: payload.data,
+        loading: false,
+      };
     },
     unsetUser: (state) => {
       localStorage.removeItem('token');
 
-      state.token = null;
-      state.user = null;
-      state.loading = false;
+      return {
+        ...state,
+        token: null,
+        user: null,
+        loading: false,
+      };
     },
   },
 });

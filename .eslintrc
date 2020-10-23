@@ -24,7 +24,6 @@
     }
   ],
   "rules": {
-    "no-param-reassign": ["error", { "props": false }],
     "react/jsx-props-no-spreading": "off",
     "import/prefer-default-export": "off",
     "react/button-has-type": "off"
