@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import cx from 'classnames';
 import { userSelector } from 'modules/users';
-import Icon from 'components/icon/Icon';
 import arrow_down_icon from 'assets/svgs/icon_arrow-down.svg';
+import Icon from 'components/icon/Icon';
+import Avatar from './avatar/Avatar';
 import Dropdown from './dropdown/Dropdown';
 import styles from './User.module.scss';
 
@@ -22,9 +23,7 @@ const User: React.FC = () => {
   return loading ? null : (
     <div className={styles.wrapper}>
       <button className={styles.button} onClick={toggleDropdown}>
-        <div className={styles.avatarWrapper}>
-          <img src={user?.avatar} className={styles.avatar} alt="user avatar" />
-        </div>
+        <Avatar avatar={user?.avatar} />
         <div className={styles.user}>
           <div className={styles.username}>{user?.name}</div>
           <Icon className={iconClass} src={arrow_down_icon} />

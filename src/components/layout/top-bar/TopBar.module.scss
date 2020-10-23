@@ -24,10 +24,10 @@
   width: 125px;
 
   @include media('>=tablet') {
-    width: 175px;
+    width: 160px;
   }
 
   @include media('>=laptop') {
-    width: 150px;
+    width: 140px;
   }
 }
