@@ -13,19 +13,19 @@ interface UserData {
   date: string;
 }
 
-export interface UserState {
+export interface User {
   token: string | null;
   user: UserData | null;
   loading: boolean;
 }
 
-const initialState: UserState = {
+const initialState: User = {
   token: localStorage.getItem('token'),
   user: null,
   loading: true,
 };
 
-const userSlice = createSlice({
+const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
@@ -58,10 +58,10 @@ const userSlice = createSlice({
   },
 });
 
-export const { getUserData, setUser, unsetUser } = userSlice.actions;
-export default userSlice.reducer;
+export const { getUserData, setUser, unsetUser } = usersSlice.actions;
+export default usersSlice.reducer;
 
-export const userSelector = (state: { user: UserState }) => state.user;
+export const usersSelector = (state: { users: User }) => state.users;
 
 export const loadUserData = (): AppThunk => async (dispatch) => {
   if (localStorage.token) {

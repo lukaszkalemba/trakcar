@@ -10,19 +10,24 @@ import Profile from 'views/profile/Profile';
 import SignUp from 'views/sign-up/SignUp';
 import SignIn from 'views/sign-in/SignIn';
 import NotFound from 'views/not-found/NotFound';
-import userReducer, { UserState } from 'modules/users';
-import alertReducer from 'modules/alerts';
+import usersReducer, { User } from 'modules/users';
+import alertsReducer, { Alert } from 'modules/alerts';
 import { setAuthToken } from 'helpers/setAuthToken';
 import PrivateRoute from './private-route/PrivateRoute';
 import 'normalize.css';
 import 'styles/global.scss';
 
-export type AppThunk = ThunkAction<void, UserState, unknown, Action<string>>;
+interface StateSchema {
+  users: User;
+  alerts: Alert[];
+}
+
+export type AppThunk = ThunkAction<void, StateSchema, unknown, Action<string>>;
 
 export const store = configureStore({
   reducer: {
-    user: userReducer,
-    alert: alertReducer,
+    users: usersReducer,
+    alerts: alertsReducer,
   },
   devTools: process.env.NODE_ENV === 'development',
 });

@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { userSelector, loadUserData } from 'modules/users';
+import { usersSelector, loadUserData } from 'modules/users';
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ Component, ...rest }) => {
   const dispatch = useDispatch();
-  const { token } = useSelector(userSelector);
+  const { token } = useSelector(usersSelector);
 
   useEffect(() => {
     dispatch(loadUserData());

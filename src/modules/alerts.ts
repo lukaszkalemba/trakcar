@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 import { AppThunk } from 'components/app/App';
 
-interface Alert {
+export interface Alert {
   id: string;
   message: string;
   alertType: 'success' | 'error';
@@ -10,7 +10,7 @@ interface Alert {
 
 const initialState: Alert[] = [];
 
-const alertSlice = createSlice({
+const alertsSlice = createSlice({
   name: 'alerts',
   initialState,
   reducers: {
@@ -23,8 +23,8 @@ const alertSlice = createSlice({
   },
 });
 
-export const { setAlert, unsetAlert } = alertSlice.actions;
-export default alertSlice.reducer;
+export const { setAlert, unsetAlert } = alertsSlice.actions;
+export default alertsSlice.reducer;
 
 export const showAlert = ({
   message,

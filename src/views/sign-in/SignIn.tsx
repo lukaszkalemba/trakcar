@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import { signInUser, SigninValues, userSelector } from 'modules/users';
+import { signInUser, SigninValues, usersSelector } from 'modules/users';
 import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
 import Button from 'components/button/Button';
 import TextInput from 'components/text-input/TextInput';
@@ -11,7 +11,7 @@ import { initialValues, validationSchema } from './SignIn.formik';
 
 const SignIn: React.FC = () => {
   const dispatch = useDispatch();
-  const { token } = useSelector(userSelector);
+  const { token } = useSelector(usersSelector);
 
   if (token) {
     return <Redirect to="/" />;

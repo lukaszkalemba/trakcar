@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import cx from 'classnames';
-import { userSelector } from 'modules/users';
+import { usersSelector } from 'modules/users';
 import arrow_down_icon from 'assets/svgs/icon_arrow-down.svg';
 import Icon from 'components/icon/Icon';
 import Avatar from './avatar/Avatar';
@@ -10,7 +10,7 @@ import styles from './User.module.scss';
 
 const User: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
-  const { loading, user } = useSelector(userSelector);
+  const { loading, user } = useSelector(usersSelector);
   const wrapper = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
