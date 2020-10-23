@@ -26,6 +26,8 @@ const alertsSlice = createSlice({
 export const { setAlert, unsetAlert } = alertsSlice.actions;
 export default alertsSlice.reducer;
 
+export const alertsSelector = (state: { alerts: Alert[] }) => state.alerts;
+
 export const showAlert = ({
   message,
   alertType,

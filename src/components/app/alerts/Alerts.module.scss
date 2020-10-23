@@ -6,7 +6,6 @@
 
 .alert {
   font-size: $l;
-  background-color: $dark-red;
   font-weight: $medium;
   padding: 1em 1.5em;
   color: white;
@@ -18,8 +17,16 @@
   text-align: center;
   box-shadow: $layout-elements;
 
+  &.success {
+    background-color: $dark-green;
+  }
+
+  &.error {
+    background-color: $dark-red;
+  }
+
   @include media('>=laptop') {
-    padding: 1.5em 2em;
+    padding: 1.5em 3em;
     max-width: 250px;
   }
 }
