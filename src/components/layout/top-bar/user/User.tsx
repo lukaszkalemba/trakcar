@@ -1,16 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import cx from 'classnames';
 import { usersSelector } from 'modules/users';
-import arrow_down_icon from 'assets/svgs/icon_arrow-down.svg';
-import Icon from 'components/icon/Icon';
-import Avatar from 'components/avatar/Avatar';
 import Dropdown from './dropdown/Dropdown';
 import styles from './User.module.scss';
+import UserButton from './user-button/UserButton';
 
 const User: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
-  const { loading, user } = useSelector(usersSelector);
+  const { loading } = useSelector(usersSelector);
   const wrapper = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
@@ -37,21 +34,12 @@ const User: React.FC = () => {
     };
   }, [isDropdownOpen]);
 
-  const iconClass = cx(styles.expandArrow, {
-    [styles.active]: isDropdownOpen,
-  });
-
   return loading ? null : (
     <div ref={wrapper} className={styles.wrapper}>
-      <button className={styles.button} onClick={toggleDropdown}>
-        <div className={styles.avatarWrapper}>
-          <Avatar avatar={user?.avatar} />
-        </div>
-        <div className={styles.user}>
-          <div className={styles.username}>{user?.name}</div>
-          <Icon className={iconClass} src={arrow_down_icon} />
-        </div>
-      </button>
+      <UserButton
+        isDropdownOpen={isDropdownOpen}
+        toggleDropdown={toggleDropdown}
+      />
       {isDropdownOpen && <Dropdown />}
     </div>
   );
