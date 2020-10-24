@@ -1,0 +1,27 @@
+@import 'styles/theme/colors';
+@import 'styles/theme/fonts';
+
+.navLink {
+  text-decoration: none;
+  color: $black;
+  font-weight: $medium;
+  font-size: $xl;
+  margin: 15px 0 15px;
+  padding-left: 45px;
+  position: relative;
+  align-self: flex-start;
+
+  &.active {
+    &::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 6px;
+      background-color: $black;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      border-radius: 0 5px 5px 0;
+    }
+  }
+}

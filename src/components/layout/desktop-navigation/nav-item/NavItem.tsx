@@ -1,24 +1,23 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
-import Icon from 'components/icon/Icon';
 import styles from './NavItem.module.scss';
 
-const NavItem: React.FC<NavItemProps> = ({ to, icon }) => {
+const NavItem: React.FC<NavItemProps> = ({ path, children }) => {
   return (
     <NavLink
       exact
-      to={to}
+      to={path}
       className={styles.navLink}
       activeClassName={styles.active}
     >
-      <Icon src={icon} className={styles.icon} />
+      {children}
     </NavLink>
   );
 };
 
 interface NavItemProps {
-  to: string;
-  icon: string;
+  path: string;
+  children: ReactNode;
 }
 
 export default NavItem;

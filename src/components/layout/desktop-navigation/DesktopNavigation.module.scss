@@ -6,7 +6,9 @@
   display: none;
 
   @include media('>=laptop') {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: $white;
     box-shadow: $layout-elements;
     grid-row: 1 / 6;
