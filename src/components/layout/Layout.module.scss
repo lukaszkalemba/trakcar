@@ -7,7 +7,7 @@
   justify-content: space-between;
 
   main {
-    height: 100%;
+    flex-grow: 1;
     padding: 20px;
 
     @include media('>=tablet') {
@@ -15,7 +15,24 @@
     }
 
     @include media('>=laptop') {
-      padding: 50px;
+      padding: 0;
+      grid-row: 1 / 11;
+      grid-column: 3 / 9;
     }
+  }
+}
+
+.desktopView {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include media('>=laptop') {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-gap: 32px;
+    padding: 32px;
   }
 }

@@ -1,0 +1,15 @@
+@import 'styles/theme/colors';
+@import 'styles/theme/media';
+@import 'styles/theme/box-shadow';
+
+.nav {
+  display: none;
+
+  @include media('>=laptop') {
+    display: block;
+    background-color: $white;
+    box-shadow: $layout-elements;
+    grid-row: 1 / 6;
+    grid-column: 1 / 3;
+  }
+}
