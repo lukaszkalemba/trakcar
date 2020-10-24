@@ -4,7 +4,7 @@ import cx from 'classnames';
 import { usersSelector } from 'modules/users';
 import arrow_down_icon from 'assets/svgs/icon_arrow-down.svg';
 import Icon from 'components/icon/Icon';
-import Avatar from './avatar/Avatar';
+import Avatar from 'components/avatar/Avatar';
 import Dropdown from './dropdown/Dropdown';
 import styles from './User.module.scss';
 
@@ -42,10 +42,11 @@ const User: React.FC = () => {
   });
 
   return loading ? null : (
-    // TODO Refactor user element
     <div ref={wrapper} className={styles.wrapper}>
       <button className={styles.button} onClick={toggleDropdown}>
-        <Avatar avatar={user?.avatar} />
+        <div className={styles.avatarWrapper}>
+          <Avatar avatar={user?.avatar} />
+        </div>
         <div className={styles.user}>
           <div className={styles.username}>{user?.name}</div>
           <Icon className={iconClass} src={arrow_down_icon} />

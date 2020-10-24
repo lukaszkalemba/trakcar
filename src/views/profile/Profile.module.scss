@@ -1,5 +1,12 @@
 @import 'styles/mixins';
+@import 'styles/theme/fonts';
 
 .wrapper {
   @include page-wrapper;
+}
+
+.avatarWrapper {
+  width: 3em;
+  height: 3em;
+  font-size: $xxl;
 }

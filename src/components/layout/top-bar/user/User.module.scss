@@ -18,6 +18,21 @@
   padding: 3px;
 }
 
+.avatarWrapper {
+  width: 25px;
+  height: 25px;
+
+  @include media('>=tablet') {
+    width: 30px;
+    height: 30px;
+  }
+
+  @include media('>=laptop') {
+    width: 25px;
+    height: 25px;
+  }
+}
+
 .user {
   display: none;
 
