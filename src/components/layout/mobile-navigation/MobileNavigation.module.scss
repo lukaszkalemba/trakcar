@@ -4,9 +4,23 @@
 
 .nav {
   background-color: $black;
-  display: flex;
-  justify-content: space-between;
   box-shadow: $layout-elements;
+
+  ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    height: 45px;
+
+    li {
+      width: 25%;
+    }
+
+    @include media('>=tablet') {
+      height: 54px;
+    }
+  }
 
   @include media('>laptop') {
     display: none;

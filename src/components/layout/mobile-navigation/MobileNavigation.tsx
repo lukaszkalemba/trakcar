@@ -6,9 +6,13 @@ import styles from './MobileNavigation.module.scss';
 const MobileNavigation = () => {
   return (
     <nav className={styles.nav}>
-      {routes.map(({ id, path, icon }) => (
-        <NavItem key={id} to={path} icon={icon} />
-      ))}
+      <ul>
+        {routes.map(({ id, path, icon }) => (
+          <li key={id}>
+            <NavItem to={path} icon={icon} />
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 };

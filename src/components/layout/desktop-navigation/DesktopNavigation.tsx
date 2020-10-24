@@ -6,11 +6,13 @@ import styles from './DesktopNavigation.module.scss';
 const DesktopNavigation: React.FC = () => {
   return (
     <nav className={styles.nav}>
-      {routes.map(({ id, path, name }) => (
-        <NavItem key={id} path={path}>
-          {name}
-        </NavItem>
-      ))}
+      <ul>
+        {routes.map(({ id, path, name }) => (
+          <li key={id}>
+            <NavItem path={path}>{name}</NavItem>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 };

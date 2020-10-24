@@ -6,7 +6,6 @@
   color: $black;
   font-weight: $medium;
   font-size: $xl;
-  margin: 15px 0 15px;
   padding-left: 45px;
   position: relative;
   align-self: flex-start;
@@ -16,7 +15,7 @@
       content: '';
       position: absolute;
       width: 20px;
-      height: 6px;
+      height: 5px;
       background-color: $black;
       top: 50%;
       transform: translateY(-50%);
