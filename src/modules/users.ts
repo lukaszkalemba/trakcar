@@ -11,6 +11,7 @@ interface UserData {
   email: string;
   avatar: string;
   date: string;
+  organization: string | undefined;
 }
 
 export interface User {
@@ -42,7 +43,7 @@ const usersSlice = createSlice({
       return {
         ...state,
         token: payload.data,
-        loading: false,
+        loading: true,
       };
     },
     unsetUser: (state) => {
