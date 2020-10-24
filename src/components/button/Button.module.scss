@@ -37,3 +37,9 @@
     width: auto;
   }
 }
+
+.link {
+  @extend .button;
+  color: inherit;
+  text-decoration: none;
+}

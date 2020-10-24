@@ -15,7 +15,9 @@ const Dropdown: React.FC = () => {
 
   return (
     <div className={styles.dropdown}>
-      <Button iconSrc={black_profile_icon}>profile</Button>
+      <Button type="link" to="/profile" iconSrc={black_profile_icon}>
+        profile
+      </Button>
       <Button iconSrc={logout_icon} onClick={handleSignOutButtonClick}>
         logout
       </Button>
