@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { configureStore, Action } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Calendar from 'views/calendar/Calendar';
+import Schedule from 'views/schedule/Schedule';
 import Positions from 'views/positions/Positions';
 import Organization from 'views/organization/Organization';
 import SignUp from 'views/sign-up/SignUp';
@@ -42,7 +42,7 @@ const App = () => {
       <Router>
         <Alerts />
         <Switch>
-          <PrivateRoute exact path="/" Component={Calendar} />
+          <PrivateRoute exact path="/" Component={Schedule} />
           <PrivateRoute exact path="/positions" Component={Positions} />
           <PrivateRoute exact path="/organization" Component={Organization} />
           <Route exact path="/sign-up" component={SignUp} />

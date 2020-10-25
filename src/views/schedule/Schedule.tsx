@@ -1,14 +1,14 @@
 import React from 'react';
 import Layout from 'components/layout/Layout';
 
-const Calendar: React.FC = () => {
+const Schedule: React.FC = () => {
   return (
     <Layout>
       <div>
-        <h1>Calendar.js</h1>
+        <h1>Schedule.js</h1>
       </div>
     </Layout>
   );
 };
 
-export default Calendar;
+export default Schedule;

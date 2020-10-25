@@ -12,7 +12,7 @@ interface Route {
 export const routes: Route[] = [
   {
     id: 0,
-    name: 'home',
+    name: 'schedule',
     path: '/',
     icon: calendar_icon,
   },
