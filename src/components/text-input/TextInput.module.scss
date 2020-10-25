@@ -65,6 +65,13 @@
       @extend .active;
     }
   }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px $white inset;
+  }
 }
 
 .errorMessage {
