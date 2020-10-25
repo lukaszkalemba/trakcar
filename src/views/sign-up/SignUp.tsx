@@ -36,9 +36,9 @@ const SignUp: React.FC = () => {
       >
         {() => (
           <Form>
-            <TextInput label="Name" name="name" type="text" />
-            <TextInput label="Email" name="email" type="email" />
-            <TextInput label="Password" name="password" type="password" />
+            <TextInput label="name" name="name" type="text" />
+            <TextInput label="email" name="email" type="email" />
+            <TextInput label="password" name="password" type="password" />
             <Button type="submit" iconSrc={arrow_right_icon}>
               sign up
             </Button>
