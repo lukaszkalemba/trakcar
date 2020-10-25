@@ -1,0 +1,65 @@
+@import 'styles/mixins';
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+
+.wrapper {
+  display: block;
+
+  @include media('>=tablet') {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.avatar {
+  width: 50px;
+  margin: 0 auto;
+
+  @include media('>phone') {
+    width: 65px;
+  }
+
+  @include media('>=tablet') {
+    margin: 0 20px 0 0;
+    width: 70px;
+  }
+}
+
+.userData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.username {
+  font-size: $l;
+  font-weight: $semibold;
+  text-align: center;
+  margin: 17px 0 9px;
+
+  @include media('>phone') {
+    font-size: $xl;
+  }
+
+  @include media('>=tablet') {
+    font-size: $xxl;
+    margin-top: 0;
+  }
+}
+
+.email {
+  font-size: $xs;
+  font-weight: $medium;
+  text-align: center;
+  color: lighten($black, 50);
+  margin: 0;
+
+  @include media('>phone') {
+    font-size: $s;
+  }
+
+  @include media('>=tablet') {
+    font-size: $l;
+  }
+}

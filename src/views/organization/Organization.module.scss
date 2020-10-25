@@ -1,5 +1,11 @@
 @import 'styles/mixins';
+@import 'styles/theme/media';
 
 .wrapper {
   @include page-wrapper;
+  padding: 20px;
+
+  @include media('>phone') {
+    padding: 40px 30px;
+  }
 }
