@@ -9,7 +9,7 @@
 }
 
 .label {
-  font-size: $l;
+  font-size: $m;
   font-weight: $regular;
   color: darken($dark-gray, 30);
   position: absolute;
@@ -19,7 +19,7 @@
   transition: all 0.2s ease;
 
   @include media('>=tablet') {
-    font-size: $xl;
+    font-size: $l;
     top: 10px;
   }
 
@@ -30,7 +30,7 @@
     color: $black;
 
     @include media('>=tablet') {
-      font-size: $m;
+      font-size: $s;
     }
   }
 
@@ -41,7 +41,7 @@
 }
 
 .input {
-  font-size: $xl;
+  font-size: $l;
   padding: 10px 0;
   display: block;
   width: 100%;

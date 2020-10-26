@@ -19,7 +19,7 @@
 
 .submit {
   @include button-shared;
-  font-size: $xl;
+  font-size: $l;
 
   svg {
     margin-left: 15px;
@@ -29,7 +29,7 @@
 .button {
   @include button-shared;
   padding: 7px 5px;
-  font-size: $m;
+  font-size: $s;
 
   svg {
     margin-left: 9px;

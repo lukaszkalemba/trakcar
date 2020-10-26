@@ -41,13 +41,13 @@
     }
 
     p {
-      font-size: $m;
+      font-size: $s;
       width: 100%;
       text-align: right;
       color: darken($dark-gray, 30);
 
       @include media('>=tablet') {
-        font-size: $l;
+        font-size: $m;
       }
 
       a {

@@ -39,13 +39,13 @@
 }
 
 .username {
-  font-size: $l;
+  font-size: $m;
   font-weight: $semibold;
   text-align: center;
   margin: 17px 0 9px;
 
   @include media('>phone') {
-    font-size: $xl;
+    font-size: $l;
   }
 
   @include media('>=tablet') {
@@ -66,6 +66,6 @@
   }
 
   @include media('>=tablet') {
-    font-size: $l;
+    font-size: $m;
   }
 }
