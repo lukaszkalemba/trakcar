@@ -10,12 +10,11 @@
   padding: 1em 1.5em;
   color: white;
   position: absolute;
-  z-index: $level2;
+  z-index: $level9;
   top: 20px;
   right: 20px;
   max-width: 200px;
   text-align: center;
-  box-shadow: $layout-elements;
 
   &.success {
     background-color: $dark-green;
