@@ -1,18 +1,31 @@
 import React, { useState } from 'react';
 import join_icon from 'assets/svgs/icon_join.svg';
 import create_icon from 'assets/svgs/icon_create.svg';
-import ModalTemplate from 'templates/modal-template/ModalTemplate';
 import Button from 'components/button/Button';
+import CreateOrganizationModal from './create-organization-modal/CreateOrganizationModal';
+import JoinOrganizationModal from './join-organization-modal/JoinOrganizationModal';
 import styles from './NoOrganizationInfo.module.scss';
 
 const NoOrganizationInfo: React.FC = () => {
-  const [isCreationModalOpen, setIsCreationModalOpen] = useState<boolean>(
-    false
-  );
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState<boolean>(false);
 
-  const [isExistenceModalOpen, setIsExistenceModalOpen] = useState<boolean>(
-    false
-  );
+  const [isJoinModalOpen, setIsJoinModalOpen] = useState<boolean>(false);
+
+  const openCreateModal = () => {
+    setIsCreateModalOpen(true);
+  };
+
+  const closeCreateModal = () => {
+    setIsCreateModalOpen(false);
+  };
+
+  const openJoinModal = () => {
+    setIsJoinModalOpen(true);
+  };
+
+  const closeJoinModal = () => {
+    setIsJoinModalOpen(false);
+  };
 
   return (
     <>
@@ -21,32 +34,20 @@ const NoOrganizationInfo: React.FC = () => {
           You are not a member of any organization yet.
         </h1>
         <div className={styles.actions}>
-          <Button
-            icon={create_icon}
-            onClick={() => setIsCreationModalOpen(true)}
-          >
+          <Button icon={create_icon} onClick={openCreateModal}>
             create new
           </Button>
-          <Button
-            icon={join_icon}
-            onClick={() => setIsExistenceModalOpen(true)}
-          >
+          <Button icon={join_icon} onClick={openJoinModal}>
             join existing
           </Button>
         </div>
       </section>
 
-      {isCreationModalOpen && (
-        <ModalTemplate closeModal={() => setIsCreationModalOpen(false)}>
-          create new organization
-        </ModalTemplate>
+      {isCreateModalOpen && (
+        <CreateOrganizationModal closeModal={closeCreateModal} />
       )}
 
-      {isExistenceModalOpen && (
-        <ModalTemplate closeModal={() => setIsExistenceModalOpen(false)}>
-          join existing organization
-        </ModalTemplate>
-      )}
+      {isJoinModalOpen && <JoinOrganizationModal closeModal={closeJoinModal} />}
     </>
   );
 };
