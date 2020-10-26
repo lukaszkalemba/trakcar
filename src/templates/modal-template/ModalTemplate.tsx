@@ -1,4 +1,6 @@
 import React, { ReactNode } from 'react';
+import close_icon from 'assets/svgs/icon_close.svg';
+import Icon from 'components/icon/Icon';
 import styles from './ModalTemplate.module.scss';
 
 const ModalTemplate: React.FC<ModalTemplateProps> = ({
@@ -8,7 +10,9 @@ const ModalTemplate: React.FC<ModalTemplateProps> = ({
   return (
     <div className={styles.backdrop}>
       <div className={styles.board}>
-        <button onClick={closeModal}>close modal</button>
+        <button className={styles.closeButton} onClick={closeModal}>
+          <Icon src={close_icon} />
+        </button>
         {children}
       </div>
     </div>
