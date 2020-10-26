@@ -1,5 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
+import {
+  createOrganization,
+  CreateOrganizationValues,
+} from 'modules/organizations';
 import arrow_right_icon from 'assets/svgs/icon_arrow-right.svg';
 import ModalTemplate from 'templates/modal-template/ModalTemplate';
 import TextInput from 'components/text-input/TextInput';
@@ -12,8 +17,10 @@ import {
 const CreateOrganizationModal: React.FC<CreateOrganizationModalProps> = ({
   closeModal,
 }) => {
-  const handleSubmit = (values: any) => {
-    console.log(values);
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values: CreateOrganizationValues) => {
+    dispatch(createOrganization(values));
   };
 
   return (
@@ -25,11 +32,7 @@ const CreateOrganizationModal: React.FC<CreateOrganizationModalProps> = ({
       >
         {() => (
           <Form>
-            <TextInput
-              label="organization name"
-              name="organizationName"
-              type="text"
-            />
+            <TextInput label="organization name" name="name" type="text" />
             <TextInput
               label="access code"
               name="accessCode"

@@ -1,15 +1,16 @@
 import * as yup from 'yup';
+import { CreateOrganizationValues } from 'modules/organizations';
 
-export const initialValues: any = {
-  organizationName: '',
+export const initialValues: CreateOrganizationValues = {
+  name: '',
   accessCode: '',
 };
 
 export const validationSchema = yup.object({
-  organizationName: yup.string().required('Organization name is required'),
+  name: yup.string().required('Organization name is required'),
   accessCode: yup
-    .number()
-    .typeError('Access code can only contain numbers')
+    .string()
+    .matches(/^[0-9]+$/, 'Access code can only contain numbers')
     .min(4, 'Access code must be exactly 4 digits')
     .required('Access code  is required'),
 });

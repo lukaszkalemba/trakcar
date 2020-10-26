@@ -10,6 +10,9 @@ import SignUp from 'views/sign-up/SignUp';
 import SignIn from 'views/sign-in/SignIn';
 import NotFound from 'views/not-found/NotFound';
 import usersReducer, { User } from 'modules/users';
+import organizationsReducer, {
+  Organization as OrganizationState,
+} from 'modules/organizations';
 import alertsReducer, { Alert } from 'modules/alerts';
 import { setAuthToken } from 'helpers/setAuthToken';
 import Alerts from './alerts/Alerts';
@@ -19,6 +22,7 @@ import 'styles/global.scss';
 
 interface StateSchema {
   users: User;
+  organizations: OrganizationState;
   alerts: Alert[];
 }
 
@@ -27,6 +31,7 @@ export type AppThunk = ThunkAction<void, StateSchema, unknown, Action<string>>;
 export const store = configureStore({
   reducer: {
     users: usersReducer,
+    organizations: organizationsReducer,
     alerts: alertsReducer,
   },
   devTools: process.env.NODE_ENV === 'development',
