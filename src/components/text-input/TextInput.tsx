@@ -34,6 +34,7 @@ type TextInputProps = {
   label: string;
   name: string;
   type: 'text' | 'email' | 'password';
+  maxLength?: number;
 };
 
 export default TextInput;

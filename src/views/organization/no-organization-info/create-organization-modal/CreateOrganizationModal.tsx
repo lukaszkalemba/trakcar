@@ -30,7 +30,12 @@ const CreateOrganizationModal: React.FC<CreateOrganizationModalProps> = ({
               name="organizationName"
               type="text"
             />
-            <TextInput label="access code" name="accessCode" type="password" />
+            <TextInput
+              label="access code"
+              name="accessCode"
+              type="password"
+              maxLength={4}
+            />
             <Button type="submit" icon={arrow_right_icon}>
               create
             </Button>
