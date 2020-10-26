@@ -6,7 +6,7 @@ import styles from './Button.module.scss';
 
 const Button: React.FC<ButtonProps> = ({
   type = 'button',
-  iconSrc,
+  icon,
   to,
   className,
   onClick,
@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   const content = (
     <>
       {children}
-      {iconSrc && <Icon src={iconSrc} />}
+      {icon && <Icon src={icon} />}
     </>
   );
 
@@ -46,7 +46,7 @@ const Button: React.FC<ButtonProps> = ({
 
 interface ButtonProps {
   type?: 'button' | 'submit' | 'link';
-  iconSrc?: string;
+  icon?: string;
   to?: string;
   className?: string;
   onClick?: () => void;

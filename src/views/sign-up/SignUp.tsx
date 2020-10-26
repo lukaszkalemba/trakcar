@@ -39,7 +39,7 @@ const SignUp: React.FC = () => {
             <TextInput label="name" name="name" type="text" />
             <TextInput label="email" name="email" type="email" />
             <TextInput label="password" name="password" type="password" />
-            <Button type="submit" iconSrc={arrow_right_icon}>
+            <Button type="submit" icon={arrow_right_icon}>
               sign up
             </Button>
           </Form>

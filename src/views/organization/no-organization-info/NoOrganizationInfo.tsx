@@ -11,8 +11,8 @@ const NoOrganizationInfo: React.FC = () => {
         You are not a member of any organization yet.
       </h1>
       <div className={styles.actions}>
-        <Button iconSrc={create_icon}>create new</Button>
-        <Button iconSrc={join_icon}>join existing</Button>
+        <Button icon={create_icon}>create new</Button>
+        <Button icon={join_icon}>join existing</Button>
       </div>
     </section>
   );

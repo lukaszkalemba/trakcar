@@ -15,10 +15,10 @@ const Dropdown: React.FC = () => {
 
   return (
     <div className={styles.dropdown}>
-      <Button type="link" to="/organization" iconSrc={organization_icon}>
+      <Button type="link" to="/organization" icon={organization_icon}>
         organization
       </Button>
-      <Button iconSrc={logout_icon} onClick={handleSignOutButtonClick}>
+      <Button icon={logout_icon} onClick={handleSignOutButtonClick}>
         logout
       </Button>
     </div>
