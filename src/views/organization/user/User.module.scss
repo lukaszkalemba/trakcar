@@ -5,10 +5,16 @@
 
 .wrapper {
   display: block;
+  margin-top: 10px;
+
+  @include media('>phone') {
+    margin-top: 20px;
+  }
 
   @include media('>=tablet') {
     display: flex;
     justify-content: center;
+    margin-top: 60px;
   }
 }
 
