@@ -7,15 +7,20 @@ import NoOrganizationInfo from './no-organization-info/NoOrganizationInfo';
 import styles from './Organization.module.scss';
 
 const Organization: React.FC = () => {
-  const { loading } = useSelector(usersSelector);
+  const { user, loading } = useSelector(usersSelector);
 
   if (loading) return <div>loading</div>;
 
   return (
     <Layout>
       <div className={styles.wrapper}>
-        <User />
-        <NoOrganizationInfo />
+        <User avatar={user?.avatar} name={user?.name} email={user?.email} />
+
+        {user?.organization ? (
+          'you are a member of organization'
+        ) : (
+          <NoOrganizationInfo />
+        )}
       </div>
     </Layout>
   );
