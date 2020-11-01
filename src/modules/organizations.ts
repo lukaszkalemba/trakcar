@@ -4,7 +4,7 @@ import { rootApi } from 'utils/api';
 import { AppThunk } from 'components/app/App';
 import { showAlert } from './alerts';
 
-interface Member {
+export interface Member {
   name: string;
   email: string;
   avatar: string;

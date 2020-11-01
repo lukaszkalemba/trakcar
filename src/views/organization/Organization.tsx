@@ -7,6 +7,7 @@ import {
 } from 'modules/organizations';
 import Layout from 'components/layout/Layout';
 import User from './user/User';
+import OrganizationInfo from './organization-info/OrganizationInfo';
 import NoOrganizationInfo from './no-organization-info/NoOrganizationInfo';
 import styles from './Organization.module.scss';
 
@@ -26,7 +27,7 @@ const Organization: React.FC = () => {
       <div className={styles.wrapper}>
         <User avatar={user?.avatar} name={user?.name} email={user?.email} />
 
-        {organization ? <h3>{organization.name}</h3> : <NoOrganizationInfo />}
+        {organization ? <OrganizationInfo /> : <NoOrganizationInfo />}
       </div>
     </Layout>
   );
