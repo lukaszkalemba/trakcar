@@ -13,3 +13,18 @@
   width: 100%;
   height: 100%;
 }
+
+@mixin organization-info-block {
+  @include media('>=tablet') {
+    width: 300px;
+    height: 275px;
+    @include flex-center;
+    flex-direction: column;
+    padding: 0 30px;
+  }
+
+  @include media('>laptop') {
+    width: 400px;
+    height: 300px;
+  }
+}

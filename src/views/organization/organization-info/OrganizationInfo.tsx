@@ -1,9 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { organizationsSelector, Member } from 'modules/organizations';
+import { organizationsSelector } from 'modules/organizations';
 import { usersSelector } from 'modules/users';
 import delete_icon from 'assets/svgs/icon_delete.svg';
 import Button from 'components/button/Button';
+import Organization from './organization/Organization';
+import Members from './members/Members';
 import styles from './OrganizationInfo.module.scss';
 
 const OrganizationInfo: React.FC = () => {
@@ -20,27 +22,12 @@ const OrganizationInfo: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.organizationWrapper}>
-        <div className={styles.organization}>
-          <h2 className={styles.organizationName}>{organization?.name}</h2>
-          <p className={styles.userType}>{userType}</p>
-        </div>
+        <Organization name={organization?.name} userType={userType} />
 
-        <div className={styles.members}>
-          {organizationMembers?.length ? (
-            <>
-              <h2 className={styles.membersHeading}>Other members</h2>
-              <ul>
-                {(organizationMembers as Member[]).map((member) => (
-                  <li key={member.email}>{member.name}</li>
-                ))}
-              </ul>
-            </>
-          ) : (
-            <h2 className={styles.noMembersInfo}>
-              You are an only member of {organization?.name}.
-            </h2>
-          )}
-        </div>
+        <Members
+          members={organizationMembers}
+          organizationName={organization?.name}
+        />
       </div>
 
       {isAdmin && (
