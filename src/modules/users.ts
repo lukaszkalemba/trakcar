@@ -3,6 +3,7 @@ import axios from 'axios';
 import { rootApi } from 'utils/api';
 import { setAuthToken } from 'helpers/setAuthToken';
 import { AppThunk } from 'components/app/App';
+import { unsetOrganization } from './organizations';
 import { showAlert } from './alerts';
 
 interface UserData {
@@ -53,7 +54,7 @@ const usersSlice = createSlice({
         ...state,
         token: null,
         user: null,
-        loading: false,
+        loading: true,
       };
     },
   },
@@ -111,6 +112,7 @@ export const signInUser = ({
 
 export const signOutUser = (): AppThunk => async (dispatch) => {
   dispatch(unsetUser());
+  dispatch(unsetOrganization());
 };
 
 export interface SignupValues extends SigninValues {

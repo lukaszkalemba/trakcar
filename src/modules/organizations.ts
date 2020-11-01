@@ -4,13 +4,16 @@ import { rootApi } from 'utils/api';
 import { AppThunk } from 'components/app/App';
 import { showAlert } from './alerts';
 
-interface OrganizationData {
-  _id: string;
+interface Member {
   name: string;
-  accessCode: string;
-  members: string[];
+  email: string;
+  avatar: string;
+}
+
+interface OrganizationData {
+  name: string;
+  members: Member[];
   admin: string;
-  positions: string[];
 }
 
 export interface Organization {
@@ -27,6 +30,16 @@ const organizationsSlice = createSlice({
   name: 'organizations',
   initialState,
   reducers: {
+    getOrganizationData: (
+      state,
+      { payload }: PayloadAction<{ data: OrganizationData }>
+    ) => {
+      return {
+        ...state,
+        organization: payload.data,
+        loading: false,
+      };
+    },
     setOrganization: (
       state,
       { payload }: PayloadAction<{ data: OrganizationData }>
@@ -37,16 +50,36 @@ const organizationsSlice = createSlice({
         loading: false,
       };
     },
+    unsetOrganization: (state) => {
+      return {
+        ...state,
+        organization: null,
+        loading: true,
+      };
+    },
   },
 });
 
-export const { setOrganization } = organizationsSlice.actions;
+export const {
+  getOrganizationData,
+  setOrganization,
+  unsetOrganization,
+} = organizationsSlice.actions;
 export default organizationsSlice.reducer;
+
+export const organizationsSelector = (state: { organizations: Organization }) =>
+  state.organizations;
 
 export interface CreateOrganizationValues {
   name: string;
   accessCode: string;
 }
+
+export const loadOrganizationData = (): AppThunk => async (dispatch) => {
+  const res = await axios.get(`${rootApi}/api/v1/organizations`);
+
+  dispatch(getOrganizationData(res.data));
+};
 
 export const createOrganization = ({
   name,

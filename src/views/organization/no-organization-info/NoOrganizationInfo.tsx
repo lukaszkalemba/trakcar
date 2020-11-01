@@ -8,7 +8,6 @@ import styles from './NoOrganizationInfo.module.scss';
 
 const NoOrganizationInfo: React.FC = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState<boolean>(false);
-
   const [isJoinModalOpen, setIsJoinModalOpen] = useState<boolean>(false);
 
   const openCreateModal = () => {
