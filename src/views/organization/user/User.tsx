@@ -9,7 +9,7 @@ const User: React.FC<UserProps> = ({ name, email, avatar }) => {
         <Avatar avatar={avatar} />
       </div>
       <div className={styles.userData}>
-        <p className={styles.username}>{name}</p>
+        <h1 className={styles.username}>{name}</h1>
         <p className={styles.email}>{email}</p>
       </div>
     </section>
