@@ -1,6 +1,4 @@
 @import 'styles/theme/media';
-@import 'styles/theme/fonts';
-@import 'styles/theme/colors';
 
 .wrapper {
   display: flex;
@@ -19,19 +17,5 @@
     display: flex;
     justify-content: center;
     margin-top: 40px;
-  }
-}
-
-.deleteButton {
-  font-size: $m;
-  color: $dark-red;
-  margin: auto auto 0;
-
-  @include media('>=tablet') {
-    margin-bottom: 40px;
-  }
-
-  @include media('>=laptop') {
-    margin-bottom: 30px;
   }
 }

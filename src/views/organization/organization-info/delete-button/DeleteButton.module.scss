@@ -1,0 +1,17 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+
+.button {
+  font-size: $m;
+  color: $dark-red;
+  margin: auto auto 0;
+
+  @include media('>=tablet') {
+    margin-bottom: 40px;
+  }
+
+  @include media('>=laptop') {
+    margin-bottom: 30px;
+  }
+}

@@ -10,7 +10,8 @@ export interface Member {
   avatar: string;
 }
 
-interface OrganizationData {
+export interface OrganizationData {
+  id: string;
   name: string;
   members: Member[];
   admin: string;
@@ -30,16 +31,6 @@ const organizationsSlice = createSlice({
   name: 'organizations',
   initialState,
   reducers: {
-    getOrganizationData: (
-      state,
-      { payload }: PayloadAction<{ data: OrganizationData }>
-    ) => {
-      return {
-        ...state,
-        organization: payload.data,
-        loading: false,
-      };
-    },
     setOrganization: (
       state,
       { payload }: PayloadAction<{ data: OrganizationData }>
@@ -61,7 +52,6 @@ const organizationsSlice = createSlice({
 });
 
 export const {
-  getOrganizationData,
   setOrganization,
   unsetOrganization,
 } = organizationsSlice.actions;
@@ -78,7 +68,7 @@ export interface CreateOrganizationValues {
 export const loadOrganizationData = (): AppThunk => async (dispatch) => {
   const res = await axios.get(`${rootApi}/api/v1/organizations`);
 
-  dispatch(getOrganizationData(res.data));
+  dispatch(setOrganization(res.data));
 };
 
 export const createOrganization = ({
@@ -101,6 +91,20 @@ export const createOrganization = ({
     );
 
     dispatch(setOrganization(res.data));
+  } catch (error) {
+    dispatch(
+      showAlert({ message: error.response.data.error, alertType: 'error' })
+    );
+  }
+};
+
+export const deleteOrganization = (id: string): AppThunk => async (
+  dispatch
+) => {
+  try {
+    await axios.delete(`${rootApi}/api/v1/organizations/${id}`);
+
+    dispatch(unsetOrganization());
   } catch (error) {
     dispatch(
       showAlert({ message: error.response.data.error, alertType: 'error' })

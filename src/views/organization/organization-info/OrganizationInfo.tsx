@@ -2,11 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { organizationsSelector } from 'modules/organizations';
 import { usersSelector } from 'modules/users';
-import delete_icon from 'assets/svgs/icon_delete.svg';
-import Button from 'components/button/Button';
 import Organization from './organization/Organization';
 import Members from './members/Members';
 import styles from './OrganizationInfo.module.scss';
+import DeleteButton from './delete-button/DeleteButton';
 
 const OrganizationInfo: React.FC = () => {
   const { organization } = useSelector(organizationsSelector);
@@ -31,9 +30,9 @@ const OrganizationInfo: React.FC = () => {
       </div>
 
       {isAdmin && (
-        <Button className={styles.deleteButton} icon={delete_icon}>
+        <DeleteButton organizationId={organization?.id}>
           delete {organization?.name}
-        </Button>
+        </DeleteButton>
       )}
     </div>
   );
