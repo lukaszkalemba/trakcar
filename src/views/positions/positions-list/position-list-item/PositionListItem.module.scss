@@ -1,0 +1,70 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto 25px;
+  padding: 7px 0;
+  max-width: 960px;
+  position: relative;
+
+  @include media('>=tablet') {
+    padding: 7px;
+    margin-bottom: 35px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 1px;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $dark-gray;
+
+    @include media('>=tablet') {
+      width: 45px;
+    }
+  }
+}
+
+.name {
+  font-size: $s;
+  font-weight: $semibold;
+  margin: 0;
+  width: 130px;
+  text-align: center;
+
+  @include media('>phone') {
+    width: 150px;
+  }
+
+  @include media('>=tablet') {
+    font-size: $l;
+  }
+}
+
+.range {
+  padding: 0 15px;
+  white-space: nowrap;
+
+  time {
+    font-size: $s;
+    font-weight: $medium;
+    color: lighten($black, 45);
+
+    @include media('>=phone') {
+      width: 38px;
+    }
+
+    @include media('>=tablet') {
+      font-size: $m;
+      padding: 0 5px;
+    }
+  }
+}

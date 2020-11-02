@@ -1,0 +1,28 @@
+@import 'styles/theme/media';
+
+.wrapper {
+  width: 130px;
+  display: flex;
+  justify-content: center;
+
+  @include media('>phone') {
+    width: 150px;
+  }
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 2px;
+    height: 19px;
+
+    @include media('>600px') {
+      padding: 4px 8px;
+      height: 26px;
+    }
+
+    svg {
+      width: 30px;
+    }
+  }
+}
