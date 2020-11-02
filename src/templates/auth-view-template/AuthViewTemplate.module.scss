@@ -71,6 +71,18 @@
     padding: 65px 70px;
   }
 
+  .logo {
+    height: 27px;
+
+    @include media('>=tablet') {
+      height: 33px;
+    }
+
+    @include media('>=laptop') {
+      height: 37px;
+    }
+  }
+
   > form {
     margin-top: 30px;
     display: flex;

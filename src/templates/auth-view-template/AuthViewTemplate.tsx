@@ -12,7 +12,7 @@ const AuthViewTemplate: React.FC<AuthViewTemplateProps> = ({
       <main>
         {togglePageMessage}
         <div className={styles.board}>
-          <Icon src={logo} />
+          <Icon className={styles.logo} src={logo} />
           {children}
         </div>
       </main>
