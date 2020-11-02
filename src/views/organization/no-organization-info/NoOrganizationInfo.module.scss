@@ -9,6 +9,10 @@
     justify-content: center;
     align-items: center;
   }
+
+  @include media('>=laptop') {
+    margin-top: 120px;
+  }
 }
 
 .info {
@@ -20,19 +24,22 @@
   position: relative;
 
   @include media('>=tablet') {
-    display: flex;
-    align-items: center;
     margin: 0;
-    text-align: right;
     font-size: $xl;
-    max-width: 250px;
     line-height: 33px;
+    max-width: none;
+    padding: 0 40px;
+    width: 275px;
   }
 
-  @include media('>=1150px') {
+  @include media('>=laptop') {
+    width: 310px;
+  }
+
+  @include media('>=1140px') {
+    width: 375px;
     font-size: $xxl;
     line-height: 42px;
-    max-width: 400px;
   }
 
   &::after {
@@ -44,13 +51,7 @@
     background-color: $dark-gray;
 
     @include media('>=tablet') {
-      height: 200px;
-      width: 1px;
-      margin: 0 0 0 40px;
-    }
-
-    @include media('>=1150px') {
-      margin-left: 70px;
+      display: none;
     }
   }
 }
@@ -63,16 +64,27 @@
   align-items: center;
 
   @include media('>=tablet') {
-    margin: 0 0 0 40px;
-    align-items: flex-start;
+    width: 275px;
+    margin: 0;
 
     button {
       font-size: $m;
+
+      @include media('>=1140px') {
+        font-size: $l;
+
+        &:first-child {
+          margin-bottom: 2px;
+        }
+      }
     }
   }
 
-  @include media('>=1150px') {
-    margin-left: 70px;
-    width: 300px;
+  @include media('>=laptop') {
+    width: 310px;
+  }
+
+  @include media('>=1140px') {
+    width: 375px;
   }
 }

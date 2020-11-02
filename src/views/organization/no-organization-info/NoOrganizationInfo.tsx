@@ -30,7 +30,7 @@ const NoOrganizationInfo: React.FC = () => {
     <>
       <section className={styles.wrapper}>
         <h1 className={styles.info}>
-          You are not a member of any organization yet.
+          You are not a member of any organization.
         </h1>
         <div className={styles.actions}>
           <Button icon={create_icon} onClick={openCreateModal}>
