@@ -1,5 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
+import {
+  joinOrganization,
+  JoinOrganizationValues,
+} from 'modules/organizations';
 import arrow_right_icon from 'assets/svgs/icon_arrow-right.svg';
 import TextInput from 'components/text-input/TextInput';
 import Button from 'components/button/Button';
@@ -12,8 +17,10 @@ import {
 const JoinOrganizationModal: React.FC<JoinOrganizationModalProps> = ({
   closeModal,
 }) => {
-  const handleSubmit = (values: any) => {
-    console.log(values);
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values: JoinOrganizationValues) => {
+    dispatch(joinOrganization(values));
   };
 
   return (

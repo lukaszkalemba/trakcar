@@ -1,6 +1,7 @@
 import * as yup from 'yup';
+import { JoinOrganizationValues } from 'modules/organizations';
 
-export const initialValues: any = {
+export const initialValues: JoinOrganizationValues = {
   accessCode: '',
 };
 

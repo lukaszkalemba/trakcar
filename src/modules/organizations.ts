@@ -60,16 +60,16 @@ export default organizationsSlice.reducer;
 export const organizationsSelector = (state: { organizations: Organization }) =>
   state.organizations;
 
-export interface CreateOrganizationValues {
-  name: string;
-  accessCode: string;
-}
-
 export const loadOrganizationData = (): AppThunk => async (dispatch) => {
   const res = await axios.get(`${rootApi}/api/v1/organizations`);
 
   dispatch(setOrganization(res.data));
 };
+
+export interface CreateOrganizationValues {
+  name: string;
+  accessCode: string;
+}
 
 export const createOrganization = ({
   name,
@@ -91,6 +91,32 @@ export const createOrganization = ({
     );
 
     dispatch(setOrganization(res.data));
+  } catch (error) {
+    dispatch(
+      showAlert({ message: error.response.data.error, alertType: 'error' })
+    );
+  }
+};
+
+export interface JoinOrganizationValues {
+  accessCode: string;
+}
+
+export const joinOrganization = ({
+  accessCode,
+}: JoinOrganizationValues): AppThunk => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  const body = JSON.stringify({ accessCode });
+
+  try {
+    await axios.post(`${rootApi}/api/v1/organizations/members`, body, config);
+
+    dispatch(loadOrganizationData());
   } catch (error) {
     dispatch(
       showAlert({ message: error.response.data.error, alertType: 'error' })
