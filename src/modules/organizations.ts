@@ -31,6 +31,12 @@ const organizationsSlice = createSlice({
   name: 'organizations',
   initialState,
   reducers: {
+    setLoading: (state, { payload }: PayloadAction<boolean>) => {
+      return {
+        ...state,
+        loading: payload,
+      };
+    },
     setOrganization: (
       state,
       { payload }: PayloadAction<{ data: OrganizationData }>
@@ -52,6 +58,7 @@ const organizationsSlice = createSlice({
 });
 
 export const {
+  setLoading,
   setOrganization,
   unsetOrganization,
 } = organizationsSlice.actions;
@@ -60,10 +67,20 @@ export default organizationsSlice.reducer;
 export const organizationsSelector = (state: { organizations: Organization }) =>
   state.organizations;
 
-export const loadOrganizationData = (): AppThunk => async (dispatch) => {
-  const res = await axios.get(`${rootApi}/api/v1/organizations`);
+export const updateLoading = (loadingStatus: boolean): AppThunk => async (
+  dispatch
+) => {
+  dispatch(setLoading(loadingStatus));
+};
 
-  dispatch(setOrganization(res.data));
+export const loadOrganizationData = (): AppThunk => async (dispatch) => {
+  try {
+    const res = await axios.get(`${rootApi}/api/v1/organizations`);
+
+    dispatch(setOrganization(res.data));
+  } catch (error) {
+    dispatch(updateLoading(false));
+  }
 };
 
 export interface CreateOrganizationValues {
@@ -131,6 +148,7 @@ export const deleteOrganization = (id: string): AppThunk => async (
     await axios.delete(`${rootApi}/api/v1/organizations/${id}`);
 
     dispatch(unsetOrganization());
+    dispatch(loadOrganizationData());
   } catch (error) {
     dispatch(
       showAlert({ message: error.response.data.error, alertType: 'error' })

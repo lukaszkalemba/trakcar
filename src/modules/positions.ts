@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { rootApi } from 'utils/api';
 import { AppThunk } from 'components/app/App';
-import { showAlert } from './alerts';
 
 export interface PositionData {
   _id: string;
@@ -27,6 +26,12 @@ const positionsSlice = createSlice({
   name: 'positions',
   initialState,
   reducers: {
+    setLoading: (state, { payload }: PayloadAction<boolean>) => {
+      return {
+        ...state,
+        loading: payload,
+      };
+    },
     setPositions: (
       state,
       { payload }: PayloadAction<{ data: PositionData[] }>
@@ -40,11 +45,17 @@ const positionsSlice = createSlice({
   },
 });
 
-export const { setPositions } = positionsSlice.actions;
+export const { setLoading, setPositions } = positionsSlice.actions;
 export default positionsSlice.reducer;
 
 export const positionsSelector = (state: { positions: Positons }) =>
   state.positions;
+
+export const updateLoading = (loadingStatus: boolean): AppThunk => async (
+  dispatch
+) => {
+  dispatch(setLoading(loadingStatus));
+};
 
 export const getAllPositions = (): AppThunk => async (dispatch) => {
   try {
@@ -52,8 +63,6 @@ export const getAllPositions = (): AppThunk => async (dispatch) => {
 
     dispatch(setPositions(res.data));
   } catch (error) {
-    dispatch(
-      showAlert({ message: error.response.data.error, alertType: 'error' })
-    );
+    dispatch(setLoading(false));
   }
 };
