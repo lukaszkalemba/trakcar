@@ -4,7 +4,7 @@ import { rootApi } from 'utils/api';
 import { AppThunk } from 'components/app/App';
 import { showAlert } from './alerts';
 
-interface PositionsData {
+export interface PositionData {
   _id: string;
   name: string;
   startTime: string;
@@ -14,7 +14,7 @@ interface PositionsData {
 }
 
 interface Positons {
-  positions: PositionsData[] | null;
+  positions: PositionData[] | null;
   loading: boolean;
 }
 
@@ -29,7 +29,7 @@ const positionsSlice = createSlice({
   reducers: {
     setPositions: (
       state,
-      { payload }: PayloadAction<{ data: PositionsData[] }>
+      { payload }: PayloadAction<{ data: PositionData[] }>
     ) => {
       return {
         ...state,

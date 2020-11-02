@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllPositions, positionsSelector } from 'modules/positions';
 import Layout from 'components/layout/Layout';
 import styles from './Positions.module.scss';
+import PositionsList from './positions-list/PositionsList';
 
 const Positions: React.FC = () => {
   const dispatch = useDispatch();
@@ -19,9 +20,11 @@ const Positions: React.FC = () => {
   return (
     <Layout>
       <div className={styles.wrapper}>
-        {positions?.length
-          ? 'there are positions in your organization'
-          : 'there are no positions in your organization yet.'}
+        {positions?.length ? (
+          <PositionsList positions={positions} />
+        ) : (
+          'there are no positions in your organization yet.'
+        )}
       </div>
     </Layout>
   );

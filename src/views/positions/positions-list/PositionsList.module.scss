@@ -1,0 +1,115 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include media('>=tablet') {
+    margin-top: 10px;
+  }
+
+  @include media('>=laptop') {
+    margin-top: 25px;
+  }
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto 25px;
+  padding: 7px 0;
+  max-width: 960px;
+  position: relative;
+
+  @include media('>=tablet') {
+    padding: 7px;
+    margin-bottom: 35px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 1px;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $dark-gray;
+
+    @include media('>=tablet') {
+      width: 45px;
+      top: 120%;
+    }
+  }
+}
+
+.name {
+  font-size: $s;
+  font-weight: $semibold;
+  margin: 0;
+  width: 130px;
+  text-align: center;
+
+  @include media('>phone') {
+    width: 150px;
+  }
+
+  @include media('>=tablet') {
+    font-size: $l;
+  }
+}
+
+.timeWrapper {
+  padding: 0 15px;
+  white-space: nowrap;
+
+  time {
+    font-size: $s;
+    font-weight: $medium;
+    color: lighten($black, 45);
+    @include media('>=phone') {
+      width: 38px;
+    }
+
+    @include media('>=tablet') {
+      font-size: $m;
+      padding: 0 5px;
+    }
+  }
+}
+
+.buttonsWrapper {
+  width: 130px;
+  display: flex;
+  justify-content: center;
+
+  @include media('>phone') {
+    width: 150px;
+  }
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 2px;
+    height: 19px;
+
+    @include media('>600px') {
+      padding: 3px 10px;
+    }
+
+    @include media('>=tablet') {
+      padding: 3px 10px;
+      height: 23px;
+    }
+
+    svg {
+      width: 30px;
+    }
+  }
+}

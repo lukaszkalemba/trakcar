@@ -1,13 +1,5 @@
 @import 'styles/mixins';
-@import 'styles/theme/media';
 
 .wrapper {
   @include page-wrapper;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-
-  @include media('>phone') {
-    padding: 30px;
-  }
 }

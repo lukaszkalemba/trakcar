@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteOrganization } from 'modules/organizations';
-import delete_icon from 'assets/svgs/icon_delete.svg';
+import delete_icon from 'assets/svgs/icon_delete-red.svg';
 import Button from 'components/button/Button';
 import styles from './DeleteButton.module.scss';
 
