@@ -13,14 +13,16 @@ import styles from './Organization.module.scss';
 
 const Organization: React.FC = () => {
   const dispatch = useDispatch();
-  const { user, loading } = useSelector(usersSelector);
-  const { organization } = useSelector(organizationsSelector);
+  const { user, loading: userLoading } = useSelector(usersSelector);
+  const { organization, loading: organizationLoading } = useSelector(
+    organizationsSelector
+  );
 
   useEffect(() => {
     dispatch(loadOrganizationData());
   }, [dispatch]);
 
-  if (loading) return <div>loading</div>;
+  if (userLoading || organizationLoading) return <div>loading</div>;
 
   return (
     <Layout>
