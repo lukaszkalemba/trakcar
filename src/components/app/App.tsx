@@ -13,6 +13,7 @@ import usersReducer, { User } from 'modules/users';
 import organizationsReducer, {
   Organization as OrganizationState,
 } from 'modules/organizations';
+import positionsReducer from 'modules/positions';
 import alertsReducer, { Alert } from 'modules/alerts';
 import { setAuthToken } from 'helpers/setAuthToken';
 import Alerts from './alerts/Alerts';
@@ -23,6 +24,7 @@ import 'styles/global.scss';
 interface StateSchema {
   users: User;
   organizations: OrganizationState;
+  positions: any;
   alerts: Alert[];
 }
 
@@ -32,6 +34,7 @@ export const store = configureStore({
   reducer: {
     users: usersReducer,
     organizations: organizationsReducer,
+    positions: positionsReducer,
     alerts: alertsReducer,
   },
   devTools: process.env.NODE_ENV === 'development',
