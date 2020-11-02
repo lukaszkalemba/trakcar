@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { rootApi } from 'utils/api';
 import { AppThunk } from 'components/app/App';
+import { showAlert } from './alerts';
 
 export interface PositionData {
   _id: string;
@@ -42,10 +43,24 @@ const positionsSlice = createSlice({
         loading: false,
       };
     },
+    unsetSinglePosition: (state, { payload }: PayloadAction<string>) => {
+      const { positions } = state;
+
+      return {
+        ...state,
+        positions: (positions as PositionData[]).filter(
+          ({ _id }) => _id !== payload
+        ),
+      };
+    },
   },
 });
 
-export const { setLoading, setPositions } = positionsSlice.actions;
+export const {
+  setLoading,
+  setPositions,
+  unsetSinglePosition,
+} = positionsSlice.actions;
 export default positionsSlice.reducer;
 
 export const positionsSelector = (state: { positions: Positons }) =>
@@ -64,5 +79,18 @@ export const getAllPositions = (): AppThunk => async (dispatch) => {
     dispatch(setPositions(res.data));
   } catch (error) {
     dispatch(setLoading(false));
+  }
+};
+
+export const deletePosition = (id: string): AppThunk => async (dispatch) => {
+  try {
+    await axios.delete(`${rootApi}/api/v1/positions/${id}`);
+
+    dispatch(unsetSinglePosition(id));
+    dispatch(getAllPositions());
+  } catch (error) {
+    dispatch(
+      showAlert({ message: error.response.data.error, alertType: 'error' })
+    );
   }
 };
