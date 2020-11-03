@@ -1,5 +1,35 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+@import 'styles/theme/box-shadow';
 @import 'styles/mixins';
 
 .wrapper {
   @include page-wrapper;
+}
+
+.button {
+  margin: auto auto 0;
+  padding: 10px;
+  font-size: $s;
+  margin-bottom: 5px;
+
+  & > div {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  & > span {
+    margin-top: 2px;
+  }
+
+  @include media('>phone') {
+    font-size: $m;
+  }
+
+  @include media('>=tablet') {
+    font-size: $l;
+    padding: 13px;
+    margin-bottom: 20px;
+  }
 }

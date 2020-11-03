@@ -20,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const content = (
     <>
-      {children}
+      <span>{children}</span>
       {icon && <Icon src={icon} />}
     </>
   );
