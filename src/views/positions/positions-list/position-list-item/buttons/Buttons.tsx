@@ -6,16 +6,23 @@ import { deletePosition } from 'modules/positions';
 import Icon from 'components/icon/Icon';
 import styles from './Buttons.module.scss';
 
-const Buttons: React.FC<ButtonsProps> = ({ positionId }) => {
+const Buttons: React.FC<ButtonsProps> = ({
+  positionId,
+  setIsEditModalOpen,
+}) => {
   const dispatch = useDispatch();
 
   const handleDeleteButtonClick = () => {
     dispatch(deletePosition(positionId));
   };
 
+  const handleEditButtonClick = () => {
+    setIsEditModalOpen(true);
+  };
+
   return (
     <div className={styles.wrapper}>
-      <button onClick={() => console.log(positionId)}>
+      <button onClick={handleEditButtonClick}>
         <Icon src={edit_icon} />
       </button>
 
@@ -28,6 +35,7 @@ const Buttons: React.FC<ButtonsProps> = ({ positionId }) => {
 
 interface ButtonsProps {
   positionId: string;
+  setIsEditModalOpen: (state: boolean) => void;
 }
 
 export default Buttons;
