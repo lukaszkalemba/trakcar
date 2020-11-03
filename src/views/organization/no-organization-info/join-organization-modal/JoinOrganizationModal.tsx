@@ -5,6 +5,7 @@ import {
   joinOrganization,
   JoinOrganizationValues,
 } from 'modules/organizations';
+import { showAlert } from 'modules/alerts';
 import arrow_right_icon from 'assets/svgs/icon_arrow-right.svg';
 import TextInput from 'components/text-input/TextInput';
 import Button from 'components/button/Button';
@@ -21,6 +22,13 @@ const JoinOrganizationModal: React.FC<JoinOrganizationModalProps> = ({
 
   const handleSubmit = (values: JoinOrganizationValues) => {
     dispatch(joinOrganization(values));
+    dispatch(
+      showAlert({
+        message: 'Organization joined',
+        alertType: 'success',
+      })
+    );
+    closeModal();
   };
 
   return (
