@@ -25,7 +25,7 @@ const PositionListItem: React.FC<PositionListItemProps> = ({ position }) => {
       />
 
       {isEditModalOpen && (
-        <EditPositionModal positionId={position._id} closeModal={closeModal} />
+        <EditPositionModal position={position} closeModal={closeModal} />
       )}
     </li>
   );

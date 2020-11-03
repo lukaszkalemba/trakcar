@@ -52,6 +52,10 @@
   transition: all 0.2s ease-in-out;
   max-width: 400px;
 
+  &::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
   &.error,
   &:focus.error {
     border-bottom-color: $dark-red;

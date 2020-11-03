@@ -33,8 +33,9 @@ const TextInput: React.FC<TextInputProps> = ({ label, ...props }) => {
 type TextInputProps = {
   label: string;
   name: string;
-  type: 'text' | 'email' | 'password';
+  type: 'text' | 'email' | 'password' | 'time';
   maxLength?: number;
+  step?: number;
 };
 
 export default TextInput;
