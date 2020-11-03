@@ -82,6 +82,39 @@ export const getAllPositions = (): AppThunk => async (dispatch) => {
   }
 };
 
+export interface CreatePositionValues {
+  name: string;
+  startTime: string;
+  endTime: string;
+}
+
+export interface UpdatePositionValues extends CreatePositionValues {
+  id: string;
+}
+
+export const updatePosition = ({
+  id,
+  name,
+  startTime,
+  endTime,
+}: UpdatePositionValues): AppThunk => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  const body = JSON.stringify({ name, startTime, endTime });
+
+  try {
+    await axios.put(`${rootApi}/api/v1/positions/${id}`, body, config);
+
+    dispatch(getAllPositions());
+  } catch (error) {
+    showAlert({ message: error.response.data.error, alertType: 'error' });
+  }
+};
+
 export const deletePosition = (id: string): AppThunk => async (dispatch) => {
   try {
     await axios.delete(`${rootApi}/api/v1/positions/${id}`);

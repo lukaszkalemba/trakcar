@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { PositionData } from 'modules/positions';
 import Buttons from './buttons/Buttons';
-import EditPositionModal from './edit-position-modal/EditPositionModal';
+import UpdatePositionModal from './update-position-modal/UpdatePositionModal';
 import styles from './PositionListItem.module.scss';
 
 const PositionListItem: React.FC<PositionListItemProps> = ({ position }) => {
-  const [isEditModalOpen, setIsEditModalOpen] = useState<boolean>(false);
+  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState<boolean>(false);
 
   const closeModal = () => {
-    setIsEditModalOpen(false);
+    setIsUpdateModalOpen(false);
   };
 
   return (
@@ -21,11 +21,11 @@ const PositionListItem: React.FC<PositionListItemProps> = ({ position }) => {
 
       <Buttons
         positionId={position._id}
-        setIsEditModalOpen={setIsEditModalOpen}
+        setIsUpdateModalOpen={setIsUpdateModalOpen}
       />
 
-      {isEditModalOpen && (
-        <EditPositionModal position={position} closeModal={closeModal} />
+      {isUpdateModalOpen && (
+        <UpdatePositionModal position={position} closeModal={closeModal} />
       )}
     </li>
   );

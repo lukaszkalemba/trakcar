@@ -8,7 +8,7 @@ import styles from './Buttons.module.scss';
 
 const Buttons: React.FC<ButtonsProps> = ({
   positionId,
-  setIsEditModalOpen,
+  setIsUpdateModalOpen,
 }) => {
   const dispatch = useDispatch();
 
@@ -16,13 +16,13 @@ const Buttons: React.FC<ButtonsProps> = ({
     dispatch(deletePosition(positionId));
   };
 
-  const handleEditButtonClick = () => {
-    setIsEditModalOpen(true);
+  const handleUpdateButtonClick = () => {
+    setIsUpdateModalOpen(true);
   };
 
   return (
     <div className={styles.wrapper}>
-      <button onClick={handleEditButtonClick}>
+      <button onClick={handleUpdateButtonClick}>
         <Icon src={edit_icon} />
       </button>
 
@@ -35,7 +35,7 @@ const Buttons: React.FC<ButtonsProps> = ({
 
 interface ButtonsProps {
   positionId: string;
-  setIsEditModalOpen: (state: boolean) => void;
+  setIsUpdateModalOpen: (state: boolean) => void;
 }
 
 export default Buttons;
