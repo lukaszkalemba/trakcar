@@ -108,6 +108,13 @@ export const createOrganization = ({
     );
 
     dispatch(setOrganization(res.data));
+
+    dispatch(
+      showAlert({
+        message: 'Organization created',
+        alertType: 'success',
+      })
+    );
   } catch (error) {
     dispatch(
       showAlert({ message: error.response.data.error, alertType: 'error' })
@@ -134,6 +141,13 @@ export const joinOrganization = ({
     await axios.post(`${rootApi}/api/v1/organizations/members`, body, config);
 
     dispatch(loadOrganizationData());
+
+    dispatch(
+      showAlert({
+        message: 'Organization joined',
+        alertType: 'success',
+      })
+    );
   } catch (error) {
     dispatch(
       showAlert({ message: error.response.data.error, alertType: 'error' })
@@ -149,6 +163,13 @@ export const deleteOrganization = (id: string): AppThunk => async (
 
     dispatch(unsetOrganization());
     dispatch(loadOrganizationData());
+
+    dispatch(
+      showAlert({
+        message: 'Organization deleted',
+        alertType: 'success',
+      })
+    );
   } catch (error) {
     dispatch(
       showAlert({ message: error.response.data.error, alertType: 'error' })

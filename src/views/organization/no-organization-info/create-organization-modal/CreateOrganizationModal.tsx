@@ -5,7 +5,6 @@ import {
   createOrganization,
   CreateOrganizationValues,
 } from 'modules/organizations';
-import { showAlert } from 'modules/alerts';
 import arrow_right_icon from 'assets/svgs/icon_arrow-right.svg';
 import ModalTemplate from 'templates/modal-template/ModalTemplate';
 import TextInput from 'components/text-input/TextInput';
@@ -22,12 +21,7 @@ const CreateOrganizationModal: React.FC<CreateOrganizationModalProps> = ({
 
   const handleSubmit = (values: CreateOrganizationValues) => {
     dispatch(createOrganization(values));
-    dispatch(
-      showAlert({
-        message: 'Organization created',
-        alertType: 'success',
-      })
-    );
+
     closeModal();
   };
 

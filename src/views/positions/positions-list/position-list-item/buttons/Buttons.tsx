@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import delete_icon from 'assets/svgs/icon_delete-black.svg';
 import edit_icon from 'assets/svgs/icon_edit.svg';
 import { deletePosition } from 'modules/positions';
-import { showAlert } from 'modules/alerts';
 import Icon from 'components/icon/Icon';
 import styles from './Buttons.module.scss';
 
@@ -15,12 +14,6 @@ const Buttons: React.FC<ButtonsProps> = ({
 
   const handleDeleteButtonClick = () => {
     dispatch(deletePosition(positionId));
-    dispatch(
-      showAlert({
-        message: 'Position deleted',
-        alertType: 'success',
-      })
-    );
   };
 
   const handleUpdateButtonClick = () => {

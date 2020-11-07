@@ -161,6 +161,13 @@ export const deletePosition = (id: string): AppThunk => async (dispatch) => {
 
     dispatch(unsetSinglePosition(id));
     dispatch(getAllPositions());
+
+    dispatch(
+      showAlert({
+        message: 'Position deleted',
+        alertType: 'success',
+      })
+    );
   } catch (error) {
     dispatch(
       showAlert({ message: error.response.data.error, alertType: 'error' })
