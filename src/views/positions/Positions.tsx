@@ -5,8 +5,7 @@ import { usersSelector } from 'modules/users';
 import Layout from 'components/layout/Layout';
 import styles from './Positions.module.scss';
 import PositionsList from './positions-list/PositionsList';
-import CreatePositionButton from './create-position-button/CreatePositionButton';
-import CreatePositionModal from './create-position-modal/CreatePositionModal';
+import NewPositionContent from './new-position-content/NewPositionContent';
 
 const Positions: React.FC = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState<boolean>(false);
@@ -19,12 +18,12 @@ const Positions: React.FC = () => {
     dispatch(getAllPositions());
   }, [dispatch]);
 
-  const closeModal = () => {
-    setIsCreateModalOpen(false);
+  const openModal = () => {
+    setIsCreateModalOpen(true);
   };
 
-  const handleDeleteButtonClick = () => {
-    setIsCreateModalOpen(true);
+  const closeModal = () => {
+    setIsCreateModalOpen(false);
   };
 
   const renderResults = () => {
@@ -36,11 +35,11 @@ const Positions: React.FC = () => {
       return (
         <>
           <PositionsList positions={positions} />
-
-          <CreatePositionButton onClick={handleDeleteButtonClick}>
-            Create new position
-          </CreatePositionButton>
-          {isCreateModalOpen && <CreatePositionModal closeModal={closeModal} />}
+          <NewPositionContent
+            isCreateModalOpen={isCreateModalOpen}
+            openModal={openModal}
+            closeModal={closeModal}
+          />
         </>
       );
     }
@@ -49,11 +48,11 @@ const Positions: React.FC = () => {
       return (
         <>
           <p>there are no positions in your organization yet.</p>
-
-          <CreatePositionButton onClick={handleDeleteButtonClick}>
-            Create new position
-          </CreatePositionButton>
-          {isCreateModalOpen && <CreatePositionModal closeModal={closeModal} />}
+          <NewPositionContent
+            isCreateModalOpen={isCreateModalOpen}
+            openModal={openModal}
+            closeModal={closeModal}
+          />
         </>
       );
     }
