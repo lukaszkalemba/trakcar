@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
-import { CreatePositionValues } from 'modules/positions';
+import { useDispatch } from 'react-redux';
+import { CreatePositionValues, createPosition } from 'modules/positions';
 import ModalTemplate from 'templates/modal-template/ModalTemplate';
 import TextInput from 'components/text-input/TextInput';
 import Button from 'components/button/Button';
@@ -10,8 +11,12 @@ import { initialValues, validationSchema } from './CreatePositionModal.formik';
 const CreatePositionModal: React.FC<CreatePositionModalProps> = ({
   closeModal,
 }) => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (values: CreatePositionValues) => {
-    console.log(values);
+    dispatch(createPosition(values));
+
+    closeModal();
   };
 
   return (

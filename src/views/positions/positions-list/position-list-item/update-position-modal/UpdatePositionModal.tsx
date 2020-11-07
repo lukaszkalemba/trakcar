@@ -48,12 +48,6 @@ const UpdatePositionModal: React.FC<UpdatePositionModalProps> = ({
     }
 
     dispatch(updatePosition({ id: position._id, name, startTime, endTime }));
-    dispatch(
-      showAlert({
-        message: 'Position updated',
-        alertType: 'success',
-      })
-    );
 
     closeModal();
   };
