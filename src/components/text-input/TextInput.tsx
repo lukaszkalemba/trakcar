@@ -6,7 +6,7 @@ import styles from './TextInput.module.scss';
 const TextInput: React.FC<TextInputProps> = ({ label, ...props }) => {
   const [field, meta] = useField(props);
 
-  const { name } = props;
+  const { name, type } = props;
 
   const isError = meta.touched && meta.error;
 
@@ -17,6 +17,7 @@ const TextInput: React.FC<TextInputProps> = ({ label, ...props }) => {
   const labelClass = cx(styles.label, {
     [styles.active]: field.value,
     [styles.error]: isError,
+    [styles.isTimeType]: type === 'time',
   });
 
   return (

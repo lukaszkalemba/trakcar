@@ -38,6 +38,12 @@
   &.active.error {
     color: $dark-red;
   }
+
+  &.isTimeType {
+    top: -13px;
+    left: 0;
+    font-size: $s;
+  }
 }
 
 .input {

@@ -5,9 +5,10 @@ import styles from './CreatePositionButton.module.scss';
 
 const CreatePositionButton: React.FC<CreatePositionButtonProps> = ({
   children,
+  onClick,
 }) => {
   return (
-    <Button className={styles.button} icon={icon_plus}>
+    <Button className={styles.button} icon={icon_plus} onClick={onClick}>
       {children}
     </Button>
   );
@@ -15,6 +16,7 @@ const CreatePositionButton: React.FC<CreatePositionButtonProps> = ({
 
 interface CreatePositionButtonProps {
   children: ReactNode;
+  onClick: () => void;
 }
 
 export default CreatePositionButton;
