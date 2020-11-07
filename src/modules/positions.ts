@@ -88,11 +88,10 @@ export interface CreatePositionValues {
   endTime: string;
 }
 
-export const createPosition = ({
-  name,
-  startTime,
-  endTime,
-}: CreatePositionValues): AppThunk => async (dispatch) => {
+export const createPosition = (
+  { name, startTime, endTime }: CreatePositionValues,
+  closeModal: () => void
+): AppThunk => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -104,6 +103,8 @@ export const createPosition = ({
   try {
     await axios.post(`${rootApi}/api/v1/positions`, body, config);
 
+    dispatch(getAllPositions());
+
     dispatch(
       showAlert({
         message: 'Position created',
@@ -111,7 +112,7 @@ export const createPosition = ({
       })
     );
 
-    dispatch(getAllPositions());
+    closeModal();
   } catch (error) {
     dispatch(
       showAlert({ message: error.response.data.error, alertType: 'error' })
@@ -123,12 +124,10 @@ export interface UpdatePositionValues extends CreatePositionValues {
   id: string;
 }
 
-export const updatePosition = ({
-  id,
-  name,
-  startTime,
-  endTime,
-}: UpdatePositionValues): AppThunk => async (dispatch) => {
+export const updatePosition = (
+  { id, name, startTime, endTime }: UpdatePositionValues,
+  closeModal: () => void
+): AppThunk => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -140,6 +139,7 @@ export const updatePosition = ({
   try {
     await axios.put(`${rootApi}/api/v1/positions/${id}`, body, config);
 
+    dispatch(getAllPositions());
     dispatch(
       showAlert({
         message: 'Position updated',
@@ -147,7 +147,7 @@ export const updatePosition = ({
       })
     );
 
-    dispatch(getAllPositions());
+    closeModal();
   } catch (error) {
     dispatch(
       showAlert({ message: error.response.data.error, alertType: 'error' })

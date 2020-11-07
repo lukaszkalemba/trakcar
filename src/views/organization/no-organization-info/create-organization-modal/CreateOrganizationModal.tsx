@@ -20,9 +20,7 @@ const CreateOrganizationModal: React.FC<CreateOrganizationModalProps> = ({
   const dispatch = useDispatch();
 
   const handleSubmit = (values: CreateOrganizationValues) => {
-    dispatch(createOrganization(values));
-
-    closeModal();
+    dispatch(createOrganization(values, closeModal));
   };
 
   return (

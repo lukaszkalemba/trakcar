@@ -14,9 +14,7 @@ const CreatePositionModal: React.FC<CreatePositionModalProps> = ({
   const dispatch = useDispatch();
 
   const handleSubmit = (values: CreatePositionValues) => {
-    dispatch(createPosition(values));
-
-    closeModal();
+    dispatch(createPosition(values, closeModal));
   };
 
   return (

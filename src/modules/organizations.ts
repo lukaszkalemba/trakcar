@@ -88,10 +88,10 @@ export interface CreateOrganizationValues {
   accessCode: string;
 }
 
-export const createOrganization = ({
-  name,
-  accessCode,
-}: CreateOrganizationValues): AppThunk => async (dispatch) => {
+export const createOrganization = (
+  { name, accessCode }: CreateOrganizationValues,
+  closeModal: () => void
+): AppThunk => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -115,6 +115,8 @@ export const createOrganization = ({
         alertType: 'success',
       })
     );
+
+    closeModal();
   } catch (error) {
     dispatch(
       showAlert({ message: error.response.data.error, alertType: 'error' })
@@ -126,9 +128,10 @@ export interface JoinOrganizationValues {
   accessCode: string;
 }
 
-export const joinOrganization = ({
-  accessCode,
-}: JoinOrganizationValues): AppThunk => async (dispatch) => {
+export const joinOrganization = (
+  { accessCode }: JoinOrganizationValues,
+  closeModal: () => void
+): AppThunk => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -148,6 +151,8 @@ export const joinOrganization = ({
         alertType: 'success',
       })
     );
+
+    closeModal();
   } catch (error) {
     dispatch(
       showAlert({ message: error.response.data.error, alertType: 'error' })

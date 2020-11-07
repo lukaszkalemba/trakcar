@@ -20,9 +20,7 @@ const JoinOrganizationModal: React.FC<JoinOrganizationModalProps> = ({
   const dispatch = useDispatch();
 
   const handleSubmit = (values: JoinOrganizationValues) => {
-    dispatch(joinOrganization(values));
-
-    closeModal();
+    dispatch(joinOrganization(values, closeModal));
   };
 
   return (

@@ -47,9 +47,9 @@ const UpdatePositionModal: React.FC<UpdatePositionModalProps> = ({
       return;
     }
 
-    dispatch(updatePosition({ id: position._id, name, startTime, endTime }));
-
-    closeModal();
+    dispatch(
+      updatePosition({ id: position._id, name, startTime, endTime }, closeModal)
+    );
   };
 
   return (
