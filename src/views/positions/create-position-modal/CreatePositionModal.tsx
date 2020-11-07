@@ -42,7 +42,7 @@ const CreatePositionModal: React.FC<CreatePositionModalProps> = ({
               type="time"
             />
             <Button type="submit" icon={arrow_right_icon}>
-              update
+              create
             </Button>
           </Form>
         )}
