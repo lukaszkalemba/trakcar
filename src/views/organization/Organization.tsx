@@ -22,7 +22,12 @@ const Organization: React.FC = () => {
     dispatch(loadOrganizationData());
   }, [dispatch]);
 
-  if (userLoading || organizationLoading) return <div>loading</div>;
+  if (userLoading || organizationLoading)
+    return (
+      <Layout>
+        <div className={styles.wrapper}>loading</div>
+      </Layout>
+    );
 
   return (
     <Layout>
