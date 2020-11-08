@@ -6,10 +6,11 @@ const NewPositionContent: React.FC<NewPositionContentProps> = ({
   isCreateModalOpen,
   openModal,
   closeModal,
+  noPosition,
 }) => {
   return (
     <>
-      <CreatePositionButton onClick={openModal}>
+      <CreatePositionButton noPosition={noPosition} onClick={openModal}>
         Create new position
       </CreatePositionButton>
       {isCreateModalOpen && <CreatePositionModal closeModal={closeModal} />}
@@ -21,6 +22,7 @@ interface NewPositionContentProps {
   isCreateModalOpen: boolean;
   openModal: () => void;
   closeModal: () => void;
+  noPosition?: boolean;
 }
 
 export default NewPositionContent;

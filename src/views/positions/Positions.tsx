@@ -4,6 +4,7 @@ import { getAllPositions, positionsSelector } from 'modules/positions';
 import { usersSelector } from 'modules/users';
 import Layout from 'components/layout/Layout';
 import Button from 'components/button/Button';
+import Heading from 'components/heading/Heading';
 import organization_icon from 'assets/svgs/icon_organization-black.svg';
 import PositionsList from './positions-list/PositionsList';
 import NewPositionContent from './new-position-content/NewPositionContent';
@@ -49,13 +50,14 @@ const Positions: React.FC = () => {
     if (user?.organization && !positions?.length) {
       return (
         <>
-          <h1 className={styles.noPositionsInfo}>
+          <Heading className={styles.heading}>
             There are no positions in your organization yet.
-          </h1>
+          </Heading>
           <NewPositionContent
             isCreateModalOpen={isCreateModalOpen}
             openModal={openModal}
             closeModal={closeModal}
+            noPosition
           />
         </>
       );
@@ -63,9 +65,9 @@ const Positions: React.FC = () => {
 
     return (
       <>
-        <h1 className={styles.noOrganizationInfo}>
+        <Heading className={styles.heading}>
           You have to be a member of an organization to manage positions.
-        </h1>
+        </Heading>
         <Button
           type="link"
           to="/organization"

@@ -6,37 +6,15 @@
   @include page-wrapper;
 }
 
-@mixin info-heading {
-  text-align: center;
-  font-size: $m;
-  padding: 1em 1.5em;
-  line-height: 1.4em;
-
-  @include media('>phone') {
-    font-size: $l;
-  }
-
-  @include media('>=tablet') {
-    font-size: $xxl;
-    max-width: 700px;
-  }
-}
-
-.noPositionsInfo {
-  @include info-heading;
-  margin: 0 auto;
-}
-
-.noOrganizationInfo {
-  @include info-heading;
-  margin: 3.5em auto 0;
+.heading {
+  margin-top: 100px;
 }
 
 .organizationLink {
-  margin: 0.5em auto;
+  margin: 35px auto 0;
   font-size: $s;
 
   @include media('>=tablet') {
-    font-size: $l;
+    font-size: $m;
   }
 }

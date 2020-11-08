@@ -1,5 +1,6 @@
 @import 'styles/theme/media';
 @import 'styles/theme/colors';
+@import 'styles/theme/fonts';
 @import 'styles/theme/z-index';
 
 .backdrop {
@@ -40,7 +41,7 @@
     > button[type='submit'] {
       align-self: flex-end;
       margin-top: 5px;
-      padding: 0;
+      font-size: $l;
 
       @include media('>=tablet') {
         margin-top: 20px;

@@ -1,0 +1,27 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+
+.heading {
+  font-size: $l;
+  text-align: center;
+  max-width: 200px;
+  line-height: 1.4em;
+  margin: 0 auto;
+  position: relative;
+  font-weight: $medium;
+
+  @include media('>=tablet') {
+    font-size: $xxl;
+    max-width: 400px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    margin: 40px auto 0;
+    width: 35px;
+    height: 1px;
+    background-color: $dark-gray;
+  }
+}
