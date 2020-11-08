@@ -6,13 +6,13 @@
   font-size: $l;
   text-align: center;
   max-width: 200px;
-  line-height: 1.4em;
+  line-height: 1.55em;
   margin: 0 auto;
   position: relative;
-  font-weight: $medium;
+  font-weight: $semibold;
 
   @include media('>=tablet') {
-    font-size: $xxl;
+    font-size: $xl;
     max-width: 400px;
   }
 

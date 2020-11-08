@@ -20,7 +20,7 @@
     width: 40px;
     height: 1px;
     background-color: $dark-gray;
-    margin: 5px auto 0;
+    margin: 15px auto 0;
   }
 
   @include media('>phone') {
@@ -37,5 +37,5 @@
   font-weight: $medium;
   color: $dark-gray;
   text-align: center;
-  margin: 15px 0 0;
+  margin: 18px 0 0;
 }
