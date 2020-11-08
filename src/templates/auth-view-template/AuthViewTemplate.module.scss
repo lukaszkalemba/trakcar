@@ -75,11 +75,7 @@
     height: 27px;
 
     @include media('>=tablet') {
-      height: 33px;
-    }
-
-    @include media('>=laptop') {
-      height: 37px;
+      height: 35px;
     }
   }
 
