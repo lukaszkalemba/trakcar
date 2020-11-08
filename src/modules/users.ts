@@ -31,7 +31,7 @@ const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
-    getUserData: (state, { payload }: PayloadAction<{ data: UserData }>) => {
+    getUser: (state, { payload }: PayloadAction<{ data: UserData }>) => {
       return {
         ...state,
         user: payload.data,
@@ -60,7 +60,7 @@ const usersSlice = createSlice({
   },
 });
 
-export const { getUserData, setUser, unsetUser } = usersSlice.actions;
+export const { getUser, setUser, unsetUser } = usersSlice.actions;
 export default usersSlice.reducer;
 
 export const usersSelector = (state: { users: User }) => state.users;
@@ -73,7 +73,7 @@ export const loadUserData = (): AppThunk => async (dispatch) => {
   try {
     const res = await axios.get(`${rootApi}/api/v1/users`);
 
-    dispatch(getUserData(res.data));
+    dispatch(getUser(res.data));
   } catch (error) {
     dispatch(
       showAlert({ message: error.response.data.error, alertType: 'error' })

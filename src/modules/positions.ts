@@ -3,6 +3,7 @@ import axios from 'axios';
 import { rootApi } from 'utils/api';
 import { AppThunk } from 'components/app/App';
 import { showAlert } from './alerts';
+import { loadUserData } from './users';
 
 export interface PositionData {
   _id: string;
@@ -77,6 +78,7 @@ export const getAllPositions = (): AppThunk => async (dispatch) => {
     const res = await axios.get(`${rootApi}/api/v1/positions`);
 
     dispatch(setPositions(res.data));
+    dispatch(loadUserData());
   } catch (error) {
     dispatch(setLoading(false));
   }
