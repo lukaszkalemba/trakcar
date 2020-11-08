@@ -3,7 +3,7 @@ import axios from 'axios';
 import { rootApi } from 'utils/api';
 import { AppThunk } from 'components/app/App';
 import { showAlert } from './alerts';
-// import { loadUserData } from './users';
+import { loadUserData } from './users';
 
 export interface Member {
   name: string;
@@ -169,7 +169,7 @@ export const deleteOrganization = (id: string): AppThunk => async (
 
     dispatch(unsetOrganization());
     dispatch(loadOrganizationData());
-    // dispatch(loadUserData());
+    dispatch(loadUserData());
 
     dispatch(
       showAlert({
