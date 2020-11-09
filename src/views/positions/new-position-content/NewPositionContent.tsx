@@ -11,7 +11,7 @@ const NewPositionContent: React.FC<NewPositionContentProps> = ({
   return (
     <>
       <CreatePositionButton noPosition={noPosition} onClick={openModal}>
-        add new position
+        add position
       </CreatePositionButton>
       {isCreateModalOpen && <CreatePositionModal closeModal={closeModal} />}
     </>
