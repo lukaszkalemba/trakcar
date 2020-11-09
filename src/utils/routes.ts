@@ -1,4 +1,4 @@
-import calendar_icon from 'assets/svgs/icon_calendar.svg';
+import calendar_icon from 'assets/svgs/icon_calendar-white.svg';
 import positions_icon from 'assets/svgs/icon_positions.svg';
 import organization_icon from 'assets/svgs/icon_organization-white.svg';
 
