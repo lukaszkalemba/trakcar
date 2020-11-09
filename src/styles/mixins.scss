@@ -22,10 +22,10 @@
   }
 
   @include media('>=tablet') {
-    padding: 40px 50px;
+    padding: 40px;
   }
 
-  @include media('>=laptop') {
+  @include media('>laptop') {
     padding: 30px 50px;
   }
 }
