@@ -1,5 +1,11 @@
-@import 'styles/mixins';
+@import 'styles/theme/colors';
+@import 'styles/theme/box-shadow';
 
 .wrapper {
-  @include page-wrapper;
+  background-color: $white;
+  box-shadow: $layout-elements;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
