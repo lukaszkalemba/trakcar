@@ -1,13 +1,13 @@
 import React from 'react';
 import Logo from './logo/Logo';
-import User from './user/User';
+import LogoutButton from './logout-button/LogoutButton';
 import styles from './TopBar.module.scss';
 
 const TopBar: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <Logo />
-      <User />
+      <LogoutButton />
     </div>
   );
 };

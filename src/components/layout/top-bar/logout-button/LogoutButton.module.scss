@@ -1,0 +1,35 @@
+@import 'styles/theme/fonts';
+@import 'styles/theme/media';
+
+.button {
+  font-size: $s;
+
+  span {
+    display: none;
+  }
+
+  & > div {
+    height: 1.75em;
+    width: 1.75em;
+  }
+
+  @include media('>=tablet') {
+    & > div {
+      height: 2em;
+      width: 2em;
+    }
+  }
+
+  @include media('>laptop') {
+    font-size: $s;
+
+    span {
+      display: block;
+    }
+
+    & > div {
+      height: 1.5em;
+      width: 1.5em;
+    }
+  }
+}
