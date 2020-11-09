@@ -1,0 +1,120 @@
+@import './theme/media';
+@import './theme/colors';
+@import './theme/fonts';
+@import './mixins.scss';
+
+.react-calendar {
+  padding: 10px;
+  max-width: 280px;
+  width: 100%;
+
+  button {
+    outline: none;
+  }
+
+  abbr {
+    font-size: $xs;
+    font-weight: $semibold;
+    text-transform: capitalize;
+    padding: 6px;
+    display: block;
+
+    @include media('>laptop') {
+      font-size: $s;
+    }
+  }
+
+  .react-calendar__navigation {
+    height: 70px;
+    @include flex-center;
+
+    .react-calendar__navigation__label__labelText {
+      font-size: $l;
+    }
+
+    .react-calendar__navigation__arrow {
+      font-size: 45px;
+      background-color: $white;
+      padding: 0 15px;
+      cursor: pointer;
+      color: $dark-gray;
+      margin: -6px 0 0;
+    }
+
+    button {
+      border: none;
+    }
+  }
+
+  .react-calendar__navigation__prev2-button,
+  .react-calendar__navigation__next2-button {
+    display: none;
+  }
+
+  .react-calendar__navigation__next-button {
+    @include media('>laptop') {
+      margin-right: 15px;
+    }
+  }
+
+  .react-calendar__navigation__prev-button {
+    @include media('>laptop') {
+      margin-left: 15px;
+    }
+  }
+
+  .react-calendar__month-view__weekdays__weekday {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $dark-gray;
+  }
+
+  .react-calendar__navigation__label {
+    font-size: $l;
+    font-weight: $semibold;
+    text-transform: capitalize;
+    background-color: $white;
+    pointer-events: none;
+    border: none;
+    padding: 15px 0;
+
+    @include media('>laptop') {
+      margin-left: 15px;
+      font-size: $xl;
+      padding: 20px 0;
+    }
+  }
+
+  .react-calendar__month-view__days__day {
+    width: 8px;
+    height: 28px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    @include media('>laptop') {
+      height: 30px;
+    }
+  }
+
+  .react-calendar__tile--now {
+    abbr {
+      color: $white;
+      background-color: $black;
+      border-radius: 3px;
+    }
+  }
+
+  .react-calendar__tile--active {
+    abbr {
+      border: 1px solid $black;
+      border-radius: 3px;
+    }
+  }
+
+  .react-calendar__month-view__days__day--neighboringMonth {
+    color: $dark-gray;
+  }
+}
