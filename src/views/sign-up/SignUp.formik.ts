@@ -10,7 +10,7 @@ export const initialValues: SignupValues = {
 export const validationSchema = yup.object({
   name: yup
     .string()
-    .min(5, 'Name must be at least 5 characters')
+    .min(6, 'Name must be at least 6 characters')
     .required('Name is required'),
   email: yup
     .string()
