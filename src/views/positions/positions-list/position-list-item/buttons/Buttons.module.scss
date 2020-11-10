@@ -16,7 +16,7 @@
     padding: 2px;
     height: 19px;
 
-    @include media('>600px') {
+    @include media('>=tablet') {
       padding: 4px 8px;
       height: 26px;
     }
