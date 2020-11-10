@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { configureStore, Action } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
@@ -18,6 +18,7 @@ import positionsReducer, {
 } from 'modules/positions';
 import alertsReducer, { Alert } from 'modules/alerts';
 import calendarDatesReducer, { CalendarDates } from 'modules/calendar-dates';
+import { setFullHeight } from 'helpers/setFullHeight';
 import { setAuthToken } from 'helpers/setAuthToken';
 import Alerts from './alerts/Alerts';
 import PrivateRoute from './private-route/PrivateRoute';
@@ -50,6 +51,10 @@ if (localStorage.token) {
 }
 
 const App = () => {
+  useEffect(() => {
+    setFullHeight();
+  }, []);
+
   return (
     <Provider store={store}>
       <Router>
