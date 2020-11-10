@@ -21,17 +21,20 @@ const OrganizationInfo: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.organizationWrapper}>
-        <Organization name={organization?.name} userType={userType} />
+        <Organization
+          name={organization?.organizationName}
+          userType={userType}
+        />
 
         <Members
           members={organizationMembers}
-          organizationName={organization?.name}
+          organizationName={organization?.organizationName}
         />
       </div>
 
       {isAdmin && (
         <DeleteButton organizationId={organization?.id}>
-          delete {organization?.name}
+          delete {organization?.organizationName}
         </DeleteButton>
       )}
     </div>

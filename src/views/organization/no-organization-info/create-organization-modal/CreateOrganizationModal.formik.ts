@@ -2,12 +2,12 @@ import * as yup from 'yup';
 import { CreateOrganizationValues } from 'modules/organizations';
 
 export const initialValues: CreateOrganizationValues = {
-  name: '',
+  organizationName: '',
   accessCode: '',
 };
 
 export const validationSchema = yup.object({
-  name: yup.string().required('Organization name is required'),
+  organizationName: yup.string().required('Organization name is required'),
   accessCode: yup
     .string()
     .matches(/^[0-9]+$/, 'Access code can only contain numbers')

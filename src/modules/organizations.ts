@@ -14,7 +14,7 @@ export interface Member {
 
 export interface OrganizationData {
   id: string;
-  name: string;
+  organizationName: string;
   members: Member[];
   admin: string;
 }
@@ -86,12 +86,12 @@ export const loadOrganizationData = (): AppThunk => async (dispatch) => {
 };
 
 export interface CreateOrganizationValues {
-  name: string;
+  organizationName: string;
   accessCode: string;
 }
 
 export const createOrganization = (
-  { name, accessCode }: CreateOrganizationValues,
+  { organizationName, accessCode }: CreateOrganizationValues,
   closeModal: () => void
 ): AppThunk => async (dispatch) => {
   const config = {
@@ -100,7 +100,7 @@ export const createOrganization = (
     },
   };
 
-  const body = JSON.stringify({ name, accessCode });
+  const body = JSON.stringify({ organizationName, accessCode });
 
   try {
     const res = await axios.post(
@@ -123,7 +123,11 @@ export const createOrganization = (
     closeModal();
   } catch (error) {
     dispatch(
-      showAlert({ message: error.response.data.error, alertType: 'error' })
+      showAlert({
+        message: error.response.data.error,
+        alertType: 'error',
+        timeout: 5000,
+      })
     );
   }
 };

@@ -32,7 +32,11 @@ const CreateOrganizationModal: React.FC<CreateOrganizationModalProps> = ({
       >
         {() => (
           <Form>
-            <TextInput label="organization name" name="name" type="text" />
+            <TextInput
+              label="organization name"
+              name="organizationName"
+              type="text"
+            />
             <TextInput
               label="access code"
               name="accessCode"
