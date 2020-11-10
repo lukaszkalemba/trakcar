@@ -13,8 +13,11 @@ import usersReducer, { User } from 'modules/users';
 import organizationsReducer, {
   Organization as OrganizationState,
 } from 'modules/organizations';
-import positionsReducer from 'modules/positions';
+import positionsReducer, {
+  Positions as PositionsState,
+} from 'modules/positions';
 import alertsReducer, { Alert } from 'modules/alerts';
+import calendarDatesReducer, { CalendarDates } from 'modules/calendar-dates';
 import { setAuthToken } from 'helpers/setAuthToken';
 import Alerts from './alerts/Alerts';
 import PrivateRoute from './private-route/PrivateRoute';
@@ -24,7 +27,8 @@ import 'styles/global.scss';
 interface StateSchema {
   users: User;
   organizations: OrganizationState;
-  positions: any;
+  positions: PositionsState;
+  calendarDates: CalendarDates;
   alerts: Alert[];
 }
 
@@ -35,6 +39,7 @@ export const store = configureStore({
     users: usersReducer,
     organizations: organizationsReducer,
     positions: positionsReducer,
+    calendarDates: calendarDatesReducer,
     alerts: alertsReducer,
   },
   devTools: process.env.NODE_ENV === 'development',

@@ -1,16 +1,22 @@
 import React from 'react';
 import ReactCalendar from 'react-calendar';
+import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
+import {
+  updateSelectedDate,
+  calendarDatesSelector,
+} from 'modules/calendar-dates';
 import { getWeekDays } from 'helpers/getWeekDays';
 import styles from './Calendar.module.scss';
 import 'styles/calendar-styles.scss';
 
-const Calendar: React.FC<CalendarProps> = ({ modalCalendar }) => {
-  const handleDateChange = () => {
-    console.log('date changed');
-  };
+const Calendar: React.FC<CalendarProps> = ({ modalCalendar, closeModal }) => {
+  const dispatch = useDispatch();
+  const { selectedDate } = useSelector(calendarDatesSelector);
 
-  const selectedDate = new Date();
+  const handleDateChange = (date: Date | Date[]) => {
+    dispatch(updateSelectedDate(date as Date, closeModal));
+  };
 
   const wrapperClass = cx(styles.wrapper, {
     [styles.modalCalendar]: modalCalendar,
@@ -21,7 +27,7 @@ const Calendar: React.FC<CalendarProps> = ({ modalCalendar }) => {
       <ReactCalendar
         formatShortWeekday={getWeekDays}
         onChange={handleDateChange}
-        value={selectedDate}
+        value={new Date(selectedDate)}
       />
     </div>
   );
@@ -29,6 +35,7 @@ const Calendar: React.FC<CalendarProps> = ({ modalCalendar }) => {
 
 interface CalendarProps {
   modalCalendar?: boolean;
+  closeModal?: () => void;
 }
 
 export default Calendar;

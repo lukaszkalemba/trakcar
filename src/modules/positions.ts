@@ -14,12 +14,12 @@ export interface PositionData {
   organization: string;
 }
 
-interface Positons {
+export interface Positions {
   positions: PositionData[] | null;
   loading: boolean;
 }
 
-const initialState: Positons = {
+const initialState: Positions = {
   positions: null,
   loading: true,
 };
@@ -64,7 +64,7 @@ export const {
 } = positionsSlice.actions;
 export default positionsSlice.reducer;
 
-export const positionsSelector = (state: { positions: Positons }) =>
+export const positionsSelector = (state: { positions: Positions }) =>
   state.positions;
 
 export const updateLoading = (loadingStatus: boolean): AppThunk => async (
