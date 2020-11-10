@@ -22,7 +22,7 @@
     }
   }
 
-  @include media('>laptop') {
+  @include media('>1120px') {
     display: none;
   }
 }

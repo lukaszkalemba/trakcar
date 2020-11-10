@@ -14,7 +14,7 @@
       padding: 30px;
     }
 
-    @include media('>laptop') {
+    @include media('>1120px') {
       padding: 0;
       grid-row: 1 / 11;
       grid-column: 3 / 9;
@@ -28,7 +28,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  @include media('>laptop') {
+  @include media('>1120px') {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(10, 1fr);

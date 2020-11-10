@@ -5,7 +5,7 @@
 .wrapper {
   display: none;
 
-  @include media('>laptop') {
+  @include media('>1120px') {
     display: flex;
     justify-content: center;
     background-color: $white;
