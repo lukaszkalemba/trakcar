@@ -7,9 +7,11 @@ const DesktopNavigation: React.FC = () => {
   return (
     <nav className={styles.nav}>
       <ul>
-        {routes.map(({ id, path, name }) => (
+        {routes.map(({ id, path, name, subName }) => (
           <li key={id}>
-            <NavItem path={path}>{name}</NavItem>
+            <NavItem path={path} subName={subName}>
+              {name}
+            </NavItem>
           </li>
         ))}
       </ul>

@@ -21,6 +21,10 @@
 
     li {
       padding: 15px 0;
+
+      &:first-child {
+        margin: -10px 0 5px;
+      }
     }
   }
 }

@@ -1,12 +1,22 @@
 @import 'styles/theme/colors';
 @import 'styles/theme/fonts';
 
+.subName {
+  text-transform: uppercase;
+  font-weight: $semibold;
+  color: $dark-gray;
+  font-size: $s;
+  margin: 0 0 8px 25px;
+  opacity: 0.6;
+  display: block;
+}
+
 .navLink {
   text-decoration: none;
   color: $black;
-  font-weight: $medium;
-  font-size: $l;
-  padding-left: 45px;
+  font-weight: $semibold;
+  font-size: $m;
+  padding-left: 38px;
   position: relative;
   align-self: flex-start;
 
@@ -15,7 +25,7 @@
       content: '';
       position: absolute;
       width: 20px;
-      height: 5px;
+      height: 3px;
       background-color: $black;
       top: 50%;
       transform: translateY(-50%);

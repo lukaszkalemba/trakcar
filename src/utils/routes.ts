@@ -5,6 +5,7 @@ import organization_icon from 'assets/svgs/icon_organization-white.svg';
 interface Route {
   id: number;
   name: string;
+  subName: string;
   path: string;
   icon: string;
 }
@@ -12,20 +13,23 @@ interface Route {
 export const routes: Route[] = [
   {
     id: 0,
-    name: 'schedule',
+    name: 'Orders schedule',
+    subName: 'orders',
     path: '/',
     icon: calendar_icon,
   },
   {
     id: 1,
-    name: 'positions',
+    name: 'Manage positions',
+    subName: 'positions',
     path: '/positions',
     icon: positions_icon,
   },
   {
     id: 2,
-    name: 'organization',
-    path: 'organization',
+    name: 'Manage organization',
+    subName: 'organization',
+    path: '/organization',
     icon: organization_icon,
   },
 ];
