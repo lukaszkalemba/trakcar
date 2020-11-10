@@ -4,6 +4,7 @@ import { rootApi } from 'utils/api';
 import { AppThunk } from 'components/app/App';
 import { showAlert } from './alerts';
 import { loadUserData } from './users';
+import { updateLoading as updatePositionsLoading } from './positions';
 
 export interface Member {
   name: string;
@@ -109,6 +110,8 @@ export const createOrganization = (
     );
 
     dispatch(setOrganization(res.data));
+    dispatch(loadUserData());
+    dispatch(updatePositionsLoading(true));
 
     dispatch(
       showAlert({
@@ -145,6 +148,8 @@ export const joinOrganization = (
     await axios.post(`${rootApi}/api/v1/organizations/members`, body, config);
 
     dispatch(loadOrganizationData());
+    dispatch(loadUserData());
+    dispatch(updatePositionsLoading(true));
 
     dispatch(
       showAlert({
