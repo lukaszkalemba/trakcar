@@ -3,12 +3,20 @@
 @import 'styles/theme/colors';
 
 .button {
-  font-size: $m;
   color: $dark-red;
   margin: auto auto 0;
 
+  & > div {
+    width: 1.3em;
+    height: 1.3em;
+  }
+
   @include media('>=tablet') {
     margin-bottom: 40px;
+
+    & > span {
+      margin-top: 3px;
+    }
   }
 
   @include media('>=laptop') {

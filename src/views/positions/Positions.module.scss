@@ -12,9 +12,13 @@
 
 .organizationLink {
   margin: 35px auto 0;
-  font-size: $s;
 
   @include media('>=tablet') {
     font-size: $m;
+  }
+
+  & > div {
+    width: 1.1em;
+    height: 1.1em;
   }
 }

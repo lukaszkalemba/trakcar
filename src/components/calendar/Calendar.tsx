@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactCalendar from 'react-calendar';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import cx from 'classnames';
 import {
   updateSelectedDate,
@@ -13,9 +14,11 @@ import 'styles/calendar-styles.scss';
 const Calendar: React.FC<CalendarProps> = ({ modalCalendar, closeModal }) => {
   const dispatch = useDispatch();
   const { selectedDate } = useSelector(calendarDatesSelector);
+  const history = useHistory();
 
   const handleDateChange = (date: Date | Date[]) => {
     dispatch(updateSelectedDate(date as Date, closeModal));
+    history.push('/');
   };
 
   const wrapperClass = cx(styles.wrapper, {

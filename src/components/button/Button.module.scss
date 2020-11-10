@@ -45,6 +45,24 @@
   @include button-shared;
   padding: 7px 5px;
   font-size: $s;
+
+  & > div {
+    padding: 1px;
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  & > span {
+    margin-top: 2px;
+  }
+
+  @include media('>phone') {
+    font-size: $m;
+  }
+
+  @include media('>=tablet') {
+    font-size: $l;
+  }
 }
 
 .link {

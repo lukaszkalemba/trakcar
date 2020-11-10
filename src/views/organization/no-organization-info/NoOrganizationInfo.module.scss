@@ -26,11 +26,6 @@
 
   @include media('>=tablet') {
     width: 275px;
-
-    button {
-      font-size: $m;
-      margin-bottom: 2px;
-    }
   }
 
   @include media('>=laptop') {
@@ -39,5 +34,17 @@
 
   @include media('>=1140px') {
     width: 375px;
+  }
+
+  button {
+    @include media('>=tablet') {
+      font-size: $m;
+      margin-bottom: 2px;
+    }
+
+    & > div {
+      width: 1.1em;
+      height: 1.1em;
+    }
   }
 }
