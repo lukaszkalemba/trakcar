@@ -3,18 +3,19 @@
 @import 'styles/theme/box-shadow';
 
 .wrapper {
-  display: flex;
-  justify-content: center;
-  background-color: $white;
-  box-shadow: $layout-elements;
-  grid-row: 6 / 11;
-  grid-column: 1 / 3;
-}
-
-.hideOnMobile {
   display: none;
 
   @include media('>laptop') {
     display: flex;
+    justify-content: center;
+    background-color: $white;
+    box-shadow: $layout-elements;
+    grid-row: 6 / 11;
+    grid-column: 1 / 3;
   }
+}
+
+.modalCalendar {
+  display: flex;
+  box-shadow: none;
 }

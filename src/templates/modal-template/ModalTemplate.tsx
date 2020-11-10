@@ -1,14 +1,20 @@
 import React, { ReactNode } from 'react';
-import styles from './ModalTemplate.module.scss';
+import cx from 'classnames';
 import CloseButton from './close-button/CloseButton';
+import styles from './ModalTemplate.module.scss';
 
 const ModalTemplate: React.FC<ModalTemplateProps> = ({
   closeModal,
+  calendarModal,
   children,
 }) => {
+  const boardClass = cx(styles.board, {
+    [styles.calendarBoard]: calendarModal,
+  });
+
   return (
     <div className={styles.backdrop}>
-      <div className={styles.board}>
+      <div className={boardClass}>
         <CloseButton closeModal={closeModal} />
         {children}
       </div>
@@ -18,6 +24,7 @@ const ModalTemplate: React.FC<ModalTemplateProps> = ({
 
 interface ModalTemplateProps {
   closeModal: () => void;
+  calendarModal?: boolean;
   children: ReactNode;
 }
 

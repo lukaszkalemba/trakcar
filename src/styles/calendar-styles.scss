@@ -7,21 +7,18 @@
   padding: 10px;
   max-width: 280px;
   width: 100%;
+  margin: 0 auto;
 
   button {
     outline: none;
   }
 
   abbr {
-    font-size: $xs;
+    font-size: $s;
     font-weight: $semibold;
     text-transform: capitalize;
     padding: 6px;
     display: block;
-
-    @include media('>laptop') {
-      font-size: $s;
-    }
   }
 
   .react-calendar__navigation {
@@ -52,15 +49,11 @@
   }
 
   .react-calendar__navigation__next-button {
-    @include media('>laptop') {
-      margin-right: 15px;
-    }
+    margin-right: 15px;
   }
 
   .react-calendar__navigation__prev-button {
-    @include media('>laptop') {
-      margin-left: 15px;
-    }
+    margin-left: 15px;
   }
 
   .react-calendar__month-view__weekdays__weekday {
@@ -71,32 +64,22 @@
   }
 
   .react-calendar__navigation__label {
-    font-size: $l;
     font-weight: $semibold;
     text-transform: capitalize;
     background-color: $white;
     pointer-events: none;
     border: none;
-    padding: 15px 0;
-
-    @include media('>laptop') {
-      margin-left: 15px;
-      font-size: $xl;
-      padding: 20px 0;
-    }
+    font-size: $xl;
+    padding: 20px 0;
   }
 
   .react-calendar__month-view__days__day {
     width: 8px;
-    height: 28px;
     padding: 0;
     border: none;
     background-color: transparent;
     cursor: pointer;
-
-    @include media('>laptop') {
-      height: 30px;
-    }
+    height: 30px;
   }
 
   .react-calendar__tile--now {

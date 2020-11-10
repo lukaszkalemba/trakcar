@@ -11,7 +11,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <TopBar />
       <div className={styles.desktopView}>
         <DesktopNavigation />
-        <Calendar hideOnMobile />
+        <Calendar />
         <main>{children}</main>
       </div>
       <MobileNavigation />

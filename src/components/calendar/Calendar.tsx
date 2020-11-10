@@ -3,9 +3,9 @@ import ReactCalendar from 'react-calendar';
 import cx from 'classnames';
 import { getWeekDays } from 'helpers/getWeekDays';
 import styles from './Calendar.module.scss';
-import 'styles/custom-calendar-styles.scss';
+import 'styles/calendar-styles.scss';
 
-const Calendar: React.FC<CalendarProps> = ({ hideOnMobile }) => {
+const Calendar: React.FC<CalendarProps> = ({ modalCalendar }) => {
   const handleDateChange = () => {
     console.log('date changed');
   };
@@ -13,7 +13,7 @@ const Calendar: React.FC<CalendarProps> = ({ hideOnMobile }) => {
   const selectedDate = new Date();
 
   const wrapperClass = cx(styles.wrapper, {
-    [styles.hideOnMobile]: hideOnMobile,
+    [styles.modalCalendar]: modalCalendar,
   });
 
   return (
@@ -28,7 +28,7 @@ const Calendar: React.FC<CalendarProps> = ({ hideOnMobile }) => {
 };
 
 interface CalendarProps {
-  hideOnMobile?: boolean;
+  modalCalendar?: boolean;
 }
 
 export default Calendar;
