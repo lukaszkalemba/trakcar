@@ -3,33 +3,36 @@
 
 .button {
   font-size: $s;
+  padding: 4px;
 
   span {
     display: none;
   }
 
   & > div {
-    height: 1.75em;
-    width: 1.75em;
+    height: 2em;
+    width: 2em;
   }
 
   @include media('>=tablet') {
+    padding: 2px;
+
     & > div {
-      height: 2em;
-      width: 2em;
+      height: 2.5em;
+      width: 2.5em;
     }
   }
 
   @include media('>laptop') {
-    font-size: $s;
+    padding: 4px;
 
     span {
       display: block;
     }
 
     & > div {
-      height: 1.5em;
-      width: 1.5em;
+      height: 1.65em;
+      width: 1.65em;
     }
   }
 }
