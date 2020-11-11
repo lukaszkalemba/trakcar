@@ -21,13 +21,14 @@
   }
 
   @include media('>=tablet') {
-    height: 45px;
+    height: 50px;
   }
 
   @include media('>1120px') {
     width: 325px;
     border-bottom-left-radius: 6px;
     border-top-left-radius: 6px;
+    height: 45px;
   }
 }
 
@@ -35,6 +36,7 @@
   font-size: $m;
   font-weight: $medium;
   padding: 5px 20px;
+  font-family: $fira-code, monospace;
 
   @include media('>=tablet') {
     font-size: $xl;
