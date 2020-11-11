@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { format } from 'date-fns';
 import { AppThunk } from 'components/app/App';
 
 export interface CalendarDates {
@@ -6,7 +7,7 @@ export interface CalendarDates {
 }
 
 const initialState: CalendarDates = {
-  selectedDate: new Date().toString(),
+  selectedDate: format(new Date(), 'yyyy-MM-dd'),
 };
 
 const calendarDatesSlice = createSlice({
@@ -33,7 +34,9 @@ export const updateSelectedDate = (
   date: Date,
   closeModal?: () => void
 ): AppThunk => async (dispatch) => {
-  dispatch(setDate(date.toString()));
+  const formattedDate = format(date, 'yyyy-MM-dd');
+
+  dispatch(setDate(formattedDate));
 
   if (closeModal) {
     closeModal();
