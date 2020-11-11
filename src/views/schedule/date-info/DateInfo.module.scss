@@ -1,0 +1,57 @@
+@import 'styles/theme/media';
+@import 'styles/theme/colors';
+@import 'styles/theme/fonts';
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $black;
+  height: 32px;
+
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: $white;
+  }
+
+  @include media('>phone') {
+    height: 40px;
+  }
+
+  @include media('>=tablet') {
+    height: 45px;
+  }
+
+  @include media('>1120px') {
+    width: 325px;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+  }
+}
+
+.dateButton {
+  font-size: $m;
+  font-weight: $medium;
+  padding: 5px 20px;
+
+  @include media('>=tablet') {
+    font-size: $xl;
+  }
+}
+
+.arrowButton {
+  height: 100%;
+  width: 80px;
+  padding: 13px 0;
+  cursor: pointer;
+
+  @include media('>=tablet') {
+    width: 135px;
+  }
+
+  @include media('>1120px') {
+    width: 70px;
+  }
+}

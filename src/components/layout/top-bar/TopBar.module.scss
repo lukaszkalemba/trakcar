@@ -15,7 +15,7 @@
     padding: 8px 30px;
   }
 
-  @include media('>=laptop') {
+  @include media('>1120px') {
     padding: 8px 40px;
   }
 }

@@ -23,7 +23,7 @@
     }
   }
 
-  @include media('>laptop') {
+  @include media('>1120px') {
     padding: 4px;
 
     span {

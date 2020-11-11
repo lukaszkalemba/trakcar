@@ -1,5 +1,4 @@
 @import 'styles/theme/media';
-@import 'styles/theme/fonts';
 
 .wrapper {
   display: flex;
@@ -13,7 +12,7 @@
     padding: 35px 50px;
   }
 
-  @include media('>laptop') {
+  @include media('>1120px') {
     padding: 40px 0;
   }
 }
@@ -21,7 +20,7 @@
 .orderButton {
   padding: 0 4px;
 
-  @include media('>laptop') {
+  @include media('>1120px') {
     margin-left: 50px;
   }
 }
@@ -38,7 +37,7 @@
     padding: 0;
   }
 
-  @include media('>laptop') {
+  @include media('>1120px') {
     display: none;
   }
 }

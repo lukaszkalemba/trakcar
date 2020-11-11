@@ -7,7 +7,7 @@
     width: 145px;
   }
 
-  @include media('>=laptop') {
+  @include media('>1120px') {
     width: 120px;
   }
 }
