@@ -5,8 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { signInUser, SigninValues, usersSelector } from 'modules/users';
 import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
 import Button from 'components/button/Button';
-import TextInput from 'components/text-input/TextInput';
-import PasswordInput from 'components/password-input/PasswordInput';
+import * as Input from 'components/input/Input';
 import arrow_right_icon from 'assets/svgs/icon_arrow-right.svg';
 import { initialValues, validationSchema } from './SignIn.formik';
 
@@ -37,8 +36,8 @@ const SignIn: React.FC = () => {
       >
         {() => (
           <Form>
-            <TextInput label="email" name="email" type="email" />
-            <PasswordInput label="password" name="password" />
+            <Input.Email label="email" name="email" />
+            <Input.Password label="password" name="password" />
             <Button type="submit" icon={arrow_right_icon}>
               sign in
             </Button>
