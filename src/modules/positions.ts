@@ -44,6 +44,13 @@ const positionsSlice = createSlice({
         loading: false,
       };
     },
+    unsetPositions: (state) => {
+      return {
+        ...state,
+        positions: null,
+        loading: true,
+      };
+    },
     unsetSinglePosition: (state, { payload }: PayloadAction<string>) => {
       const { positions } = state;
 
@@ -60,6 +67,7 @@ const positionsSlice = createSlice({
 export const {
   setLoading,
   setPositions,
+  unsetPositions,
   unsetSinglePosition,
 } = positionsSlice.actions;
 export default positionsSlice.reducer;

@@ -4,6 +4,8 @@ import { rootApi } from 'utils/api';
 import { setAuthToken } from 'helpers/setAuthToken';
 import { AppThunk } from 'components/app/App';
 import { unsetOrganization } from './organizations';
+import { unsetPositions } from './positions';
+import { unsetDate } from './calendar-dates';
 import { showAlert } from './alerts';
 
 interface UserData {
@@ -128,6 +130,8 @@ export const signInUser = ({
 export const signOutUser = (): AppThunk => async (dispatch) => {
   dispatch(unsetUser());
   dispatch(unsetOrganization());
+  dispatch(unsetPositions());
+  dispatch(unsetDate());
 };
 
 export interface SignupValues extends SigninValues {

@@ -20,10 +20,16 @@ const calendarDatesSlice = createSlice({
         selectedDate: payload,
       };
     },
+    unsetDate: (state) => {
+      return {
+        ...state,
+        selectedDate: format(new Date(), 'yyyy-MM-dd'),
+      };
+    },
   },
 });
 
-export const { setDate } = calendarDatesSlice.actions;
+export const { setDate, unsetDate } = calendarDatesSlice.actions;
 export default calendarDatesSlice.reducer;
 
 export const calendarDatesSelector = (state: {
