@@ -34,6 +34,7 @@ const Button: React.FC<ButtonProps> = ({
   }
 
   return (
+    /* eslint-disable react/button-has-type */
     <button
       type={type as 'button' | 'submit'}
       className={buttonClass}

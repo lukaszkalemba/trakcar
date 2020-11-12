@@ -22,11 +22,11 @@ const Buttons: React.FC<ButtonsProps> = ({
 
   return (
     <div className={styles.wrapper}>
-      <button onClick={handleUpdateButtonClick}>
+      <button type="button" onClick={handleUpdateButtonClick}>
         <Icon src={pencil_icon} />
       </button>
 
-      <button onClick={handleDeleteButtonClick}>
+      <button type="button" onClick={handleDeleteButtonClick}>
         <Icon src={bin_icon} />
       </button>
     </div>

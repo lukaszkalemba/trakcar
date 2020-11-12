@@ -30,17 +30,19 @@ const DateInfo: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <button
+        type="button"
         onClick={() => decrementDate(selectedDate)}
         className={styles.arrowButton}
       >
         <Icon src={arrow_left_icon} />
       </button>
       <time dateTime={selectedDate}>
-        <button onClick={resetDate} className={styles.dateButton}>
+        <button type="button" onClick={resetDate} className={styles.dateButton}>
           {selectedDate}
         </button>
       </time>
       <button
+        type="button"
         onClick={() => incrementDate(selectedDate)}
         className={styles.arrowButton}
       >

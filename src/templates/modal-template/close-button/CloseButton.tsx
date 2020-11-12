@@ -5,7 +5,7 @@ import styles from './CloseButton.module.scss';
 
 const CloseButton: React.FC<CloseButtonProps> = ({ closeModal }) => {
   return (
-    <button className={styles.button} onClick={closeModal}>
+    <button type="button" className={styles.button} onClick={closeModal}>
       <Icon src={cancellation_icon} />
     </button>
   );

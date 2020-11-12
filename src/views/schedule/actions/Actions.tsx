@@ -11,7 +11,11 @@ const Actions: React.FC<ActionsProps> = ({ openCalendarModal }) => {
       <Button className={styles.orderButton} icon={icon_plus}>
         Book order
       </Button>
-      <button className={styles.calendarButton} onClick={openCalendarModal}>
+      <button
+        type="button"
+        className={styles.calendarButton}
+        onClick={openCalendarModal}
+      >
         <Icon src={icon_calendar} />
       </button>
     </div>
