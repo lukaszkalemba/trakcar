@@ -12,19 +12,19 @@ export interface Member {
   avatar: string;
 }
 
-export interface OrganizationData {
+export interface Organization {
   id: string;
   organizationName: string;
   members: Member[];
   admin: string;
 }
 
-export interface Organization {
-  organization: OrganizationData | null;
+export interface OrganizationState {
+  organization: Organization | null;
   loading: boolean;
 }
 
-const initialState: Organization = {
+const initialState: OrganizationState = {
   organization: null,
   loading: true,
 };
@@ -41,7 +41,7 @@ const organizationsSlice = createSlice({
     },
     setOrganization: (
       state,
-      { payload }: PayloadAction<{ data: OrganizationData }>
+      { payload }: PayloadAction<{ data: Organization }>
     ) => {
       return {
         ...state,
@@ -66,8 +66,9 @@ export const {
 } = organizationsSlice.actions;
 export default organizationsSlice.reducer;
 
-export const organizationsSelector = (state: { organizations: Organization }) =>
-  state.organizations;
+export const organizationsSelector = (state: {
+  organizations: OrganizationState;
+}) => state.organizations;
 
 export const updateLoading = (loadingStatus: boolean): AppThunk => async (
   dispatch

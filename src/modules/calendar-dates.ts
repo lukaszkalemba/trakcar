@@ -2,11 +2,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { format } from 'date-fns';
 import { AppThunk } from 'components/app/App';
 
-export interface CalendarDates {
+export interface CalendarDatesState {
   selectedDate: string;
 }
 
-const initialState: CalendarDates = {
+const initialState: CalendarDatesState = {
   selectedDate: format(new Date(), 'yyyy-MM-dd'),
 };
 
@@ -33,7 +33,7 @@ export const { setDate, unsetDate } = calendarDatesSlice.actions;
 export default calendarDatesSlice.reducer;
 
 export const calendarDatesSelector = (state: {
-  calendarDates: CalendarDates;
+  calendarDates: CalendarDatesState;
 }) => state.calendarDates;
 
 export const updateSelectedDate = (

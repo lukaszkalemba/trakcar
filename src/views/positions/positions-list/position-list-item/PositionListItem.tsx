@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PositionData } from 'modules/positions';
+import { Position } from 'modules/positions';
 import Buttons from './buttons/Buttons';
 import UpdatePositionModal from './update-position-modal/UpdatePositionModal';
 import styles from './PositionListItem.module.scss';
@@ -32,7 +32,7 @@ const PositionListItem: React.FC<PositionListItemProps> = ({ position }) => {
 };
 
 interface PositionListItemProps {
-  position: PositionData;
+  position: Position;
 }
 
 export default PositionListItem;

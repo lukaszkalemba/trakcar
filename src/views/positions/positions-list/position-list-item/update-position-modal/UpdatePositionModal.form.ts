@@ -1,7 +1,7 @@
 import * as yup from 'yup';
-import { PositionData } from 'modules/positions';
+import { Position } from 'modules/positions';
 
-export const getInitialValues = (position: PositionData) => ({
+export const getInitialValues = (position: Position) => ({
   name: position.name,
   startTime: position.startTime,
   endTime: position.endTime,

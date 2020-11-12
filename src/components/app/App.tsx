@@ -9,15 +9,13 @@ import Organization from 'views/organization/Organization';
 import SignUp from 'views/sign-up/SignUp';
 import SignIn from 'views/sign-in/SignIn';
 import NotFound from 'views/not-found/NotFound';
-import usersReducer, { User } from 'modules/users';
-import organizationsReducer, {
-  Organization as OrganizationState,
-} from 'modules/organizations';
-import positionsReducer, {
-  Positions as PositionsState,
-} from 'modules/positions';
+import usersReducer, { UsersState } from 'modules/users';
+import organizationsReducer, { OrganizationState } from 'modules/organizations';
+import positionsReducer, { PositionsState } from 'modules/positions';
 import alertsReducer, { Alert } from 'modules/alerts';
-import calendarDatesReducer, { CalendarDates } from 'modules/calendar-dates';
+import calendarDatesReducer, {
+  CalendarDatesState,
+} from 'modules/calendar-dates';
 import { setFullHeight } from 'helpers/setFullHeight';
 import { setAuthToken } from 'helpers/setAuthToken';
 import Alerts from './alerts/Alerts';
@@ -26,10 +24,10 @@ import 'normalize.css';
 import 'styles/global.scss';
 
 interface StateSchema {
-  users: User;
+  users: UsersState;
   organizations: OrganizationState;
   positions: PositionsState;
-  calendarDates: CalendarDates;
+  calendarDates: CalendarDatesState;
   alerts: Alert[];
 }
 

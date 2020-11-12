@@ -5,7 +5,7 @@ import { AppThunk } from 'components/app/App';
 import { showAlert } from './alerts';
 import { loadUserData } from './users';
 
-export interface PositionData {
+export interface Position {
   _id: string;
   name: string;
   startTime: string;
@@ -14,12 +14,12 @@ export interface PositionData {
   organization: string;
 }
 
-export interface Positions {
-  positions: PositionData[] | null;
+export interface PositionsState {
+  positions: Position[] | null;
   loading: boolean;
 }
 
-const initialState: Positions = {
+const initialState: PositionsState = {
   positions: null,
   loading: true,
 };
@@ -34,10 +34,7 @@ const positionsSlice = createSlice({
         loading: payload,
       };
     },
-    setPositions: (
-      state,
-      { payload }: PayloadAction<{ data: PositionData[] }>
-    ) => {
+    setPositions: (state, { payload }: PayloadAction<{ data: Position[] }>) => {
       return {
         ...state,
         positions: payload.data,
@@ -56,7 +53,7 @@ const positionsSlice = createSlice({
 
       return {
         ...state,
-        positions: (positions as PositionData[]).filter(
+        positions: (positions as Position[]).filter(
           ({ _id }) => _id !== payload
         ),
       };
@@ -72,7 +69,7 @@ export const {
 } = positionsSlice.actions;
 export default positionsSlice.reducer;
 
-export const positionsSelector = (state: { positions: Positions }) =>
+export const positionsSelector = (state: { positions: PositionsState }) =>
   state.positions;
 
 export const updateLoading = (loadingStatus: boolean): AppThunk => async (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PositionData } from 'modules/positions';
+import { Position } from 'modules/positions';
 import PositionListItem from './position-list-item/PositionListItem';
 import styles from './PositionsList.module.scss';
 
@@ -14,7 +14,7 @@ const PositionsList: React.FC<PositionsListProps> = ({ positions }) => {
 };
 
 interface PositionsListProps {
-  positions: PositionData[];
+  positions: Position[];
 }
 
 export default PositionsList;

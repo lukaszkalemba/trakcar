@@ -8,7 +8,7 @@ import { unsetPositions } from './positions';
 import { unsetDate } from './calendar-dates';
 import { showAlert } from './alerts';
 
-interface UserData {
+interface User {
   _id: string;
   name: string;
   email: string;
@@ -17,13 +17,13 @@ interface UserData {
   organization?: string;
 }
 
-export interface User {
+export interface UsersState {
   token: string | null;
-  user: UserData | null;
+  user: User | null;
   loading: boolean;
 }
 
-const initialState: User = {
+const initialState: UsersState = {
   token: localStorage.getItem('token'),
   user: null,
   loading: false,
@@ -39,7 +39,7 @@ const usersSlice = createSlice({
         loading: payload,
       };
     },
-    getUser: (state, { payload }: PayloadAction<{ data: UserData }>) => {
+    getUser: (state, { payload }: PayloadAction<{ data: User }>) => {
       return {
         ...state,
         user: payload.data,
@@ -70,7 +70,7 @@ const usersSlice = createSlice({
 export const { setLoading, getUser, setUser, unsetUser } = usersSlice.actions;
 export default usersSlice.reducer;
 
-export const usersSelector = (state: { users: User }) => state.users;
+export const usersSelector = (state: { users: UsersState }) => state.users;
 
 export const updateLoading = (loadingStatus: boolean): AppThunk => async (
   dispatch

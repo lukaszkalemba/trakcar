@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import {
   CreatePositionValues,
   updatePosition,
-  PositionData,
+  Position,
 } from 'modules/positions';
 import { showAlert } from 'modules/alerts';
 import arrow_right_icon from 'assets/svgs/icon_arrow-right-black.svg';
@@ -72,7 +72,7 @@ const UpdatePositionModal: React.FC<UpdatePositionModalProps> = ({
 };
 
 interface UpdatePositionModalProps {
-  position: PositionData;
+  position: Position;
   closeModal: () => void;
 }
 
