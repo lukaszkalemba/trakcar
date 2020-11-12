@@ -7,7 +7,7 @@ import arrow_right_icon from 'assets/svgs/icon_arrow-right-black.svg';
 import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
 import Button from 'components/button/Button';
 import * as Inputs from 'components/inputs/Inputs';
-import { initialValues, validationSchema } from './SignUp.formik';
+import { initialValues, validationSchema } from './SignUp.form';
 
 const SignUp: React.FC = () => {
   const dispatch = useDispatch();

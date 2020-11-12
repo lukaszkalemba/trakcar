@@ -12,7 +12,7 @@ import Button from 'components/button/Button';
 import {
   initialValues,
   validationSchema,
-} from './CreateOrganizationModal.formik';
+} from './CreateOrganizationModal.form';
 
 const CreateOrganizationModal: React.FC<CreateOrganizationModalProps> = ({
   closeModal,

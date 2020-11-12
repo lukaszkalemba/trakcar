@@ -9,10 +9,7 @@ import arrow_right_icon from 'assets/svgs/icon_arrow-right-black.svg';
 import ModalTemplate from 'templates/modal-template/ModalTemplate';
 import * as Inputs from 'components/inputs/Inputs';
 import Button from 'components/button/Button';
-import {
-  initialValues,
-  validationSchema,
-} from './JoinOrganizationModal.formik';
+import { initialValues, validationSchema } from './JoinOrganizationModal.form';
 
 const JoinOrganizationModal: React.FC<JoinOrganizationModalProps> = ({
   closeModal,
