@@ -96,6 +96,5 @@
       "stylelint --config .stylelintrc --fix ./src/**/*.{css,scss}",
       "git add ."
     ]
-  },
-  "proxy": "http://localhost:5000"
+  }
 }
