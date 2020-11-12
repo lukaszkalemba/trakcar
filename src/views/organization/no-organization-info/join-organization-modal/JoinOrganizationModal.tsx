@@ -6,7 +6,7 @@ import {
   JoinOrganizationValues,
 } from 'modules/organizations';
 import arrow_right_icon from 'assets/svgs/icon_arrow-right.svg';
-import * as Input from 'components/input/Input';
+import * as Inputs from 'components/inputs/Inputs';
 import Button from 'components/button/Button';
 import ModalTemplate from 'templates/modal-template/ModalTemplate';
 import {
@@ -32,7 +32,7 @@ const JoinOrganizationModal: React.FC<JoinOrganizationModalProps> = ({
       >
         {() => (
           <Form>
-            <Input.Text label="access code" name="accessCode" maxLength={4} />
+            <Inputs.Text label="access code" name="accessCode" maxLength={4} />
             <Button type="submit" icon={arrow_right_icon}>
               join
             </Button>

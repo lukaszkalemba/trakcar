@@ -1,0 +1,15 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+
+.error {
+  font-size: $xs;
+  height: 12px;
+  margin-top: 7px;
+  margin-left: 1px;
+  color: $dark-red;
+
+  @include media('>=tablet') {
+    font-size: $s;
+  }
+}

@@ -8,7 +8,7 @@ import {
   PositionData,
 } from 'modules/positions';
 import { showAlert } from 'modules/alerts';
-import * as Input from 'components/input/Input';
+import * as Inputs from 'components/inputs/Inputs';
 import Button from 'components/button/Button';
 import ModalTemplate from 'templates/modal-template/ModalTemplate';
 import {
@@ -61,9 +61,9 @@ const UpdatePositionModal: React.FC<UpdatePositionModalProps> = ({
       >
         {() => (
           <Form>
-            <Input.Text label="name" name="name" />
-            <Input.Time label="start time" name="startTime" step={3600} />
-            <Input.Time label="end time" name="endTime" step={3600} />
+            <Inputs.Text label="name" name="name" />
+            <Inputs.Time label="start time" name="startTime" step={3600} />
+            <Inputs.Time label="end time" name="endTime" step={3600} />
             <Button type="submit" icon={arrow_right_icon}>
               update
             </Button>

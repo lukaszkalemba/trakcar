@@ -1,0 +1,17 @@
+@import 'styles/theme/colors';
+
+.visibilityButton {
+  border: none;
+  background: none;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  right: 5px;
+  cursor: pointer;
+
+  path {
+    fill: $dark-gray;
+  }
+}

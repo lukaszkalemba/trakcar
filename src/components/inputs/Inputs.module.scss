@@ -1,0 +1,13 @@
+@import 'styles/theme/fonts';
+
+.wrapper {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.timeLabel {
+  top: -13px;
+  left: 0;
+  font-size: $s;
+}

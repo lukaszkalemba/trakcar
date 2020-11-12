@@ -1,0 +1,35 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+
+.label {
+  font-size: $m;
+  font-weight: $regular;
+  color: darken($dark-gray, 30);
+  position: absolute;
+  pointer-events: none;
+  left: 3px;
+  top: 15px;
+  transition: all 0.2s ease;
+
+  @include media('>=tablet') {
+    font-size: $l;
+    top: 10px;
+  }
+
+  &.active {
+    top: -13px;
+    left: 0;
+    font-size: $s;
+    color: $black;
+
+    @include media('>=tablet') {
+      font-size: $s;
+    }
+  }
+
+  &.error,
+  &.active.error {
+    color: $dark-red;
+  }
+}

@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { signUpUser, SignupValues, usersSelector } from 'modules/users';
 import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
 import Button from 'components/button/Button';
-import * as Input from 'components/input/Input';
+import * as Inputs from 'components/inputs/Inputs';
 import arrow_right_icon from 'assets/svgs/icon_arrow-right.svg';
 import { initialValues, validationSchema } from './SignUp.formik';
 
@@ -36,9 +36,9 @@ const SignUp: React.FC = () => {
       >
         {() => (
           <Form>
-            <Input.Text label="name" name="name" />
-            <Input.Email label="email" name="email" />
-            <Input.Password label="password" name="password" />
+            <Inputs.Text label="name" name="name" />
+            <Inputs.Email label="email" name="email" />
+            <Inputs.Password label="password" name="password" />
             <Button type="submit" icon={arrow_right_icon}>
               sign up
             </Button>
