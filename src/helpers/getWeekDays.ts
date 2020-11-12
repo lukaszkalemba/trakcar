@@ -1,19 +1,19 @@
-export const getWeekDays = (_: any, date: any) => {
+export const getWeekDays = (_: any, date: Date) => {
   const weekDay = date.getDay();
 
   switch (weekDay) {
     case 0:
-      return 'N';
+      return 'U';
     case 1:
-      return 'P';
+      return 'M';
     case 2:
-      return 'W';
+      return 'T';
     case 3:
-      return 'Ś';
+      return 'W';
     case 4:
-      return 'C';
+      return 'R';
     case 5:
-      return 'P';
+      return 'F';
     case 6:
       return 'S';
     default:

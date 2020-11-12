@@ -32,6 +32,7 @@ const Calendar: React.FC<CalendarProps> = ({ modalCalendar, closeModal }) => {
         formatShortWeekday={getWeekDays}
         onChange={handleDateChange}
         value={new Date(selectedDate)}
+        locale="en-EN"
       />
     </div>
   );
