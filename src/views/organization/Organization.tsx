@@ -6,6 +6,7 @@ import {
   organizationsSelector,
 } from 'modules/organizations';
 import Layout from 'components/layout/Layout';
+import LoadingSpinner from 'components/loading-spinner/LoadingSpinner';
 import User from './user/User';
 import OrganizationInfo from './organization-info/OrganizationInfo';
 import NoOrganizationInfo from './no-organization-info/NoOrganizationInfo';
@@ -22,19 +23,17 @@ const Organization: React.FC = () => {
     dispatch(loadOrganizationData());
   }, [dispatch]);
 
-  if (userLoading || organizationLoading)
-    return (
-      <Layout>
-        <div className={styles.wrapper}>loading</div>
-      </Layout>
-    );
-
   return (
     <Layout>
       <div className={styles.wrapper}>
-        <User avatar={user?.avatar} name={user?.name} email={user?.email} />
-
-        {organization ? <OrganizationInfo /> : <NoOrganizationInfo />}
+        {userLoading || organizationLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            <User avatar={user?.avatar} name={user?.name} email={user?.email} />
+            {organization ? <OrganizationInfo /> : <NoOrganizationInfo />}
+          </>
+        )}
       </div>
     </Layout>
   );

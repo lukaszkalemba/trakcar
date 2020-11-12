@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPositions, positionsSelector } from 'modules/positions';
 import { usersSelector } from 'modules/users';
+import organization_icon from 'assets/svgs/icon_organization-black.svg';
+import LoadingSpinner from 'components/loading-spinner/LoadingSpinner';
 import Layout from 'components/layout/Layout';
 import Button from 'components/button/Button';
 import Heading from 'components/heading/Heading';
-import organization_icon from 'assets/svgs/icon_organization-black.svg';
 import PositionsList from './positions-list/PositionsList';
 import NewPositionContent from './new-position-content/NewPositionContent';
 import styles from './Positions.module.scss';
@@ -31,7 +32,7 @@ const Positions: React.FC = () => {
 
   const renderResults = () => {
     if (loading) {
-      return <div>loading</div>;
+      return <LoadingSpinner />;
     }
 
     if (user?.organization && positions?.length) {
