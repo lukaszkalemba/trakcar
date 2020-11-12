@@ -16,12 +16,6 @@ API Repositiory: <a href="https://github.com/lukaszkalemba/trakcar-api/">github.
 
 <br/>
 
-## 🌍 Links
-Demo: <a href="https://trakcar.netlify.app/">trakcar.netlify.app</a><br>
-API Repositiory: <a href="https://github.com/lukaszkalemba/trakcar-api/">github.com/lukaszkalemba/trakcar-api</a>
-
-<br/>
-
 ## 🚀 Quick Start
 
 **Installation**
@@ -36,17 +30,17 @@ API Repositiory: <a href="https://github.com/lukaszkalemba/trakcar-api/">github.
   npm start
 ```
 
-**Running tests**
+<!-- **Running tests**
 
 ```shell
   npm test
-```
+``` -->
 
-**Running storybook**
+<!-- **Running storybook**
 
 ```shell
   npm run storybook
-```
+``` -->
 
 **Building project**
 
@@ -59,13 +53,14 @@ API Repositiory: <a href="https://github.com/lukaszkalemba/trakcar-api/">github.
 ## 📚 Technologies
 
 - React
-- Redux
+- Redux & Redux Toolkit
 - TypeScript
 - SCSS modules
-- Jest & testing-library
-- date-fns
+- Formik & Yup
 - Eslint & prettier
 - Husky & lint-staged
+<!-- - Jest & testing-library -->
+<!-- - date-fns -->
 
   <br/>
   <br/>
