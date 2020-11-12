@@ -24,7 +24,7 @@ const DeleteButton: React.FC<DeleteButtonProps> = ({
 
 interface DeleteButtonProps {
   children: ReactNode;
-  organizationId: string | undefined;
+  organizationId?: string;
 }
 
 export default DeleteButton;

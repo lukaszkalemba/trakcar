@@ -14,7 +14,7 @@ interface UserData {
   email: string;
   avatar: string;
   date: string;
-  organization: string | undefined;
+  organization?: string;
 }
 
 export interface User {

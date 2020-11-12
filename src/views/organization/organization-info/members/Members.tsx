@@ -24,8 +24,8 @@ const Members: React.FC<MembersProps> = ({ members, organizationName }) => {
 };
 
 interface MembersProps {
-  members: Member[] | undefined;
-  organizationName: string | undefined;
+  members?: Member[];
+  organizationName?: string;
 }
 
 export default Members;

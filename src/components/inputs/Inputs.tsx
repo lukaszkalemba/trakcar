@@ -6,7 +6,7 @@ import Error from './error/Error';
 import VisibilityButton from './visibility-button/VisibilityButton';
 import styles from './Inputs.module.scss';
 
-const handleError = (touched: boolean, error: undefined | string) => {
+const handleError = (touched: boolean, error?: string) => {
   return !!(touched && error);
 };
 

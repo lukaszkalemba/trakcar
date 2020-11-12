@@ -11,7 +11,7 @@ const Organization: React.FC<OrganizationProps> = ({ name, userType }) => {
 };
 
 interface OrganizationProps {
-  name: string | undefined;
+  name?: string;
   userType: 'admin' | 'standard user';
 }
 

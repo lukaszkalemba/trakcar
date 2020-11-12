@@ -10,7 +10,7 @@ const Avatar: React.FC<AvatarProps> = ({ avatar }) => {
 };
 
 interface AvatarProps {
-  avatar: string | undefined;
+  avatar?: string;
 }
 
 export default Avatar;

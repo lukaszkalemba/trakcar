@@ -17,9 +17,9 @@ const User: React.FC<UserProps> = ({ name, email, avatar }) => {
 };
 
 interface UserProps {
-  name: string | undefined;
-  email: string | undefined;
-  avatar: string | undefined;
+  name?: string;
+  email?: string;
+  avatar?: string;
 }
 
 export default User;
