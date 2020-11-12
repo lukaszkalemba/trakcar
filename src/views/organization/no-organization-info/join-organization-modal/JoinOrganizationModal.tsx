@@ -5,10 +5,10 @@ import {
   joinOrganization,
   JoinOrganizationValues,
 } from 'modules/organizations';
-import arrow_right_icon from 'assets/svgs/icon_arrow-right.svg';
+import arrow_right_icon from 'assets/svgs/icon_arrow-right-black.svg';
+import ModalTemplate from 'templates/modal-template/ModalTemplate';
 import * as Inputs from 'components/inputs/Inputs';
 import Button from 'components/button/Button';
-import ModalTemplate from 'templates/modal-template/ModalTemplate';
 import {
   initialValues,
   validationSchema,

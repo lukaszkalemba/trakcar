@@ -1,7 +1,7 @@
 import React from 'react';
-import Icon from 'components/icon/Icon';
 import visible_icon from 'assets/svgs/icon_eye-visible.svg';
 import invisible_icon from 'assets/svgs/icon_eye-invisible.svg';
+import Icon from 'components/icon/Icon';
 import styles from './VisibilityButton.module.scss';
 
 const VisibilityButton: React.FC<VisibilityButtonProps> = ({

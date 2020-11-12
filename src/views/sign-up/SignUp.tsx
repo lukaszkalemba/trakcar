@@ -3,10 +3,10 @@ import { Formik, Form } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { signUpUser, SignupValues, usersSelector } from 'modules/users';
+import arrow_right_icon from 'assets/svgs/icon_arrow-right-black.svg';
 import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
 import Button from 'components/button/Button';
 import * as Inputs from 'components/inputs/Inputs';
-import arrow_right_icon from 'assets/svgs/icon_arrow-right.svg';
 import { initialValues, validationSchema } from './SignUp.formik';
 
 const SignUp: React.FC = () => {

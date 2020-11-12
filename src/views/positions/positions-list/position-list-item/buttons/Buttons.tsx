@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import delete_icon from 'assets/svgs/icon_delete-black.svg';
-import edit_icon from 'assets/svgs/icon_edit.svg';
 import { deletePosition } from 'modules/positions';
+import bin_icon from 'assets/svgs/icon_bin-black.svg';
+import pencil_icon from 'assets/svgs/icon_pencil.svg';
 import Icon from 'components/icon/Icon';
 import styles from './Buttons.module.scss';
 
@@ -23,11 +23,11 @@ const Buttons: React.FC<ButtonsProps> = ({
   return (
     <div className={styles.wrapper}>
       <button onClick={handleUpdateButtonClick}>
-        <Icon src={edit_icon} />
+        <Icon src={pencil_icon} />
       </button>
 
       <button onClick={handleDeleteButtonClick}>
-        <Icon src={delete_icon} />
+        <Icon src={bin_icon} />
       </button>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
-import Icon from 'components/icon/Icon';
 import icon_calendar from 'assets/svgs/icon_calendar-black.svg';
 import icon_plus from 'assets/svgs/icon_circle-plus.svg';
+import Icon from 'components/icon/Icon';
 import Button from 'components/button/Button';
 import styles from './Actions.module.scss';
 

@@ -2,10 +2,10 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import { CreatePositionValues, createPosition } from 'modules/positions';
+import arrow_right_icon from 'assets/svgs/icon_arrow-right-black.svg';
 import ModalTemplate from 'templates/modal-template/ModalTemplate';
 import * as Inputs from 'components/inputs/Inputs';
 import Button from 'components/button/Button';
-import arrow_right_icon from 'assets/svgs/icon_arrow-right.svg';
 import { initialValues, validationSchema } from './CreatePositionModal.formik';
 
 const CreatePositionModal: React.FC<CreatePositionModalProps> = ({

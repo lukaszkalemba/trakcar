@@ -1,13 +1,13 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import { useDispatch } from 'react-redux';
-import arrow_right_icon from 'assets/svgs/icon_arrow-right.svg';
 import {
   CreatePositionValues,
   updatePosition,
   PositionData,
 } from 'modules/positions';
 import { showAlert } from 'modules/alerts';
+import arrow_right_icon from 'assets/svgs/icon_arrow-right-black.svg';
 import * as Inputs from 'components/inputs/Inputs';
 import Button from 'components/button/Button';
 import ModalTemplate from 'templates/modal-template/ModalTemplate';

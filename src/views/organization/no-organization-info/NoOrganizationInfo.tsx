@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import join_icon from 'assets/svgs/icon_join.svg';
-import create_icon from 'assets/svgs/icon_create.svg';
+import share_icon from 'assets/svgs/icon_share.svg';
+import plus_icon from 'assets/svgs/icon_plus.svg';
 import Button from 'components/button/Button';
 import Heading from 'components/heading/Heading';
 import CreateOrganizationModal from './create-organization-modal/CreateOrganizationModal';
@@ -32,10 +32,10 @@ const NoOrganizationInfo: React.FC = () => {
       <section className={styles.wrapper}>
         <Heading>You are not a member of any organization yet.</Heading>
         <div className={styles.actions}>
-          <Button icon={create_icon} onClick={openCreateModal}>
+          <Button icon={plus_icon} onClick={openCreateModal}>
             create new
           </Button>
-          <Button icon={join_icon} onClick={openJoinModal}>
+          <Button icon={share_icon} onClick={openJoinModal}>
             join existing
           </Button>
         </div>
