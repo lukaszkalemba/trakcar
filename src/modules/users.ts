@@ -24,13 +24,19 @@ export interface User {
 const initialState: User = {
   token: localStorage.getItem('token'),
   user: null,
-  loading: true,
+  loading: false,
 };
 
 const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
+    setLoading: (state, { payload }: PayloadAction<boolean>) => {
+      return {
+        ...state,
+        loading: payload,
+      };
+    },
     getUser: (state, { payload }: PayloadAction<{ data: UserData }>) => {
       return {
         ...state,
@@ -44,7 +50,6 @@ const usersSlice = createSlice({
       return {
         ...state,
         token: payload.data,
-        loading: true,
       };
     },
     unsetUser: (state) => {
@@ -54,16 +59,22 @@ const usersSlice = createSlice({
         ...state,
         token: null,
         user: null,
-        loading: true,
+        loading: false,
       };
     },
   },
 });
 
-export const { getUser, setUser, unsetUser } = usersSlice.actions;
+export const { setLoading, getUser, setUser, unsetUser } = usersSlice.actions;
 export default usersSlice.reducer;
 
 export const usersSelector = (state: { users: User }) => state.users;
+
+export const updateLoading = (loadingStatus: boolean): AppThunk => async (
+  dispatch
+) => {
+  dispatch(setLoading(loadingStatus));
+};
 
 export const loadUserData = (): AppThunk => async (dispatch) => {
   if (localStorage.token) {
@@ -99,11 +110,15 @@ export const signInUser = ({
   const body = JSON.stringify({ email, password });
 
   try {
+    dispatch(setLoading(true));
+
     const res = await axios.post(`${rootApi}/api/v1/users/login`, body, config);
 
     dispatch(setUser(res.data));
     dispatch(loadUserData());
   } catch (error) {
+    dispatch(setLoading(false));
+
     dispatch(
       showAlert({ message: error.response.data.error, alertType: 'error' })
     );
@@ -133,11 +148,15 @@ export const signUpUser = ({
   const body = JSON.stringify({ name, email, password });
 
   try {
+    dispatch(setLoading(true));
+
     const res = await axios.post(`${rootApi}/api/v1/users`, body, config);
 
     dispatch(setUser(res.data));
     dispatch(loadUserData());
   } catch (error) {
+    dispatch(setLoading(false));
+
     dispatch(
       showAlert({ message: error.response.data.error, alertType: 'error' })
     );

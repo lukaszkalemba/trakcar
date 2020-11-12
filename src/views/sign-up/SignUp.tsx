@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { signUpUser, SignupValues, usersSelector } from 'modules/users';
 import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
 import Button from 'components/button/Button';
@@ -11,7 +11,7 @@ import { initialValues, validationSchema } from './SignUp.formik';
 
 const SignUp: React.FC = () => {
   const dispatch = useDispatch();
-  const { token } = useSelector(usersSelector);
+  const { loading, token } = useSelector(usersSelector);
 
   if (token) {
     return <Redirect to="/" />;
@@ -21,14 +21,14 @@ const SignUp: React.FC = () => {
     dispatch(signUpUser(values));
   };
 
-  const togglePageMessage = (
-    <p>
-      Already have an account? <Link to="/sign-in">Sign in</Link>
-    </p>
-  );
+  const pageToggleMessage = {
+    messageText: 'Already have an account?',
+    linkPath: '/sign-in',
+    linkText: 'Sign in',
+  };
 
   return (
-    <AuthViewTemplate togglePageMessage={togglePageMessage}>
+    <AuthViewTemplate loading={loading} pageToggleMessage={pageToggleMessage}>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

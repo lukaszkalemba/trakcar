@@ -1,0 +1,20 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+
+.paragraph {
+  font-size: $s;
+  width: 100%;
+  text-align: right;
+  color: darken($dark-gray, 30);
+
+  @include media('>=tablet') {
+    font-size: $m;
+  }
+
+  a {
+    color: $black;
+    font-weight: $semibold;
+    padding: 15px 0;
+  }
+}

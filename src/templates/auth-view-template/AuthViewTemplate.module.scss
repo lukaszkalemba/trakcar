@@ -39,23 +39,6 @@
       padding: 0;
       max-width: 500px;
     }
-
-    p {
-      font-size: $s;
-      width: 100%;
-      text-align: right;
-      color: darken($dark-gray, 30);
-
-      @include media('>=tablet') {
-        font-size: $m;
-      }
-
-      a {
-        color: $black;
-        font-weight: $semibold;
-        padding: 15px 0;
-      }
-    }
   }
 }
 
@@ -96,5 +79,18 @@
         margin-top: 25px;
       }
     }
+  }
+}
+
+.loadingSpinner {
+  transform: none;
+  font-size: $xxs;
+  top: auto;
+  bottom: 44px;
+  left: 43px;
+
+  @include media('>=tablet') {
+    bottom: 62px;
+    left: 65px;
   }
 }
