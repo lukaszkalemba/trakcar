@@ -12,6 +12,7 @@ import NotFound from 'views/not-found/NotFound';
 import usersReducer, { UsersState } from 'modules/users';
 import organizationsReducer, { OrganizationState } from 'modules/organizations';
 import positionsReducer, { PositionsState } from 'modules/positions';
+import ordersReducer, { OrdersState } from 'modules/orders';
 import alertsReducer, { Alert } from 'modules/alerts';
 import calendarDatesReducer, {
   CalendarDatesState,
@@ -27,6 +28,7 @@ interface StateSchema {
   users: UsersState;
   organizations: OrganizationState;
   positions: PositionsState;
+  orders: OrdersState;
   calendarDates: CalendarDatesState;
   alerts: Alert[];
 }
@@ -38,6 +40,7 @@ export const store = configureStore({
     users: usersReducer,
     organizations: organizationsReducer,
     positions: positionsReducer,
+    orders: ordersReducer,
     calendarDates: calendarDatesReducer,
     alerts: alertsReducer,
   },

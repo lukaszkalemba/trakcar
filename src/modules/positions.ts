@@ -10,7 +10,7 @@ export interface Position {
   name: string;
   startTime: string;
   endTime: string;
-  orders: any[];
+  orders: string[];
   organization: string;
 }
 

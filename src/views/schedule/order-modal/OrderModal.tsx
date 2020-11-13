@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { calendarDatesSelector } from 'modules/calendar-dates';
 import { positionsSelector, Position } from 'modules/positions';
+import { createOrder, CreateOrderValues } from 'modules/orders';
 import ModalTemplate from 'templates/modal-template/ModalTemplate';
 import FirstStep from './first-step/FirstStep';
 import SecondStep from './second-step/SecondStep';
@@ -11,13 +12,15 @@ import { getInitialValues, validationSchema } from './OrderModal.form';
 import styles from './OrderModal.module.scss';
 
 const OrderModal: React.FC<OrderModalProps> = ({ closeOrderModal }) => {
+  const dispatch = useDispatch();
+
   const [currentStep, setCurrentStep] = useState<number>(1);
 
   const { selectedDate } = useSelector(calendarDatesSelector);
   const { positions } = useSelector(positionsSelector);
 
-  const handleSubmit = (values: any) => {
-    console.log(values);
+  const handleSubmit = (values: CreateOrderValues) => {
+    dispatch(createOrder(values, closeOrderModal));
   };
 
   const initialValues = getInitialValues(

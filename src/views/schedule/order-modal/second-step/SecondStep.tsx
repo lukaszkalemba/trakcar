@@ -17,9 +17,9 @@ const SecondStep: React.FC<SecondStepProps> = ({ setCurrentStep }) => {
           </option>
         ))}
       </Inputs.Select>
-      <Inputs.Date label="order date" name="orderDate" />
-      <Inputs.Time label="start time" name="startWorkTime" step={3600} />
-      <Inputs.Time label="end time" name="endWorkTime" step={3600} />
+      <Inputs.Date label="date" name="date" />
+      <Inputs.Time label="start time" name="startTime" step={3600} />
+      <Inputs.Time label="end time" name="endTime" step={3600} />
       <Button
         type="button"
         icon={arrow_right_icon}
