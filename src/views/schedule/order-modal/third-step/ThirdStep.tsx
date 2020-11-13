@@ -5,9 +5,15 @@ import Button from 'components/button/Button';
 const ThirdStep: React.FC = () => {
   return (
     <>
-      <Inputs.Text label="highlight color" name="orderColor" />
+      <Inputs.Select label="highlight color" name="orderColor">
+        <option value="red">red</option>
+        <option value="orange">orange</option>
+        <option value="green">green</option>
+        <option value="violet">violet</option>
+        <option value="blue">blue</option>
+      </Inputs.Select>
       <Inputs.Text label="order cost" name="cost" />
-      <Inputs.Text label="Opis zlecenia" name="description" />
+      <Inputs.Text label="order description" name="description" />
       <Button type="submit">submit</Button>
     </>
   );

@@ -1,47 +1,5 @@
-@import 'styles/theme/media';
-@import 'styles/theme/fonts';
 @import 'styles/theme/colors';
 
-.input {
-  font-size: $l;
-  padding: 10px 0;
-  display: block;
-  width: 100%;
-  color: $black;
-  background: none;
-  border: none;
-  border-bottom: 1px solid $dark-gray;
-  transition: all 0.2s ease-in-out;
-  max-width: 400px;
-
-  &::-webkit-calendar-picker-indicator {
-    display: none;
-  }
-
-  &.error,
-  &:focus.error {
-    border-bottom-color: $dark-red;
-  }
-
-  &:focus {
-    outline: none;
-    border-bottom-color: $black;
-
-    & ~ label {
-      top: -13px;
-      left: 0;
-      font-size: $s;
-
-      @include media('>=tablet') {
-        font-size: $s;
-      }
-    }
-  }
-
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus,
-  &:-webkit-autofill:active {
-    box-shadow: 0 0 0 30px $white inset;
-  }
+.error {
+  border-bottom-color: $dark-red;
 }

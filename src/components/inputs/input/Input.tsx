@@ -1,6 +1,4 @@
 import React, { RefObject, ChangeEvent, FocusEvent } from 'react';
-import cx from 'classnames';
-import styles from './Input.module.scss';
 
 const Input: React.FC<InputProps> = ({
   reference,
@@ -9,19 +7,15 @@ const Input: React.FC<InputProps> = ({
   value,
   onChange,
   onBlur,
-  isError,
   maxLength,
   step,
+  className,
 }) => {
-  const inputClass = cx(styles.input, {
-    [styles.error]: isError,
-  });
-
   return (
     <input
       ref={reference}
       id={name}
-      className={inputClass}
+      className={className}
       type={type}
       name={name}
       value={value}
@@ -40,9 +34,9 @@ interface InputProps {
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onBlur: (event: FocusEvent<HTMLInputElement>) => void;
-  isError: boolean;
   maxLength?: number;
   step?: number;
+  className: string;
 }
 
 export default Input;

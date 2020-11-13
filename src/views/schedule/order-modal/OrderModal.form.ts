@@ -9,7 +9,7 @@ export const initialValues: any = {
   positionId: '',
   startWorkTime: '',
   endWorkTime: '',
-  orderColor: '',
+  orderColor: 'red',
   cost: '',
   description: '',
 };

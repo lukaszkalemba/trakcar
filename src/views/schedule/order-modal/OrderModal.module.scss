@@ -1,4 +1,5 @@
 @import 'styles/theme/media';
+@import 'styles/theme/fonts';
 
 .wrapper {
   height: 100%;
@@ -11,7 +12,8 @@
     button {
       margin-top: auto;
       align-self: flex-end;
-      padding: 7px 0;
+      font-size: $l;
+      padding: 0;
 
       span {
         margin-top: 1px;
@@ -29,9 +31,9 @@
 
 .modal {
   max-width: 450px;
-  height: 478px;
+  height: 460px;
 
   @include media('>=tablet') {
-    height: 510px;
+    height: 490px;
   }
 }

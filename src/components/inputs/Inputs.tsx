@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { ReactNode, useRef, useState } from 'react';
 import { useField } from 'formik';
+import cx from 'classnames';
 import Input from './input/Input';
 import Label from './label/Label';
 import Error from './error/Error';
@@ -23,9 +24,18 @@ const Text: React.FC<TextProps> = ({ label, name, maxLength }) => {
   const [field, meta] = useField({ name });
   const isError = handleError(meta.touched, meta.error);
 
+  const inputClass = cx(styles.input, {
+    [styles.error]: isError,
+  });
+
   return (
     <div className={styles.wrapper}>
-      <Input type="text" maxLength={maxLength} isError={isError} {...field} />
+      <Input
+        type="text"
+        maxLength={maxLength}
+        className={inputClass}
+        {...field}
+      />
       <Label
         name={name}
         content={label}
@@ -41,9 +51,13 @@ const Email: React.FC<InputProps> = ({ label, name }) => {
   const [field, meta] = useField({ name });
   const isError = handleError(meta.touched, meta.error);
 
+  const inputClass = cx(styles.input, {
+    [styles.error]: isError,
+  });
+
   return (
     <div className={styles.wrapper}>
-      <Input type="email" isError={isError} {...field} />
+      <Input type="email" className={inputClass} {...field} />
       <Label
         name={name}
         content={label}
@@ -67,12 +81,16 @@ const Password: React.FC<InputProps> = ({ label, name }) => {
     (inputRef.current as HTMLInputElement).focus();
   };
 
+  const inputClass = cx(styles.input, {
+    [styles.error]: isError,
+  });
+
   return (
     <div className={styles.wrapper}>
       <Input
         reference={inputRef}
         type={isPasswordVisible ? 'text' : 'password'}
-        isError={isError}
+        className={inputClass}
         {...field}
       />
       <Label
@@ -91,17 +109,23 @@ const Password: React.FC<InputProps> = ({ label, name }) => {
   );
 };
 
-interface TimeProps extends InputProps {
-  step: number;
+interface SelectProps extends InputProps {
+  children: ReactNode;
 }
 
-const Time: React.FC<TimeProps> = ({ label, name, step }) => {
+const Select: React.FC<SelectProps> = ({ label, name, children }) => {
   const [field, meta] = useField({ name });
   const isError = handleError(meta.touched, meta.error);
 
+  const selectClass = cx(styles.input, {
+    [styles.error]: isError,
+  });
+
   return (
     <div className={styles.wrapper}>
-      <Input type="time" isError={isError} step={step} {...field} />
+      <select className={selectClass} {...field}>
+        {children}
+      </select>
       <Label
         name={name}
         content={label}
@@ -114,4 +138,31 @@ const Time: React.FC<TimeProps> = ({ label, name, step }) => {
   );
 };
 
-export { Text, Email, Password, Time };
+interface TimeProps extends InputProps {
+  step: number;
+}
+
+const Time: React.FC<TimeProps> = ({ label, name, step }) => {
+  const [field, meta] = useField({ name });
+  const isError = handleError(meta.touched, meta.error);
+
+  const inputClass = cx(styles.input, {
+    [styles.error]: isError,
+  });
+
+  return (
+    <div className={styles.wrapper}>
+      <Input type="time" step={step} className={inputClass} {...field} />
+      <Label
+        name={name}
+        content={label}
+        isActive={!!field.value}
+        isError={isError}
+        className={styles.timeLabel}
+      />
+      <Error isError={isError} message={meta.error} />
+    </div>
+  );
+};
+
+export { Text, Email, Password, Select, Time };

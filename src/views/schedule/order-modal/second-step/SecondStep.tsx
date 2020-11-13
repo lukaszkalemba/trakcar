@@ -7,7 +7,7 @@ const SecondStep: React.FC<SecondStepProps> = ({ setCurrentStep }) => {
   return (
     <>
       <Inputs.Text label="position" name="positionId" />
-      <Inputs.Text label="prder date" name="orderDate" />
+      <Inputs.Text label="order date" name="orderDate" />
       <Inputs.Time label="start time" name="startWorkTime" step={3600} />
       <Inputs.Time label="end time" name="endWorkTime" step={3600} />
       <Button

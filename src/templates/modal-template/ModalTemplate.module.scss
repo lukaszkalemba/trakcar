@@ -17,7 +17,7 @@
 }
 
 .board {
-  padding: 75px 40px 40px;
+  padding: 65px 40px 40px;
   width: 100%;
   max-width: 400px;
   margin: 0 20px;
@@ -31,7 +31,7 @@
   }
 
   @include media('>=tablet') {
-    padding: 90px 50px 50px;
+    padding: 78px 50px 50px;
   }
 
   > form {
