@@ -192,4 +192,26 @@ const Time: React.FC<TimeProps> = ({ label, name, step }) => {
   );
 };
 
-export { Text, Email, Password, Number, Select, Time };
+const Date: React.FC<InputProps> = ({ label, name }) => {
+  const [field, meta] = useField({ name });
+  const isError = handleError(meta.touched, meta.error);
+
+  const inputClass = cx(styles.input, {
+    [styles.error]: isError,
+  });
+
+  return (
+    <div className={styles.wrapper}>
+      <Input type="date" className={inputClass} {...field} />
+      <Label
+        name={name}
+        content={label}
+        isActive={!!field.value}
+        isError={isError}
+        className={styles.timeLabel}
+      />
+      <Error isError={isError} message={meta.error} />
+    </div>
+  );
+};
+export { Text, Email, Password, Number, Select, Time, Date };

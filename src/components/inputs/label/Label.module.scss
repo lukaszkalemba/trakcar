@@ -28,8 +28,7 @@
     }
   }
 
-  &.error,
-  &.active.error {
-    color: $dark-red;
+  &.error {
+    color: $dark-red !important;
   }
 }

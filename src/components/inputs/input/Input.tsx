@@ -32,7 +32,7 @@ const Input: React.FC<InputProps> = ({
 interface InputProps {
   reference?: RefObject<HTMLInputElement>;
   name: string;
-  type: 'text' | 'email' | 'password' | 'number' | 'time';
+  type: 'text' | 'email' | 'password' | 'number' | 'time' | 'date';
   value: string;
   min?: number;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;

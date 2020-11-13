@@ -40,6 +40,7 @@
     border-bottom-color: $black;
 
     & ~ label {
+      color: $black;
       top: -13px;
       left: 0;
       font-size: $s;

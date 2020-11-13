@@ -10,13 +10,13 @@ export const initialValues: any = {
   startWorkTime: '',
   endWorkTime: '',
   orderColor: 'red',
-  cost: '',
+  cost: 100,
   description: '',
 };
 
 export const validationSchema = yup.object({
   orderName: yup
-    .string()
+    .number()
     .min(5, 'Order name must be at least 5 characters')
     .required('Order name is required'),
   principalName: yup
