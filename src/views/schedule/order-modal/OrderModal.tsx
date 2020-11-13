@@ -15,15 +15,15 @@ const OrderModal: React.FC<OrderModalProps> = ({ closeOrderModal }) => {
   };
 
   return (
-    <ModalTemplate closeModal={closeOrderModal}>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {() => (
-          <Form>
-            <div className={styles.wrapper}>
+    <ModalTemplate className={styles.modal} closeModal={closeOrderModal}>
+      <div className={styles.wrapper}>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {() => (
+            <Form>
               {currentStep === 1 && (
                 <FirstStep setCurrentStep={setCurrentStep} />
               )}
@@ -31,10 +31,10 @@ const OrderModal: React.FC<OrderModalProps> = ({ closeOrderModal }) => {
                 <SecondStep setCurrentStep={setCurrentStep} />
               )}
               {currentStep === 3 && <ThirdStep />}
-            </div>
-          </Form>
-        )}
-      </Formik>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </ModalTemplate>
   );
 };

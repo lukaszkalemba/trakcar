@@ -1,15 +1,37 @@
-.wrapper {
-  display: flex;
-  flex-direction: column;
+@import 'styles/theme/media';
 
-  button {
-    align-self: flex-end;
-    span {
-      margin: 0;
+.wrapper {
+  height: 100%;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    button {
+      margin-top: auto;
+      align-self: flex-end;
+      padding: 7px 0;
+
+      span {
+        margin-top: 1px;
+      }
+    }
+
+    button[type='button'] {
+      & > div {
+        height: 1em;
+        width: 1em;
+      }
     }
   }
+}
 
-  button[type='submit'] {
-    padding: 7px 0;
+.modal {
+  max-width: 450px;
+  height: 478px;
+
+  @include media('>=tablet') {
+    height: 510px;
   }
 }
