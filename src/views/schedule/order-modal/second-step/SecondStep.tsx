@@ -1,12 +1,22 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { positionsSelector, Position } from 'modules/positions';
 import arrow_right_icon from 'assets/svgs/icon_arrow-right-black.svg';
 import * as Inputs from 'components/inputs/Inputs';
 import Button from 'components/button/Button';
 
 const SecondStep: React.FC<SecondStepProps> = ({ setCurrentStep }) => {
+  const { positions } = useSelector(positionsSelector);
+
   return (
     <>
-      <Inputs.Text label="position" name="positionId" />
+      <Inputs.Select label="position" name="positionId">
+        {(positions as Position[]).map((position) => (
+          <option key={position._id} value={position._id}>
+            {position.name}
+          </option>
+        ))}
+      </Inputs.Select>
       <Inputs.Date label="order date" name="orderDate" />
       <Inputs.Time label="start time" name="startWorkTime" step={3600} />
       <Inputs.Time label="end time" name="endWorkTime" step={3600} />

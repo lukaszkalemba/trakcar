@@ -1,22 +1,22 @@
 import * as yup from 'yup';
 
-export const initialValues: any = {
+export const getInitialValues = (orderDate: string, positionId: string) => ({
   orderName: '',
   principalName: '',
   carBrand: '',
   carModel: '',
-  orderDate: '',
-  positionId: '',
+  orderDate,
+  positionId,
   startWorkTime: '',
   endWorkTime: '',
   orderColor: 'red',
   cost: 100,
   description: '',
-};
+});
 
 export const validationSchema = yup.object({
   orderName: yup
-    .number()
+    .string()
     .min(5, 'Order name must be at least 5 characters')
     .required('Order name is required'),
   principalName: yup
@@ -29,7 +29,7 @@ export const validationSchema = yup.object({
   positionId: yup.string().required('Order position is required'),
   startWorkTime: yup.string().required('Start time of work is required'),
   endWorkTime: yup.string().required('End time of work is required'),
-  cost: yup.string().required('Order cost is required'),
+  cost: yup.number().required('Order cost is required'),
   orderColor: yup.string().required('Highlight color is required'),
   description: yup.string().required('Description is required'),
 });
