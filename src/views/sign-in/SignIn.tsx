@@ -3,7 +3,6 @@ import { Formik, Form } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { signInUser, SigninValues, usersSelector } from 'modules/users';
-import arrow_right_icon from 'assets/svgs/icon_arrow-right-black.svg';
 import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
 import Button from 'components/button/Button';
 import * as Inputs from 'components/inputs/Inputs';
@@ -38,9 +37,7 @@ const SignIn: React.FC = () => {
           <Form>
             <Inputs.Email label="email" name="email" />
             <Inputs.Password label="password" name="password" />
-            <Button type="submit" icon={arrow_right_icon}>
-              sign in
-            </Button>
+            <Button type="submit">sign in</Button>
           </Form>
         )}
       </Formik>

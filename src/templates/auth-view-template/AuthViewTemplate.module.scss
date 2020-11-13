@@ -72,10 +72,11 @@
     }
 
     > button[type='submit'] {
-      align-self: flex-end;
+      font-size: $l;
       margin-top: 15px;
 
       @include media('>=tablet') {
+        font-size: $xl;
         margin-top: 25px;
       }
     }

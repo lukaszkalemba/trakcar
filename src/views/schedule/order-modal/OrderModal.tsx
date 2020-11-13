@@ -5,6 +5,7 @@ import FirstStep from './first-step/FirstStep';
 import SecondStep from './second-step/SecondStep';
 import ThirdStep from './third-step/ThirdStep';
 import { initialValues, validationSchema } from './OrderModal.form';
+import styles from './OrderModal.module.scss';
 
 const OrderModal: React.FC<OrderModalProps> = ({ closeOrderModal }) => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -14,15 +15,15 @@ const OrderModal: React.FC<OrderModalProps> = ({ closeOrderModal }) => {
   };
 
   return (
-    <>
-      <ModalTemplate closeModal={closeOrderModal}>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {() => (
-            <Form>
+    <ModalTemplate closeModal={closeOrderModal}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        {() => (
+          <Form>
+            <div className={styles.wrapper}>
               {currentStep === 1 && (
                 <FirstStep setCurrentStep={setCurrentStep} />
               )}
@@ -30,11 +31,11 @@ const OrderModal: React.FC<OrderModalProps> = ({ closeOrderModal }) => {
                 <SecondStep setCurrentStep={setCurrentStep} />
               )}
               {currentStep === 3 && <ThirdStep />}
-            </Form>
-          )}
-        </Formik>
-      </ModalTemplate>
-    </>
+            </div>
+          </Form>
+        )}
+      </Formik>
+    </ModalTemplate>
   );
 };
 

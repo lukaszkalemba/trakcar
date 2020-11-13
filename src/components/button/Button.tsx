@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import arrow_right_icon from 'assets/svgs/icon_arrow-right-black.svg';
 import Icon from 'components/icon/Icon';
 import cx from 'classnames';
 import styles from './Button.module.scss';
@@ -12,35 +13,32 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   children,
 }) => {
-  const buttonClass = cx(className, {
-    [styles.button]: type === 'button',
-    [styles.submit]: type === 'submit',
-    [styles.link]: type === 'link',
-  });
-
-  const content = (
-    <>
-      <span>{children}</span>
-      {icon && <Icon src={icon} />}
-    </>
-  );
-
   if (type === 'link') {
     return (
-      <Link to={to as string} className={buttonClass}>
-        {content}
+      <Link to={to as string} className={cx(styles.link, className)}>
+        <span>{children}</span>
+        {icon && <Icon src={icon} />}
       </Link>
     );
   }
 
+  if (type === 'submit') {
+    return (
+      <button type="submit" className={cx(styles.submit, className)}>
+        <span>{children}</span>
+        <Icon src={arrow_right_icon} />
+      </button>
+    );
+  }
+
   return (
-    /* eslint-disable react/button-has-type */
     <button
-      type={type as 'button' | 'submit'}
-      className={buttonClass}
+      type="button"
+      className={cx(styles.button, className)}
       onClick={onClick}
     >
-      {content}
+      <span>{children}</span>
+      {icon && <Icon src={icon} />}
     </button>
   );
 };

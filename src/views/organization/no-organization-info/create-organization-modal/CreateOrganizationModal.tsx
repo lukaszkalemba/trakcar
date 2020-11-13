@@ -5,7 +5,6 @@ import {
   createOrganization,
   CreateOrganizationValues,
 } from 'modules/organizations';
-import arrow_right_icon from 'assets/svgs/icon_arrow-right-black.svg';
 import ModalTemplate from 'templates/modal-template/ModalTemplate';
 import * as Inputs from 'components/inputs/Inputs';
 import Button from 'components/button/Button';
@@ -34,9 +33,7 @@ const CreateOrganizationModal: React.FC<CreateOrganizationModalProps> = ({
           <Form>
             <Inputs.Text label="organization name" name="organizationName" />
             <Inputs.Text label="access code" name="accessCode" maxLength={4} />
-            <Button type="submit" icon={arrow_right_icon}>
-              create
-            </Button>
+            <Button type="submit">create</Button>
           </Form>
         )}
       </Formik>

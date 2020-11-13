@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    align-self: flex-end;
+    span {
+      margin: 0;
+    }
+  }
+
+  button[type='submit'] {
+    padding: 7px 0;
+  }
+}

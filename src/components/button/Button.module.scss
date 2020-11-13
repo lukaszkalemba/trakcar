@@ -8,6 +8,7 @@
   text-transform: uppercase;
   border: none;
   background: none;
+  font-size: $s;
   font-weight: $semibold;
   padding: 0;
 
@@ -24,15 +25,19 @@
       margin: 0;
     }
   }
+
+  @include media('>phone') {
+    font-size: $m;
+  }
+
+  @include media('>=tablet') {
+    font-size: $l;
+  }
 }
 
 .submit {
   @include button-shared;
-  font-size: $l;
-
-  @include media('>=tablet') {
-    font-size: $xl;
-  }
+  align-self: flex-end;
 
   & > div {
     svg {
@@ -44,7 +49,6 @@
 .button {
   @include button-shared;
   padding: 7px 5px;
-  font-size: $s;
 
   & > div {
     padding: 1px;
@@ -54,14 +58,6 @@
 
   & > span {
     margin-top: 2px;
-  }
-
-  @include media('>phone') {
-    font-size: $m;
-  }
-
-  @include media('>=tablet') {
-    font-size: $l;
   }
 }
 
