@@ -1,9 +1,14 @@
 import React from 'react';
+import * as Inputs from 'components/inputs/Inputs';
 import Button from 'components/button/Button';
 
 const FirstStep: React.FC<FirstStepProps> = ({ setCurrentStep }) => {
   return (
     <>
+      <Inputs.Text label="order name" name="orderName" />
+      <Inputs.Text label="principal name" name="principalName" />
+      <Inputs.Text label="car brand" name="carBrand" />
+      <Inputs.Text label="car model" name="carModel" />
       <Button type="button" onClick={() => setCurrentStep(2)}>
         next
       </Button>
