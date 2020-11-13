@@ -214,4 +214,32 @@ const Date: React.FC<InputProps> = ({ label, name }) => {
     </div>
   );
 };
-export { Text, Email, Password, Number, Select, Time, Date };
+
+interface TextareaProps extends InputProps {
+  rows?: number;
+}
+
+const Textarea: React.FC<TextareaProps> = ({ label, name, rows }) => {
+  const [field, meta] = useField({ name });
+  const isError = handleError(meta.touched, meta.error);
+
+  const textareaClass = cx(styles.textarea, {
+    [styles.error]: isError,
+  });
+
+  return (
+    <div className={styles.wrapper}>
+      <textarea className={textareaClass} rows={rows} {...field} />
+      <Label
+        name={name}
+        content={label}
+        isActive={!!field.value}
+        isError={isError}
+        className={styles.timeLabel}
+      />
+      <Error isError={isError} message={meta.error} />
+    </div>
+  );
+};
+
+export { Text, Email, Password, Number, Select, Time, Date, Textarea };
