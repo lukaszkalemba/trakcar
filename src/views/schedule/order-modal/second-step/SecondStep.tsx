@@ -1,12 +1,13 @@
 import React from 'react';
+import Button from 'components/button/Button';
 
 const SecondStep: React.FC<SecondStepProps> = ({ setCurrentStep }) => {
   return (
     <div>
       <div>SecondStep.tsx</div>
-      <button type="button" onClick={() => setCurrentStep(3)}>
+      <Button type="button" onClick={() => setCurrentStep(3)}>
         next
-      </button>
+      </Button>
     </div>
   );
 };
