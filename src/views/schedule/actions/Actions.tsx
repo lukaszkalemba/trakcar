@@ -5,10 +5,17 @@ import Icon from 'components/icon/Icon';
 import Button from 'components/button/Button';
 import styles from './Actions.module.scss';
 
-const Actions: React.FC<ActionsProps> = ({ openCalendarModal }) => {
+const Actions: React.FC<ActionsProps> = ({
+  openOrderModal,
+  openCalendarModal,
+}) => {
   return (
     <div className={styles.wrapper}>
-      <Button className={styles.orderButton} icon={icon_plus}>
+      <Button
+        className={styles.orderButton}
+        icon={icon_plus}
+        onClick={openOrderModal}
+      >
         Book order
       </Button>
       <button
@@ -23,6 +30,7 @@ const Actions: React.FC<ActionsProps> = ({ openCalendarModal }) => {
 };
 
 interface ActionsProps {
+  openOrderModal: () => void;
   openCalendarModal: () => void;
 }
 
