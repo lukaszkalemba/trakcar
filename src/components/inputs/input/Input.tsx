@@ -7,6 +7,7 @@ const Input: React.FC<InputProps> = ({
   value,
   onChange,
   onBlur,
+  min,
   maxLength,
   step,
   className,
@@ -21,6 +22,7 @@ const Input: React.FC<InputProps> = ({
       value={value}
       onChange={onChange}
       onBlur={onBlur}
+      min={min}
       maxLength={maxLength}
       step={step}
     />
@@ -30,8 +32,9 @@ const Input: React.FC<InputProps> = ({
 interface InputProps {
   reference?: RefObject<HTMLInputElement>;
   name: string;
-  type: 'text' | 'email' | 'password' | 'time';
+  type: 'text' | 'email' | 'password' | 'number' | 'time';
   value: string;
+  min?: number;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onBlur: (event: FocusEvent<HTMLInputElement>) => void;
   maxLength?: number;

@@ -109,6 +109,33 @@ const Password: React.FC<InputProps> = ({ label, name }) => {
   );
 };
 
+interface NumberProps extends InputProps {
+  min: number;
+}
+
+const Number: React.FC<NumberProps> = ({ label, name, min }) => {
+  const [field, meta] = useField({ name });
+  const isError = handleError(meta.touched, meta.error);
+
+  const inputClass = cx(styles.input, {
+    [styles.error]: isError,
+  });
+
+  return (
+    <div className={styles.wrapper}>
+      <Input type="number" min={min} className={inputClass} {...field} />
+      <Label
+        name={name}
+        content={label}
+        isActive={!!field.value}
+        isError={isError}
+        className={styles.timeLabel}
+      />
+      <Error isError={isError} message={meta.error} />
+    </div>
+  );
+};
+
 interface SelectProps extends InputProps {
   children: ReactNode;
 }
@@ -165,4 +192,4 @@ const Time: React.FC<TimeProps> = ({ label, name, step }) => {
   );
 };
 
-export { Text, Email, Password, Select, Time };
+export { Text, Email, Password, Number, Select, Time };
