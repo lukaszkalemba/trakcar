@@ -1,0 +1,21 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+
+.item {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid $light-gray;
+  border-right: 1px solid $light-gray;
+  padding: 10px 0;
+  font-size: $s;
+  font-weight: $medium;
+
+  &:first-child {
+    border-left: 1px solid $light-gray;
+  }
+
+  @include media('>=tablet') {
+    font-size: $m;
+  }
+}

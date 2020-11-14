@@ -8,26 +8,21 @@
   flex-grow: 1;
 }
 
-.positions {
-  margin-left: 50px;
+.gridWrapper {
   display: flex;
-
-  span {
-    flex-grow: 1;
-    text-align: center;
-    border-top: 1px solid $light-gray;
-    border-left: 1px solid $light-gray;
-    padding: 10px 0;
-    font-size: $s;
-    font-weight: $medium;
-
-    @include media('>=tablet') {
-      font-size: $m;
-    }
-  }
+  flex-grow: 1;
 }
 
 .grid {
-  display: flex;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-template-rows: repeat(var(--rows), calc(100% / var(--rows)));
+}
+
+.gridItem {
+  display: block;
   flex-grow: 1;
+  border-top: 1px solid $light-gray;
+  border-right: 1px solid $light-gray;
 }

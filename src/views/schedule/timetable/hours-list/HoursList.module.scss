@@ -3,12 +3,13 @@
 @import 'styles/mixins';
 
 .wrapper {
-  width: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 
   span {
+    width: 50px;
+    height: calc(100% / var(--rows));
     font-size: $s;
     font-weight: $medium;
     flex-grow: 1;

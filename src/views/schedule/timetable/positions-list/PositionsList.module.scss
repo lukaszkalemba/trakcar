@@ -1,0 +1,10 @@
+@import 'styles/theme/colors';
+
+.wrapper {
+  margin-left: 49px;
+  display: flex;
+
+  span:first-child {
+    border-left: 1px solid $light-gray;
+  }
+}
