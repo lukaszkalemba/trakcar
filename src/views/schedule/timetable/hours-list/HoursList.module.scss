@@ -1,0 +1,23 @@
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+@import 'styles/mixins';
+
+.wrapper {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  span {
+    font-size: $s;
+    font-weight: $medium;
+    flex-grow: 1;
+    @include flex-center;
+    border-bottom: 1px solid $light-gray;
+    border-right: 1px solid $light-gray;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
