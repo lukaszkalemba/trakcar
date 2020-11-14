@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { useSelector } from 'react-redux';
+import cx from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 // import { ordersSelector } from 'modules/orders';
 import { positionsSelector, Position } from 'modules/positions';
@@ -24,8 +25,26 @@ const Timetable: React.FC = () => {
     `${timetableHours.length}`
   );
 
-  const gridItemsLength =
-    (positions as Position[]).length * timetableHours.length;
+  const gridItems: ReactNode[] = [];
+
+  (positions as Position[]).forEach((position) => {
+    const startHourNum = parseInt(position.startTime.substring(0, 2), 10);
+    const endHourNum = parseInt(position.endTime.substring(0, 2), 10);
+
+    const hoursRange: string[] = [];
+
+    for (let i = startHourNum; i <= endHourNum; i += 1) {
+      hoursRange.push(`${i}:00`);
+    }
+
+    timetableHours.forEach((item) => {
+      const gridItemClass = cx(styles.gridItem, {
+        [styles.disabled]: !hoursRange.find((hour) => hour === item),
+      });
+
+      gridItems.push(<span key={uuidv4()} className={gridItemClass} />);
+    });
+  });
 
   return (
     <div className={styles.wrapper}>
@@ -34,11 +53,7 @@ const Timetable: React.FC = () => {
       <div className={styles.gridWrapper}>
         <HoursList hours={timetableHours} />
 
-        <div className={styles.grid}>
-          {Array.from(Array(gridItemsLength)).map(() => (
-            <span key={uuidv4()} className={styles.gridItem} />
-          ))}
-        </div>
+        <div className={styles.grid}>{gridItems}</div>
       </div>
     </div>
   );
