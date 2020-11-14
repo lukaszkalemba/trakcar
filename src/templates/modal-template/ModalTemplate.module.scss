@@ -2,6 +2,7 @@
 @import 'styles/theme/colors';
 @import 'styles/theme/fonts';
 @import 'styles/theme/z-index';
+@import 'styles/mixins';
 
 .backdrop {
   background-color: rgba($black, 0.9);
@@ -10,9 +11,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
+  flex-direction: column;
   z-index: $level2;
 }
 

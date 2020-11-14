@@ -1,0 +1,14 @@
+@import 'styles/theme/media';
+
+.wrapper {
+  display: flex;
+  margin-bottom: 5px;
+
+  @include media('>phone') {
+    margin-bottom: 10px;
+  }
+
+  @include media('>=tablet') {
+    margin-bottom: 25px;
+  }
+}

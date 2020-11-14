@@ -1,5 +1,7 @@
 @import 'styles/theme/media';
 @import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+@import 'styles/theme/z-index';
 
 .wrapper {
   height: 100%;
@@ -29,7 +31,7 @@
   }
 }
 
-.modal {
+.wizard {
   max-width: 450px;
   height: 460px;
 

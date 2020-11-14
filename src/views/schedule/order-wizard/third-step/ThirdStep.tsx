@@ -13,7 +13,7 @@ const ThirdStep: React.FC = () => {
         <option value={4}>blue</option>
       </Inputs.Select>
       <Inputs.Number label="cost ( $ )" name="cost" min={0} />
-      <Inputs.Textarea label="description" name="description" rows={6} />
+      <Inputs.Textarea label="description" name="description" rows={5} />
       <Button type="submit">submit</Button>
     </>
   );

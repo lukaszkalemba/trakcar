@@ -6,14 +6,14 @@ import Layout from 'components/layout/Layout';
 import LoadingSpinner from 'components/loading-spinner/LoadingSpinner';
 import Actions from './actions/Actions';
 import DateInfo from './date-info/DateInfo';
-import OrderModal from './order-modal/OrderModal';
+import OrderWizard from './order-wizard/OrderWizard';
 import CalendarModal from './calendar-modal/CalendarModal';
 import styles from './Schedule.module.scss';
 
 const Schedule: React.FC = () => {
   const dispatch = useDispatch();
 
-  const [isOrderModalOpen, setIsOrderModalOpen] = useState<boolean>(false);
+  const [isOrderWizardOpen, setIsOrderWizardOpen] = useState<boolean>(false);
   const [isCalendarModalOpen, setIsCalendarModalOpen] = useState<boolean>(
     false
   );
@@ -26,12 +26,12 @@ const Schedule: React.FC = () => {
     dispatch(getAllOrders());
   }, [dispatch]);
 
-  const openOrderModal = () => {
-    setIsOrderModalOpen(true);
+  const openOrderWizard = () => {
+    setIsOrderWizardOpen(true);
   };
 
-  const closeOrderModal = () => {
-    setIsOrderModalOpen(false);
+  const closeOrderWizard = () => {
+    setIsOrderWizardOpen(false);
   };
 
   const openCalendarModal = () => {
@@ -51,14 +51,14 @@ const Schedule: React.FC = () => {
           <>
             <div className={styles.topBar}>
               <Actions
-                openOrderModal={openOrderModal}
+                openOrderWizard={openOrderWizard}
                 openCalendarModal={openCalendarModal}
               />
               <DateInfo />
             </div>
 
-            {isOrderModalOpen && (
-              <OrderModal closeOrderModal={closeOrderModal} />
+            {isOrderWizardOpen && (
+              <OrderWizard closeOrderWizard={closeOrderWizard} />
             )}
 
             {isCalendarModalOpen && (

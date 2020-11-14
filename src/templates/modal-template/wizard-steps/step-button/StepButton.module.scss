@@ -1,0 +1,63 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+@import 'styles/mixins';
+
+.wrapper {
+  margin: 0 10px 10px;
+  width: 70px;
+  position: relative;
+
+  @include media('>phone') {
+    margin: 0 20px 10px;
+  }
+
+  &.last {
+    &::after {
+      display: none;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: $white;
+    right: 0;
+    transform: translateX(100%);
+    top: 30%;
+
+    @include media('>phone') {
+      width: 40px;
+    }
+  }
+}
+
+.button {
+  cursor: pointer;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 7px;
+  border-radius: 4px;
+  border: 2px solid $white;
+  background-color: transparent;
+  color: $white;
+  font-weight: $medium;
+  font-size: $m;
+  @include flex-center;
+
+  &.active {
+    color: $black;
+    background-color: $white;
+  }
+}
+
+.title {
+  font-size: $s;
+  color: $white;
+  text-align: center;
+  margin: 5px 0 0;
+  font-weight: $medium;
+}

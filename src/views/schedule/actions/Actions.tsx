@@ -6,7 +6,7 @@ import Button from 'components/button/Button';
 import styles from './Actions.module.scss';
 
 const Actions: React.FC<ActionsProps> = ({
-  openOrderModal,
+  openOrderWizard,
   openCalendarModal,
 }) => {
   return (
@@ -14,7 +14,7 @@ const Actions: React.FC<ActionsProps> = ({
       <Button
         className={styles.orderButton}
         icon={icon_plus}
-        onClick={openOrderModal}
+        onClick={openOrderWizard}
       >
         Book order
       </Button>
@@ -30,7 +30,7 @@ const Actions: React.FC<ActionsProps> = ({
 };
 
 interface ActionsProps {
-  openOrderModal: () => void;
+  openOrderWizard: () => void;
   openCalendarModal: () => void;
 }
 
