@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { usersSelector } from 'modules/users';
 import { getAllPositions, positionsSelector } from 'modules/positions';
 import { getAllOrders, ordersSelector } from 'modules/orders';
+import organization_icon from 'assets/svgs/icon_organization-black.svg';
+import car_icon from 'assets/svgs/icon_car-black.svg';
 import Layout from 'components/layout/Layout';
 import LoadingSpinner from 'components/loading-spinner/LoadingSpinner';
+import Heading from 'components/heading/Heading';
+import Button from 'components/button/Button';
 import Actions from './actions/Actions';
 import DateInfo from './date-info/DateInfo';
 import Timetable from './timetable/Timetable';
@@ -19,7 +24,10 @@ const Schedule: React.FC = () => {
     false
   );
 
-  const { loading: positionsLoading } = useSelector(positionsSelector);
+  const { user } = useSelector(usersSelector);
+  const { positions, loading: positionsLoading } = useSelector(
+    positionsSelector
+  );
   const { loading: ordersLoading } = useSelector(ordersSelector);
 
   useEffect(() => {
@@ -43,32 +51,72 @@ const Schedule: React.FC = () => {
     setIsCalendarModalOpen(false);
   };
 
+  const renderResults = () => {
+    if (positionsLoading || ordersLoading) {
+      return <LoadingSpinner />;
+    }
+
+    if (!user?.organization) {
+      return (
+        <>
+          <Heading className={styles.heading}>
+            You have to be a member of an organization to manage orders.
+          </Heading>
+          <Button
+            type="link"
+            to="/organization"
+            icon={organization_icon}
+            className={styles.link}
+          >
+            organization page
+          </Button>
+        </>
+      );
+    }
+
+    if (!positions?.length) {
+      return (
+        <>
+          <Heading className={styles.heading}>
+            To book orders you have to create position first.
+          </Heading>
+          <Button
+            type="link"
+            to="/positions"
+            icon={car_icon}
+            className={styles.link}
+          >
+            positions page
+          </Button>
+        </>
+      );
+    }
+
+    return (
+      <>
+        <div className={styles.topBar}>
+          <Actions
+            openOrderWizard={openOrderWizard}
+            openCalendarModal={openCalendarModal}
+          />
+          <DateInfo />
+        </div>
+        <Timetable />
+
+        {isOrderWizardOpen && (
+          <OrderWizard closeOrderWizard={closeOrderWizard} />
+        )}
+
+        {isCalendarModalOpen && (
+          <CalendarModal closeCalendarModal={closeCalendarModal} />
+        )}
+      </>
+    );
+  };
+
   return (
     <Layout>
-      <div className={styles.wrapper}>
-        {positionsLoading || ordersLoading ? (
-          <LoadingSpinner />
-        ) : (
-          <>
-            <div className={styles.topBar}>
-              <Actions
-                openOrderWizard={openOrderWizard}
-                openCalendarModal={openCalendarModal}
-              />
-              <DateInfo />
-            </div>
-            <Timetable />
-
-            {isOrderWizardOpen && (
-              <OrderWizard closeOrderWizard={closeOrderWizard} />
-            )}
-
-            {isCalendarModalOpen && (
-              <CalendarModal closeCalendarModal={closeCalendarModal} />
-            )}
-          </>
-        )}
-      </div>
+      <div className={styles.wrapper}>{renderResults()}</div>
     </Layout>
   );
 };

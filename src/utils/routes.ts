@@ -1,5 +1,5 @@
 import calendar_icon from 'assets/svgs/icon_calendar-white.svg';
-import positions_icon from 'assets/svgs/icon_positions.svg';
+import car_icon from 'assets/svgs/icon_car-white.svg';
 import organization_icon from 'assets/svgs/icon_organization-white.svg';
 
 interface Route {
@@ -23,7 +23,7 @@ export const routes: Route[] = [
     name: 'Manage positions',
     subName: 'positions',
     path: '/positions',
-    icon: positions_icon,
+    icon: car_icon,
   },
   {
     id: 2,

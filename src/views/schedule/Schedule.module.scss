@@ -1,4 +1,5 @@
 @import 'styles/theme/media';
+@import 'styles/theme/fonts';
 @import 'styles/theme/colors';
 @import 'styles/theme/box-shadow';
 @import 'styles/mixins';
@@ -18,5 +19,34 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+}
+
+.heading {
+  margin-top: 120px;
+
+  @include media('>phone') {
+    margin-top: 130px;
+  }
+
+  @include media('>=tablet') {
+    margin-top: 140px;
+  }
+
+  @include media('>laptop') {
+    margin-top: 130px;
+  }
+}
+
+.link {
+  margin: 35px auto 0;
+
+  @include media('>=tablet') {
+    font-size: $m;
+  }
+
+  & > div {
+    width: 1.1em;
+    height: 1.1em;
   }
 }

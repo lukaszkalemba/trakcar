@@ -33,6 +33,12 @@ const ordersSlice = createSlice({
   name: 'orders',
   initialState,
   reducers: {
+    setLoading: (state, { payload }: PayloadAction<boolean>) => {
+      return {
+        ...state,
+        loading: payload,
+      };
+    },
     setOrders: (state, { payload }: PayloadAction<{ data: Order[] }>) => {
       return {
         ...state,
@@ -43,10 +49,16 @@ const ordersSlice = createSlice({
   },
 });
 
-export const { setOrders } = ordersSlice.actions;
+export const { setLoading, setOrders } = ordersSlice.actions;
 export default ordersSlice.reducer;
 
 export const ordersSelector = (state: { orders: OrdersState }) => state.orders;
+
+export const updateLoading = (loadingStatus: boolean): AppThunk => async (
+  dispatch
+) => {
+  dispatch(setLoading(loadingStatus));
+};
 
 export const getAllOrders = (): AppThunk => async (dispatch) => {
   try {
@@ -54,9 +66,7 @@ export const getAllOrders = (): AppThunk => async (dispatch) => {
 
     dispatch(setOrders(res.data));
   } catch (error) {
-    dispatch(
-      showAlert({ message: error.response.data.error, alertType: 'error' })
-    );
+    dispatch(updateLoading(false));
   }
 };
 
