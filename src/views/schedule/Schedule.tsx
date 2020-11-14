@@ -6,6 +6,7 @@ import Layout from 'components/layout/Layout';
 import LoadingSpinner from 'components/loading-spinner/LoadingSpinner';
 import Actions from './actions/Actions';
 import DateInfo from './date-info/DateInfo';
+import Timetable from './timetable/Timetable';
 import OrderWizard from './order-wizard/OrderWizard';
 import CalendarModal from './calendar-modal/CalendarModal';
 import styles from './Schedule.module.scss';
@@ -56,6 +57,7 @@ const Schedule: React.FC = () => {
               />
               <DateInfo />
             </div>
+            <Timetable />
 
             {isOrderWizardOpen && (
               <OrderWizard closeOrderWizard={closeOrderWizard} />
