@@ -1,4 +1,33 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/theme/colors';
+
 .wrapper {
-  flex-grow: 1;
   display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.positions {
+  margin-left: 50px;
+  display: flex;
+
+  span {
+    flex-grow: 1;
+    text-align: center;
+    border-top: 1px solid $light-gray;
+    border-left: 1px solid $light-gray;
+    padding: 10px 0;
+    font-size: $s;
+    font-weight: $medium;
+
+    @include media('>=tablet') {
+      font-size: $m;
+    }
+  }
+}
+
+.grid {
+  display: flex;
+  flex-grow: 1;
 }

@@ -13,11 +13,7 @@
     font-weight: $medium;
     flex-grow: 1;
     @include flex-center;
-    border-bottom: 1px solid $light-gray;
+    border-top: 1px solid $light-gray;
     border-right: 1px solid $light-gray;
-
-    &:last-child {
-      border-bottom: none;
-    }
   }
 }

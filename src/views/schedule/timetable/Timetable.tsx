@@ -17,7 +17,14 @@ const Timetable: React.FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      <HoursList hours={timetableHours} />
+      <div className={styles.positions}>
+        {positions?.map((position) => (
+          <span key={position._id}>{position.name}</span>
+        ))}
+      </div>
+      <div className={styles.grid}>
+        <HoursList hours={timetableHours} />
+      </div>
     </div>
   );
 };
