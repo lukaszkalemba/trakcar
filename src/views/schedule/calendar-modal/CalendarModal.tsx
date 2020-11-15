@@ -8,7 +8,7 @@ const CalendarModal: React.FC<CalendarModalProps> = ({
 }) => {
   return (
     <ModalTemplate className={styles.modal} closeModal={closeCalendarModal}>
-      <Calendar modalCalendar closeModal={closeCalendarModal} />
+      <Calendar closeModal={closeCalendarModal} />
     </ModalTemplate>
   );
 };

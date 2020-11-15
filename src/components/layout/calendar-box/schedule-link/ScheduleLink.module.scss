@@ -1,0 +1,21 @@
+@import 'styles/theme/fonts';
+@import 'styles/mixins';
+
+.link {
+  align-self: center;
+  @include flex-center;
+  flex-direction: column;
+  text-decoration: none;
+  color: $black;
+
+  span {
+    margin-top: 15px;
+    font-size: $m;
+    font-weight: $medium;
+  }
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+}
