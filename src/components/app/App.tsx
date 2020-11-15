@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Provider } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { configureStore, Action } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -9,10 +9,15 @@ import Organization from 'views/organization/Organization';
 import SignUp from 'views/sign-up/SignUp';
 import SignIn from 'views/sign-in/SignIn';
 import NotFound from 'views/not-found/NotFound';
+import Order from 'views/order/Order';
 import usersReducer, { UsersState } from 'modules/users';
 import organizationsReducer, { OrganizationState } from 'modules/organizations';
 import positionsReducer, { PositionsState } from 'modules/positions';
-import ordersReducer, { OrdersState } from 'modules/orders';
+import ordersReducer, {
+  ordersSelector,
+  getAllOrders,
+  OrdersState,
+} from 'modules/orders';
 import alertsReducer, { Alert } from 'modules/alerts';
 import calendarDatesReducer, {
   CalendarDatesState,
@@ -52,24 +57,37 @@ if (localStorage.token) {
 }
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  const { orders } = useSelector(ordersSelector);
+
   useEffect(() => {
     setFullHeight();
-  }, []);
+    dispatch(getAllOrders());
+  }, [dispatch]);
 
   return (
-    <Provider store={store}>
-      <Router>
-        <Alerts />
-        <Switch>
-          <PrivateRoute exact path="/" Component={Schedule} />
-          <PrivateRoute exact path="/positions" Component={Positions} />
-          <PrivateRoute exact path="/organization" Component={Organization} />
-          <Route exact path="/sign-up" component={SignUp} />
-          <Route exact path="/sign-in" component={SignIn} />
-          <Route component={NotFound} />
-        </Switch>
-      </Router>
-    </Provider>
+    <Router>
+      <Alerts />
+      <Switch>
+        <PrivateRoute exact path="/" Component={Schedule} />
+        <PrivateRoute exact path="/positions" Component={Positions} />
+        <PrivateRoute exact path="/organization" Component={Organization} />
+        <Route exact path="/sign-up" component={SignUp} />
+        <Route exact path="/sign-in" component={SignIn} />
+        {orders.map((order) => {
+          return (
+            <PrivateRoute
+              key={order._id}
+              exact
+              path={`/orders/${order._id}`}
+              Component={() => <Order {...order} />}
+            />
+          );
+        })}
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
   );
 };
 

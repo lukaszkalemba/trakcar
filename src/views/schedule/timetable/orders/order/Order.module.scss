@@ -1,9 +1,11 @@
 @import 'styles/theme/fonts';
+@import 'styles/theme/colors';
 
 .order {
   background-color: black;
   color: white;
   padding: 4px;
+  display: flex;
 
   &.hidden {
     display: none;
@@ -12,6 +14,13 @@
   span {
     display: block;
   }
+}
+
+.link {
+  width: 100%;
+  height: 100%;
+  color: $white;
+  text-decoration: none;
 }
 
 .name {

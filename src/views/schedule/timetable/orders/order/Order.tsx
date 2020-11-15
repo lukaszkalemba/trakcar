@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { createUseStyles } from 'react-jss';
 import cx from 'classnames';
 import { Order as OrderSchema } from 'modules/orders';
@@ -33,7 +34,9 @@ const Order: React.FC<OrderProps> = ({ order }) => {
 
   return (
     <div className={orderClass}>
-      <span className={styles.name}>{name}</span>
+      <Link to={`/orders/${order._id}`} className={styles.link}>
+        <span className={styles.name}>{name}</span>
+      </Link>
     </div>
   );
 };

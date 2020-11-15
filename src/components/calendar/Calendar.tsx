@@ -7,6 +7,7 @@ import {
   calendarDatesSelector,
 } from 'modules/calendar-dates';
 import { getWeekDays } from 'helpers/getWeekDays';
+import styles from './Calendar.module.scss';
 import 'styles/calendar-styles.scss';
 
 const Calendar: React.FC<CalendarProps> = ({ closeModal }) => {
@@ -21,7 +22,7 @@ const Calendar: React.FC<CalendarProps> = ({ closeModal }) => {
   };
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <ReactCalendar
         formatShortWeekday={getWeekDays}
         onChange={handleDateChange}
