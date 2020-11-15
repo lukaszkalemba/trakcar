@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { format } from 'date-fns';
-import { AppThunk } from 'components/app/App';
+import { AppThunk } from 'utils/store';
 
 export interface CalendarDatesState {
   selectedDate: string;

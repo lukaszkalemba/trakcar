@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { rootApi } from 'utils/api';
-import { AppThunk } from 'components/app/App';
+import { AppThunk } from 'utils/store';
 import { showAlert } from './alerts';
 import { loadUserData } from './users';
 import { updateLoading as updatePositionsLoading } from './positions';

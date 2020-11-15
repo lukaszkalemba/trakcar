@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { rootApi } from 'utils/api';
 import { setAuthToken } from 'helpers/setAuthToken';
-import { AppThunk } from 'components/app/App';
+import { AppThunk } from 'utils/store';
 import { unsetOrganization } from './organizations';
 import { unsetPositions } from './positions';
 import { unsetDate } from './calendar-dates';
