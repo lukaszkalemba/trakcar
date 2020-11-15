@@ -129,7 +129,6 @@ const Number: React.FC<NumberProps> = ({ label, name, min }) => {
         content={label}
         isActive={!!field.value}
         isError={isError}
-        className={styles.timeLabel}
       />
       <Error isError={isError} message={meta.error} />
     </div>
@@ -158,7 +157,7 @@ const Select: React.FC<SelectProps> = ({ label, name, children }) => {
         content={label}
         isActive={!!field.value}
         isError={isError}
-        className={styles.timeLabel}
+        className={styles.staticLabel}
       />
       <Error isError={isError} message={meta.error} />
     </div>
@@ -185,7 +184,7 @@ const Time: React.FC<TimeProps> = ({ label, name, step }) => {
         content={label}
         isActive={!!field.value}
         isError={isError}
-        className={styles.timeLabel}
+        className={styles.staticLabel}
       />
       <Error isError={isError} message={meta.error} />
     </div>
@@ -208,7 +207,7 @@ const Date: React.FC<InputProps> = ({ label, name }) => {
         content={label}
         isActive={!!field.value}
         isError={isError}
-        className={styles.timeLabel}
+        className={styles.staticLabel}
       />
       <Error isError={isError} message={meta.error} />
     </div>
@@ -235,7 +234,6 @@ const Textarea: React.FC<TextareaProps> = ({ label, name, rows }) => {
         content={label}
         isActive={!!field.value}
         isError={isError}
-        className={styles.timeLabel}
       />
       <Error isError={isError} message={meta.error} />
     </div>

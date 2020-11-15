@@ -8,12 +8,6 @@
   width: 100%;
 }
 
-.timeLabel {
-  top: -13px;
-  left: 0;
-  font-size: $s;
-}
-
 .input {
   height: 41px;
   font-size: $l;
@@ -64,4 +58,10 @@
   @extend .input;
   height: auto;
   resize: none;
+}
+
+.staticLabel {
+  top: -13px;
+  left: 0;
+  font-size: $s;
 }
