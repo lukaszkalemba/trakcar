@@ -1,0 +1,20 @@
+@import 'styles/theme/fonts';
+
+.order {
+  background-color: black;
+  color: white;
+  padding: 4px;
+
+  &.hidden {
+    display: none;
+  }
+
+  span {
+    display: block;
+  }
+}
+
+.name {
+  font-size: $s;
+  font-weight: $medium;
+}

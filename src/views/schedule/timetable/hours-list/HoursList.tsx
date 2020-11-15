@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './HoursList.module.scss';
 
-const HoursList: React.FC<HoursListProps> = ({ hours }) => {
+const HoursList: React.FC<HoursListProps> = ({ timetableHours }) => {
   return (
     <div className={styles.wrapper}>
-      {hours.map((hour) => (
+      {timetableHours.map((hour) => (
         <span key={hour}>{hour}</span>
       ))}
     </div>
@@ -12,7 +12,7 @@ const HoursList: React.FC<HoursListProps> = ({ hours }) => {
 };
 
 interface HoursListProps {
-  hours: string[];
+  timetableHours: string[];
 }
 
 export default HoursList;

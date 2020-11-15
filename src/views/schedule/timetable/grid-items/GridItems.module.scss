@@ -1,0 +1,12 @@
+@import 'styles/theme/colors';
+
+.gridItem {
+  display: block;
+  flex-grow: 1;
+  border-top: 1px solid $light-gray;
+  border-right: 1px solid $light-gray;
+
+  &.disabled {
+    background-color: $light-gray;
+  }
+}

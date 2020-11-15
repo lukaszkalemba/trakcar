@@ -2,5 +2,13 @@
   "extends": [
     "stylelint-config-recommended",
     "stylelint-config-recommended-scss"
-  ]
+  ],
+ "rules": {
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignoreTypes": ["gridArrangement", "dynamicStyles"]
+      }
+    ]
+  }
 }
