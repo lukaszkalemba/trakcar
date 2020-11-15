@@ -16,8 +16,8 @@
 .grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(var(--columns), 1fr);
-  grid-template-rows: repeat(var(--rows), calc(100% / var(--rows)));
+  grid-template-columns: var(--columns);
+  grid-template-rows: var(--rows);
   grid-auto-flow: column;
 }
 

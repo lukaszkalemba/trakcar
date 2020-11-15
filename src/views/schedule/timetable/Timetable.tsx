@@ -15,15 +15,16 @@ const Timetable: React.FC = () => {
 
   const timetableHours = getTimetableHours(positions);
 
-  document.documentElement.style.setProperty(
-    '--columns',
-    `${(positions as Position[]).length}`
-  );
+  const gridColumnsCSS = (positions as Position[]).reduce((acc, cur) => {
+    return `${acc} [${cur._id}] 1fr`;
+  }, '');
 
-  document.documentElement.style.setProperty(
-    '--rows',
-    `${timetableHours.length}`
-  );
+  const gridRowsCSS = timetableHours.reduce((acc, cur) => {
+    return `${acc} [H${cur.substring(0, 2).replace(':', '')}] 1fr`;
+  }, '');
+
+  document.documentElement.style.setProperty('--columns', gridColumnsCSS);
+  document.documentElement.style.setProperty('--rows', gridRowsCSS);
 
   const gridItems: ReactNode[] = [];
 
