@@ -22,7 +22,7 @@ if (localStorage.token) {
 
 const App = () => {
   const dispatch = useDispatch();
-  const { orders } = useSelector(ordersSelector);
+  const { orders, loading } = useSelector(ordersSelector);
 
   useEffect(() => {
     setFullHeight();
@@ -48,7 +48,7 @@ const App = () => {
             />
           );
         })}
-        <Route component={NotFound} />
+        {!loading && <Route component={NotFound} />}
       </Switch>
     </Router>
   );

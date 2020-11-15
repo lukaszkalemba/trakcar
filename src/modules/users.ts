@@ -5,6 +5,7 @@ import { setAuthToken } from 'helpers/setAuthToken';
 import { AppThunk } from 'utils/store';
 import { unsetOrganization } from './organizations';
 import { unsetPositions } from './positions';
+import { unsetOrders } from './orders';
 import { unsetDate } from './calendar-dates';
 import { showAlert } from './alerts';
 
@@ -131,6 +132,7 @@ export const signOutUser = (): AppThunk => async (dispatch) => {
   dispatch(unsetUser());
   dispatch(unsetOrganization());
   dispatch(unsetPositions());
+  dispatch(unsetOrders());
   dispatch(unsetDate());
 };
 

@@ -1,0 +1,12 @@
+@import 'styles/theme/colors';
+@import 'styles/theme/box-shadow';
+
+.wrapper {
+  background-color: $white;
+  box-shadow: $layout-elements;
+  height: 100%;
+}
+
+.title {
+  margin: 0;
+}

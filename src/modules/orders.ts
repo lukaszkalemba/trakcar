@@ -46,10 +46,17 @@ const ordersSlice = createSlice({
         loading: false,
       };
     },
+    unsetOrders: (state) => {
+      return {
+        ...state,
+        orders: [],
+        loading: true,
+      };
+    },
   },
 });
 
-export const { setLoading, setOrders } = ordersSlice.actions;
+export const { setLoading, setOrders, unsetOrders } = ordersSlice.actions;
 export default ordersSlice.reducer;
 
 export const ordersSelector = (state: { orders: OrdersState }) => state.orders;
