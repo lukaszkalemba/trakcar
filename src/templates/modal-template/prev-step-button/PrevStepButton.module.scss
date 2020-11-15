@@ -1,0 +1,22 @@
+@import 'styles/theme/media';
+
+.button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 40px;
+  bottom: 36px;
+  height: 30px;
+  width: 30px;
+  padding: 7px;
+
+  @include media('>=tablet') {
+    left: 50px;
+    bottom: 46px;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}

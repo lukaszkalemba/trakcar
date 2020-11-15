@@ -13,7 +13,7 @@ const FirstStep: React.FC<FirstStepProps> = ({ setCurrentStep }) => {
       <Button
         type="button"
         icon={arrow_right_icon}
-        onClick={() => setCurrentStep(2)}
+        onClick={() => setCurrentStep((step: number) => step + 1)}
       >
         next
       </Button>
@@ -22,7 +22,7 @@ const FirstStep: React.FC<FirstStepProps> = ({ setCurrentStep }) => {
 };
 
 interface FirstStepProps {
-  setCurrentStep: (step: number) => void;
+  setCurrentStep: (step: (state: number) => number) => void;
 }
 
 export default FirstStep;

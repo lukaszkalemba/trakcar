@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import cx from 'classnames';
 import WizardSteps from './wizard-steps/WizardSteps';
 import CloseButton from './close-button/CloseButton';
+import PrevStepButton from './prev-step-button/PrevStepButton';
 import styles from './ModalTemplate.module.scss';
 
 const ModalTemplate: React.FC<ModalTemplateProps> = ({
@@ -16,6 +17,7 @@ const ModalTemplate: React.FC<ModalTemplateProps> = ({
       <div className={cx(styles.board, className)}>
         <CloseButton closeModal={closeModal} />
         {children}
+        {wizard && <PrevStepButton wizard={wizard} />}
       </div>
     </div>
   );

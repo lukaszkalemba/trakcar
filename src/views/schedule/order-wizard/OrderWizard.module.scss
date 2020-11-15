@@ -1,7 +1,4 @@
-@import 'styles/theme/media';
 @import 'styles/theme/fonts';
-@import 'styles/theme/colors';
-@import 'styles/theme/z-index';
 
 .wrapper {
   height: 100%;
@@ -12,9 +9,9 @@
     height: 100%;
 
     button {
-      margin-top: auto;
       align-self: flex-end;
       font-size: $l;
+      margin-top: 5px;
       padding: 0;
 
       span {
@@ -32,10 +29,5 @@
 }
 
 .wizard {
-  max-width: 450px;
-  height: 460px;
-
-  @include media('>=tablet') {
-    height: 490px;
-  }
+  max-width: 430px;
 }

@@ -15,6 +15,7 @@
 }
 
 .input {
+  height: 41px;
   font-size: $l;
   padding: 10px 0;
   display: block;
@@ -61,5 +62,6 @@
 
 .textarea {
   @extend .input;
+  height: auto;
   resize: none;
 }
