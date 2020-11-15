@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addDays, subDays } from 'date-fns';
+import { format, addDays, subDays } from 'date-fns';
 import {
   calendarDatesSelector,
   updateSelectedDate,
@@ -27,6 +27,8 @@ const DateInfo: React.FC = () => {
     dispatch(updateSelectedDate(subDays(new Date(date), 1)));
   };
 
+  const buttonContent = format(new Date(selectedDate), 'dd.MM.yyyy');
+
   return (
     <div className={styles.wrapper}>
       <button
@@ -38,7 +40,7 @@ const DateInfo: React.FC = () => {
       </button>
       <time dateTime={selectedDate}>
         <button type="button" onClick={resetDate} className={styles.dateButton}>
-          {selectedDate}
+          {buttonContent}
         </button>
       </time>
       <button
