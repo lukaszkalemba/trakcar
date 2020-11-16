@@ -16,6 +16,12 @@
   z-index: $level2;
 }
 
+.wrapper {
+  @include flex-center;
+  flex-direction: column;
+  width: 100%;
+}
+
 .board {
   padding: 65px 40px 40px;
   width: 100%;

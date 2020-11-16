@@ -1,4 +1,4 @@
-import React, { useEffect, ReactNode } from 'react';
+import React, { useEffect, useRef, ReactNode } from 'react';
 import cx from 'classnames';
 import WizardSteps from './wizard-steps/WizardSteps';
 import CloseButton from './close-button/CloseButton';
@@ -11,27 +11,42 @@ const ModalTemplate: React.FC<ModalTemplateProps> = ({
   className,
   children,
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
   const handleKeydown = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
       closeModal();
     }
   };
 
+  const handleClickOutside = (event: Event) => {
+    if (wrapperRef.current?.contains(event.target as Node)) {
+      return;
+    }
+
+    closeModal();
+  };
+
   useEffect(() => {
     window.addEventListener('keydown', handleKeydown);
+    window.addEventListener('mousedown', handleClickOutside);
 
     return () => {
       window.removeEventListener('keydown', handleKeydown);
+      window.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
   return (
     <div className={styles.backdrop}>
-      {wizard && <WizardSteps wizard={wizard} />}
-      <div className={cx(styles.board, className)}>
-        <CloseButton closeModal={closeModal} />
-        {children}
-        {wizard && <PrevStepButton wizard={wizard} />}
+      <div ref={wrapperRef} className={styles.wrapper}>
+        {wizard && <WizardSteps wizard={wizard} />}
+
+        <div className={cx(styles.board, className)}>
+          <CloseButton closeModal={closeModal} />
+          {children}
+          {wizard && <PrevStepButton wizard={wizard} />}
+        </div>
       </div>
     </div>
   );
