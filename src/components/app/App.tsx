@@ -7,8 +7,11 @@ import Organization from 'views/organization/Organization';
 import SignUp from 'views/sign-up/SignUp';
 import SignIn from 'views/sign-in/SignIn';
 import NotFound from 'views/not-found/NotFound';
-import Order from 'views/order/Order';
-import { ordersSelector, getAllOrders } from 'modules/orders';
+// import Order from 'views/order/Order';
+import {
+  ordersSelector,
+  // getAllOrders
+} from 'modules/orders';
 import { setFullHeight } from 'helpers/setFullHeight';
 import { setAuthToken } from 'helpers/setAuthToken';
 import Alerts from './alerts/Alerts';
@@ -22,11 +25,14 @@ if (localStorage.token) {
 
 const App = () => {
   const dispatch = useDispatch();
-  const { orders, loading } = useSelector(ordersSelector);
+  const {
+    // orders,
+    loading,
+  } = useSelector(ordersSelector);
 
   useEffect(() => {
     setFullHeight();
-    dispatch(getAllOrders());
+    // dispatch(getAllOrders());
   }, [dispatch]);
 
   return (
@@ -38,7 +44,7 @@ const App = () => {
         <PrivateRoute exact path="/organization" Component={Organization} />
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/sign-in" component={SignIn} />
-        {orders.map((order) => {
+        {/* {orders.map((order) => {
           return (
             <PrivateRoute
               key={order._id}
@@ -47,7 +53,7 @@ const App = () => {
               Component={() => <Order {...order} />}
             />
           );
-        })}
+        })} */}
         {!loading && <Route component={NotFound} />}
       </Switch>
     </Router>
