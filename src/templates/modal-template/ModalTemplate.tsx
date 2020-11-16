@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { useEffect, ReactNode } from 'react';
 import cx from 'classnames';
 import WizardSteps from './wizard-steps/WizardSteps';
 import CloseButton from './close-button/CloseButton';
@@ -11,6 +11,20 @@ const ModalTemplate: React.FC<ModalTemplateProps> = ({
   className,
   children,
 }) => {
+  const handleKeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeydown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeydown);
+    };
+  }, []);
+
   return (
     <div className={styles.backdrop}>
       {wizard && <WizardSteps wizard={wizard} />}
