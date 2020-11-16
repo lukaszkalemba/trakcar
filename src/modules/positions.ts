@@ -71,12 +71,6 @@ export default positionsSlice.reducer;
 export const positionsSelector = (state: { positions: PositionsState }) =>
   state.positions;
 
-export const updateLoading = (loadingStatus: boolean): AppThunk => async (
-  dispatch
-) => {
-  dispatch(setLoading(loadingStatus));
-};
-
 export const getAllPositions = (): AppThunk => async (dispatch) => {
   try {
     const res = await axios.get(`${rootApi}/api/v1/positions`);

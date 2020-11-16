@@ -4,7 +4,7 @@ import { rootApi } from 'utils/api';
 import { AppThunk } from 'utils/store';
 import { showAlert } from './alerts';
 import { loadUserData } from './users';
-import { updateLoading as updatePositionsLoading } from './positions';
+import { setLoading as setPositionsLoading } from './positions';
 
 export interface Member {
   name: string;
@@ -70,19 +70,13 @@ export const organizationsSelector = (state: {
   organizations: OrganizationState;
 }) => state.organizations;
 
-export const updateLoading = (loadingStatus: boolean): AppThunk => async (
-  dispatch
-) => {
-  dispatch(setLoading(loadingStatus));
-};
-
 export const loadOrganizationData = (): AppThunk => async (dispatch) => {
   try {
     const res = await axios.get(`${rootApi}/api/v1/organizations`);
 
     dispatch(setOrganization(res.data));
   } catch (error) {
-    dispatch(updateLoading(false));
+    dispatch(setLoading(false));
   }
 };
 
@@ -112,7 +106,7 @@ export const createOrganization = (
 
     dispatch(setOrganization(res.data));
     dispatch(loadUserData());
-    dispatch(updatePositionsLoading(true));
+    dispatch(setPositionsLoading(true));
 
     dispatch(
       showAlert({
@@ -154,7 +148,7 @@ export const joinOrganization = (
 
     dispatch(loadOrganizationData());
     dispatch(loadUserData());
-    dispatch(updatePositionsLoading(true));
+    dispatch(setPositionsLoading(true));
 
     dispatch(
       showAlert({

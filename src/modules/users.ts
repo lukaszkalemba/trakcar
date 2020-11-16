@@ -73,12 +73,6 @@ export default usersSlice.reducer;
 
 export const usersSelector = (state: { users: UsersState }) => state.users;
 
-export const updateLoading = (loadingStatus: boolean): AppThunk => async (
-  dispatch
-) => {
-  dispatch(setLoading(loadingStatus));
-};
-
 export const loadUserData = (): AppThunk => async (dispatch) => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);

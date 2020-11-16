@@ -61,19 +61,13 @@ export default ordersSlice.reducer;
 
 export const ordersSelector = (state: { orders: OrdersState }) => state.orders;
 
-export const updateLoading = (loadingStatus: boolean): AppThunk => async (
-  dispatch
-) => {
-  dispatch(setLoading(loadingStatus));
-};
-
 export const getAllOrders = (): AppThunk => async (dispatch) => {
   try {
     const res = await axios.get(`${rootApi}/api/v1/orders`);
 
     dispatch(setOrders(res.data));
   } catch (error) {
-    dispatch(updateLoading(false));
+    dispatch(setLoading(false));
   }
 };
 
