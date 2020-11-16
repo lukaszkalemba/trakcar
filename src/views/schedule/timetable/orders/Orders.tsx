@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { ordersSelector } from 'modules/orders';
+import { ordersSelector, Order as OrderSchema } from 'modules/orders';
 import Order from './order/Order';
 
 const Orders: React.FC = () => {
@@ -8,7 +8,7 @@ const Orders: React.FC = () => {
 
   return (
     <>
-      {orders.map((order) => {
+      {(orders as OrderSchema[]).map((order) => {
         return <Order key={order._id} order={order} />;
       })}
     </>

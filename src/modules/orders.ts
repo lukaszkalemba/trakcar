@@ -20,12 +20,12 @@ export interface Order {
 }
 
 export interface OrdersState {
-  orders: Order[];
+  orders: Order[] | null;
   loading: boolean;
 }
 
 const initialState: OrdersState = {
-  orders: [],
+  orders: null,
   loading: true,
 };
 
@@ -49,7 +49,7 @@ const ordersSlice = createSlice({
     unsetOrders: (state) => {
       return {
         ...state,
-        orders: [],
+        orders: null,
         loading: true,
       };
     },
