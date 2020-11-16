@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './PositionItem.module.scss';
 
-const PositionItem: React.FC<PositionItemProps> = ({ name }) => {
-  return <span className={styles.item}>{name}</span>;
+const PositionItem: React.FC<PositionItemProps> = ({ positionName }) => {
+  return <span className={styles.item}>{positionName}</span>;
 };
 
 interface PositionItemProps {
-  name: string;
+  positionName: string;
 }
 
 export default PositionItem;

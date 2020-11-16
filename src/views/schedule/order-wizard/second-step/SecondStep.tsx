@@ -13,7 +13,7 @@ const SecondStep: React.FC<SecondStepProps> = ({ setCurrentStep }) => {
       <Inputs.Select label="position" name="positionId">
         {(positions as Position[]).map((position) => (
           <option key={position._id} value={position._id}>
-            {position.name}
+            {position.positionName}
           </option>
         ))}
       </Inputs.Select>

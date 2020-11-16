@@ -6,7 +6,7 @@ import { showAlert } from './alerts';
 
 export interface Position {
   _id: string;
-  name: string;
+  positionName: string;
   startTime: string;
   endTime: string;
   orders: string[];
@@ -82,13 +82,13 @@ export const getAllPositions = (): AppThunk => async (dispatch) => {
 };
 
 export interface CreatePositionValues {
-  name: string;
+  positionName: string;
   startTime: string;
   endTime: string;
 }
 
 export const createPosition = (
-  { name, startTime, endTime }: CreatePositionValues,
+  { positionName, startTime, endTime }: CreatePositionValues,
   closeModal: () => void
 ): AppThunk => async (dispatch) => {
   const config = {
@@ -97,7 +97,7 @@ export const createPosition = (
     },
   };
 
-  const body = JSON.stringify({ name, startTime, endTime });
+  const body = JSON.stringify({ positionName, startTime, endTime });
 
   try {
     await axios.post(`${rootApi}/api/v1/positions`, body, config);
@@ -125,7 +125,7 @@ export interface UpdatePositionValues extends CreatePositionValues {
 }
 
 export const updatePosition = (
-  { id, name, startTime, endTime }: UpdatePositionValues,
+  { id, positionName, startTime, endTime }: UpdatePositionValues,
   closeModal: () => void
 ): AppThunk => async (dispatch) => {
   const config = {
@@ -134,7 +134,7 @@ export const updatePosition = (
     },
   };
 
-  const body = JSON.stringify({ name, startTime, endTime });
+  const body = JSON.stringify({ positionName, startTime, endTime });
 
   try {
     await axios.put(`${rootApi}/api/v1/positions/${id}`, body, config);

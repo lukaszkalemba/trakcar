@@ -2,13 +2,13 @@ import * as yup from 'yup';
 import { Position } from 'modules/positions';
 
 export const getInitialValues = (position: Position) => ({
-  name: position.name,
+  positionName: position.positionName,
   startTime: position.startTime,
   endTime: position.endTime,
 });
 
 export const validationSchema = yup.object({
-  name: yup.string().required('Position name is required'),
+  positionName: yup.string().required('Position name is required'),
   startTime: yup
     .string()
     .matches(

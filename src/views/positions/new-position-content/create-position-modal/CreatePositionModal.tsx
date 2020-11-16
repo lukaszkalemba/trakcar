@@ -25,7 +25,7 @@ const CreatePositionModal: React.FC<CreatePositionModalProps> = ({
       >
         {() => (
           <Form>
-            <Inputs.Text label="name" name="name" />
+            <Inputs.Text label="position name" name="positionName" />
             <Inputs.Time label="start time" name="startTime" step={3600} />
             <Inputs.Time label="end time" name="endTime" step={3600} />
             <Button type="submit">create</Button>

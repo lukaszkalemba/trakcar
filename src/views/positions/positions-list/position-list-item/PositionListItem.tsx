@@ -13,7 +13,7 @@ const PositionListItem: React.FC<PositionListItemProps> = ({ position }) => {
 
   return (
     <li className={styles.item}>
-      <h2 className={styles.name}>{position.name}</h2>
+      <h2 className={styles.name}>{position.positionName}</h2>
 
       <div className={styles.range}>
         <time>{position.startTime}</time> - <time>{position.endTime}</time>

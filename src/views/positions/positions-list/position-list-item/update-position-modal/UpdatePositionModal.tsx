@@ -20,11 +20,15 @@ const UpdatePositionModal: React.FC<UpdatePositionModalProps> = ({
 
   const initialValues = getInitialValues(position);
 
-  const handleSubmit = ({ name, startTime, endTime }: CreatePositionValues) => {
+  const handleSubmit = ({
+    positionName,
+    startTime,
+    endTime,
+  }: CreatePositionValues) => {
     let areEqual = false;
 
     if (
-      name === initialValues.name &&
+      positionName === initialValues.positionName &&
       startTime === initialValues.startTime &&
       endTime === initialValues.endTime
     ) {
@@ -44,7 +48,10 @@ const UpdatePositionModal: React.FC<UpdatePositionModalProps> = ({
     }
 
     dispatch(
-      updatePosition({ id: position._id, name, startTime, endTime }, closeModal)
+      updatePosition(
+        { id: position._id, positionName, startTime, endTime },
+        closeModal
+      )
     );
   };
 
@@ -57,7 +64,7 @@ const UpdatePositionModal: React.FC<UpdatePositionModalProps> = ({
       >
         {() => (
           <Form>
-            <Inputs.Text label="name" name="name" />
+            <Inputs.Text label="position name" name="positionName" />
             <Inputs.Time label="start time" name="startTime" step={3600} />
             <Inputs.Time label="end time" name="endTime" step={3600} />
             <Button type="submit">update</Button>

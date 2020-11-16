@@ -6,8 +6,8 @@ import styles from './PositionsList.module.scss';
 const PositionsList: React.FC<PositionsListProps> = ({ positions }) => {
   return (
     <div className={styles.wrapper}>
-      {(positions as Position[]).map(({ _id, name }) => (
-        <PositionItem key={_id} name={name} />
+      {(positions as Position[]).map(({ _id, positionName }) => (
+        <PositionItem key={_id} positionName={positionName} />
       ))}
     </div>
   );
