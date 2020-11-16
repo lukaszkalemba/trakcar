@@ -1,4 +1,5 @@
 @import 'styles/theme/media';
+@import 'styles/theme/fonts';
 @import 'styles/theme/colors';
 @import 'styles/theme/box-shadow';
 
@@ -12,5 +13,17 @@
     box-shadow: $layout-elements;
     grid-row: 6 / 11;
     grid-column: 1 / 3;
+    position: relative;
   }
+}
+
+.icon {
+  align-self: center;
+  width: 30px;
+  height: 30px;
+  opacity: 0.5;
+}
+
+.loadingSpinner {
+  font-size: $xs;
 }

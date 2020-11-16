@@ -4,7 +4,8 @@ import { rootApi } from 'utils/api';
 import { AppThunk } from 'utils/store';
 import { showAlert } from './alerts';
 import { loadUserData } from './users';
-import { setLoading as setPositionsLoading } from './positions';
+import { unsetPositions, setLoading as setPositionsLoading } from './positions';
+import { unsetOrders } from './orders';
 
 export interface Member {
   name: string;
@@ -178,8 +179,10 @@ export const deleteOrganization = (id: string): AppThunk => async (
     await axios.delete(`${rootApi}/api/v1/organizations/${id}`);
 
     dispatch(unsetOrganization());
-    dispatch(loadOrganizationData());
+    dispatch(unsetPositions());
+    dispatch(unsetOrders());
     dispatch(loadUserData());
+    dispatch(loadOrganizationData());
 
     dispatch(
       showAlert({

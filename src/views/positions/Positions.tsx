@@ -75,7 +75,7 @@ const Positions: React.FC = () => {
           icon={organization_icon}
           className={styles.organizationLink}
         >
-          organization page
+          join an organization
         </Button>
       </>
     );

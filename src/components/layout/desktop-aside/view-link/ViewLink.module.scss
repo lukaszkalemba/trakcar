@@ -9,13 +9,20 @@
   color: $black;
 
   span {
-    margin-top: 15px;
+    margin-top: 17px;
     font-size: $m;
-    font-weight: $medium;
+    font-weight: $semibold;
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    span {
+      text-decoration: underline;
+    }
   }
 }
 
 .icon {
-  width: 50px;
-  height: 50px;
+  width: 43px;
+  height: 43px;
 }

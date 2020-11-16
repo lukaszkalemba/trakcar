@@ -61,7 +61,7 @@ const Schedule: React.FC = () => {
             icon={organization_icon}
             className={styles.link}
           >
-            organization page
+            join an organization
           </Button>
         </>
       );
@@ -79,7 +79,7 @@ const Schedule: React.FC = () => {
             icon={car_icon}
             className={styles.link}
           >
-            positions page
+            addf first position
           </Button>
         </>
       );
