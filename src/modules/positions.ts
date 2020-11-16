@@ -3,6 +3,7 @@ import axios from 'axios';
 import { rootApi } from 'utils/api';
 import { AppThunk } from 'utils/store';
 import { showAlert } from './alerts';
+import { getAllOrders } from './orders';
 
 export interface Position {
   _id: string;
@@ -165,6 +166,7 @@ export const deletePosition = (id: string): AppThunk => async (dispatch) => {
 
     dispatch(unsetSinglePosition(id));
     dispatch(getAllPositions());
+    dispatch(getAllOrders());
 
     dispatch(
       showAlert({
