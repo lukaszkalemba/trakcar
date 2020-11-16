@@ -114,7 +114,6 @@ export const signInUser = ({
     const res = await axios.post(`${rootApi}/api/v1/users/login`, body, config);
 
     dispatch(setUser(res.data));
-    dispatch(loadUserData());
   } catch (error) {
     dispatch(setLoading(false));
 
@@ -155,7 +154,6 @@ export const signUpUser = ({
     const res = await axios.post(`${rootApi}/api/v1/users`, body, config);
 
     dispatch(setUser(res.data));
-    dispatch(loadUserData());
   } catch (error) {
     dispatch(setLoading(false));
 
