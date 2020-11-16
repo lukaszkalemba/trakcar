@@ -7,9 +7,9 @@ const FirstStep: React.FC<FirstStepProps> = ({ setCurrentStep }) => {
   return (
     <>
       <Inputs.Text label="order name" name="name" />
-      <Inputs.Text label="principal name" name="principalName" />
       <Inputs.Text label="car brand" name="carBrand" />
       <Inputs.Text label="car model" name="carModel" />
+      <Inputs.Text label="principal name" name="principalName" />
       <Button
         type="button"
         icon={arrow_right_icon}
