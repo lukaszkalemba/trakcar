@@ -6,7 +6,7 @@ import styles from './Order.module.scss';
 const Order: React.FC<OrderProps> = ({
   _id,
   positionId,
-  name,
+  orderName,
   principalName,
   carBrand,
   carModel,
@@ -19,7 +19,7 @@ const Order: React.FC<OrderProps> = ({
 }) => {
   console.log(_id);
   console.log(positionId);
-  console.log(name);
+  console.log(orderName);
   console.log(principalName);
   console.log(carBrand);
   console.log(carModel);
@@ -33,7 +33,7 @@ const Order: React.FC<OrderProps> = ({
   return (
     <Layout>
       <div className={styles.wrapper}>
-        <h1 className={styles.title}>{name}</h1>
+        <h1 className={styles.title}>{orderName}</h1>
       </div>
     </Layout>
   );

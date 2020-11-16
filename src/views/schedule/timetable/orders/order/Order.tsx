@@ -10,7 +10,7 @@ import { generateGridColumn } from 'helpers/generateGridColumn';
 import styles from './Order.module.scss';
 
 const Order: React.FC<OrderProps> = ({ order }) => {
-  const { positionId, startTime, endTime, date, name } = order;
+  const { positionId, startTime, endTime, date, orderName } = order;
 
   const { selectedDate } = useSelector(calendarDatesSelector);
 
@@ -35,7 +35,7 @@ const Order: React.FC<OrderProps> = ({ order }) => {
   return (
     <div className={orderClass}>
       <Link to={`/orders/${order._id}`} className={styles.link}>
-        <span className={styles.name}>{name}</span>
+        <span className={styles.name}>{orderName}</span>
       </Link>
     </div>
   );

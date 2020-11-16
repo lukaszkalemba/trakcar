@@ -6,7 +6,7 @@ import { showAlert } from './alerts';
 
 export interface Order {
   _id: string;
-  name: string;
+  orderName: string;
   principalName: string;
   carBrand: string;
   carModel: string;
@@ -72,7 +72,7 @@ export const getAllOrders = (): AppThunk => async (dispatch) => {
 };
 
 export interface CreateOrderValues {
-  name: string;
+  orderName: string;
   principalName: string;
   carBrand: string;
   carModel: string;
@@ -87,7 +87,7 @@ export interface CreateOrderValues {
 
 export const createOrder = (
   {
-    name,
+    orderName,
     principalName,
     carBrand,
     carModel,
@@ -108,7 +108,7 @@ export const createOrder = (
   };
 
   const body = JSON.stringify({
-    name,
+    orderName,
     principalName,
     carBrand,
     carModel,

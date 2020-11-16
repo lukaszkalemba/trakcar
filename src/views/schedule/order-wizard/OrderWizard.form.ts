@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 export const getInitialValues = (date: string, positionId: string) => ({
-  name: '',
+  orderName: '',
   principalName: '',
   carBrand: '',
   carModel: '',
@@ -15,7 +15,7 @@ export const getInitialValues = (date: string, positionId: string) => ({
 });
 
 export const validationSchema = yup.object({
-  name: yup
+  orderName: yup
     .string()
     .min(5, 'Order name must be at least 5 characters')
     .required('Order name is required'),
