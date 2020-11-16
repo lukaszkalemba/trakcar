@@ -1,0 +1,21 @@
+@import 'styles/theme/colors';
+@import 'styles/theme/fonts';
+
+.alert {
+  font-size: $m;
+  font-weight: $medium;
+  padding: 1em 1.5em;
+  color: white;
+  text-align: center;
+  line-height: 1.25em;
+  margin: 15px;
+  width: 200px;
+
+  &.success {
+    background-color: $dark-green;
+  }
+
+  &.error {
+    background-color: $dark-red;
+  }
+}

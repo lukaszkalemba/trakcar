@@ -1,32 +1,7 @@
-@import 'styles/theme/media';
-@import 'styles/theme/colors';
-@import 'styles/theme/fonts';
 @import 'styles/theme/z-index';
-@import 'styles/theme/box-shadow';
 
-.alert {
-  font-size: $m;
-  font-weight: $medium;
-  padding: 1em 1.5em;
-  color: white;
+.alerts {
   position: absolute;
-  z-index: $level9;
-  top: 20px;
-  right: 20px;
-  max-width: 200px;
-  text-align: center;
-  line-height: 1.25em;
-
-  &.success {
-    background-color: $dark-green;
-  }
-
-  &.error {
-    background-color: $dark-red;
-  }
-
-  @include media('>=laptop') {
-    padding: 1.5em 3em;
-    max-width: 250px;
-  }
+  right: 0;
+  z-index: $level3;
 }
