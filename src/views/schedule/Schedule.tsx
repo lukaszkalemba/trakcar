@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { usersSelector } from 'modules/users';
-import { getAllPositions, positionsSelector } from 'modules/positions';
-import { getAllOrders, ordersSelector } from 'modules/orders';
+import { positionsSelector } from 'modules/positions';
+import { ordersSelector } from 'modules/orders';
 import organization_icon from 'assets/svgs/icon_organization-black.svg';
 import car_icon from 'assets/svgs/icon_car-black.svg';
 import Layout from 'components/layout/Layout';
@@ -17,8 +17,6 @@ import CalendarModal from './calendar-modal/CalendarModal';
 import styles from './Schedule.module.scss';
 
 const Schedule: React.FC = () => {
-  const dispatch = useDispatch();
-
   const [isOrderWizardOpen, setIsOrderWizardOpen] = useState<boolean>(false);
   const [isCalendarModalOpen, setIsCalendarModalOpen] = useState<boolean>(
     false
@@ -29,11 +27,6 @@ const Schedule: React.FC = () => {
     positionsSelector
   );
   const { loading: ordersLoading } = useSelector(ordersSelector);
-
-  useEffect(() => {
-    dispatch(getAllPositions());
-    dispatch(getAllOrders());
-  }, [dispatch]);
 
   const openOrderWizard = () => {
     setIsOrderWizardOpen(true);
