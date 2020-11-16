@@ -102,8 +102,9 @@ export const createPosition = (
   try {
     await axios.post(`${rootApi}/api/v1/positions`, body, config);
 
-    dispatch(getAllPositions());
+    dispatch(setLoading(true));
 
+    dispatch(getAllPositions());
     dispatch(
       showAlert({
         message: 'Position created',
@@ -138,6 +139,8 @@ export const updatePosition = (
   try {
     await axios.put(`${rootApi}/api/v1/positions/${id}`, body, config);
 
+    dispatch(setLoading(true));
+
     dispatch(getAllPositions());
     dispatch(
       showAlert({
@@ -157,6 +160,8 @@ export const updatePosition = (
 export const deletePosition = (id: string): AppThunk => async (dispatch) => {
   try {
     await axios.delete(`${rootApi}/api/v1/positions/${id}`);
+
+    dispatch(setLoading(true));
 
     dispatch(unsetSinglePosition(id));
     dispatch(getAllPositions());

@@ -104,6 +104,8 @@ export const createOrganization = (
       config
     );
 
+    dispatch(setLoading(true));
+
     dispatch(setOrganization(res.data));
     dispatch(loadUserData());
     dispatch(setPositionsLoading(true));
@@ -146,6 +148,8 @@ export const joinOrganization = (
   try {
     await axios.post(`${rootApi}/api/v1/organizations/members`, body, config);
 
+    dispatch(setLoading(true));
+
     dispatch(loadOrganizationData());
     dispatch(loadUserData());
     dispatch(setPositionsLoading(true));
@@ -169,6 +173,8 @@ export const deleteOrganization = (id: string): AppThunk => async (
   dispatch
 ) => {
   try {
+    dispatch(setLoading(true));
+
     await axios.delete(`${rootApi}/api/v1/organizations/${id}`);
 
     dispatch(unsetOrganization());

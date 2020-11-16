@@ -124,8 +124,9 @@ export const createOrder = (
   try {
     await axios.post(`${rootApi}/api/v1/orders`, body, config);
 
-    dispatch(getAllOrders());
+    dispatch(setLoading(true));
 
+    dispatch(getAllOrders());
     dispatch(
       showAlert({
         message: 'Order created',
