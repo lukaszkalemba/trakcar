@@ -54,7 +54,7 @@ const organizationsSlice = createSlice({
       return {
         ...state,
         organization: null,
-        loading: true,
+        loading: false,
       };
     },
   },
@@ -182,7 +182,6 @@ export const deleteOrganization = (id: string): AppThunk => async (
     dispatch(unsetPositions());
     dispatch(unsetOrders());
     dispatch(loadUserData());
-    dispatch(loadOrganizationData());
 
     dispatch(
       showAlert({
