@@ -9,7 +9,7 @@ export const getInitialValues = (date: string, positionId: string) => ({
   date,
   startTime: '',
   endTime: '',
-  color: 0,
+  color: 'red',
   cost: 100,
   description: '',
 });
@@ -30,6 +30,6 @@ export const validationSchema = yup.object({
   startTime: yup.string().required('Start time of work is required'),
   endTime: yup.string().required('End time of work is required'),
   cost: yup.number().required('Order cost is required'),
-  color: yup.number().required('Highlight color is required'),
+  color: yup.string().required('Distinctive color is required'),
   description: yup.string().required('Description is required'),
 });

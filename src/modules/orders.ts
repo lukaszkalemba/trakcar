@@ -14,7 +14,7 @@ export interface Order {
   date: string;
   endTime: string;
   startTime: string;
-  color: number;
+  color: string;
   cost: number;
   description: string;
 }
@@ -80,7 +80,7 @@ export interface CreateOrderValues {
   date: string;
   endTime: string;
   startTime: string;
-  color: number;
+  color: string;
   cost: number;
   description: string;
 }
