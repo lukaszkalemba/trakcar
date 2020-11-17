@@ -1,11 +1,15 @@
 @import 'styles/theme/media';
 
 .sidebar {
-  background-color: lightgreen;
+  background-color: darkblue;
   height: 35px;
   display: flex;
   justify-content: space-between;
   flex-direction: row-reverse;
+
+  @include media('>=tablet') {
+    height: 45px;
+  }
 
   @include media('>1120px') {
     flex-direction: column;

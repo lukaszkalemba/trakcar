@@ -1,0 +1,14 @@
+@import 'styles/theme/media';
+
+.button {
+  border: none;
+  background: none;
+  width: 50px;
+  padding: 8px;
+  cursor: pointer;
+
+  @include media('>1120px') {
+    height: 60px;
+    padding: 17px;
+  }
+}
