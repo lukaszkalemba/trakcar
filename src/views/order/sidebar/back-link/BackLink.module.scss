@@ -1,14 +1,13 @@
 @import 'styles/theme/media';
 
-.button {
-  border: none;
-  background: none;
+.link {
   width: 50px;
   padding: 10px;
   cursor: pointer;
 
   @include media('>1120px') {
     height: 60px;
-    padding: 17px;
+    margin: 0;
+    transform: rotate(180deg);
   }
 }

@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import arrow_icon from 'assets/svgs/icon_arrow-back.svg';
-import Icon from 'components/icon/Icon';
+import BackLink from './back-link/BackLink';
 import DeleteButton from './delete-button/DeleteButton';
 import styles from './Sidebar.module.scss';
 
@@ -10,10 +8,7 @@ const Sidebar: React.FC<SidebarProps> = ({ positionId, color }) => {
 
   return (
     <div className={styles.sidebar}>
-      <Link to="/">
-        <Icon src={arrow_icon} />
-      </Link>
-
+      <BackLink />
       <DeleteButton positionId={positionId} />
     </div>
   );
