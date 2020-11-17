@@ -1,32 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import share_icon from 'assets/svgs/icon_share.svg';
 import plus_icon from 'assets/svgs/icon_plus.svg';
 import Button from 'components/button/Button';
 import Heading from 'components/heading/Heading';
-import CreateOrganizationModal from './create-organization-modal/CreateOrganizationModal';
-import JoinOrganizationModal from './join-organization-modal/JoinOrganizationModal';
 import styles from './NoOrganizationInfo.module.scss';
 
-const NoOrganizationInfo: React.FC = () => {
-  const [isCreateModalOpen, setIsCreateModalOpen] = useState<boolean>(false);
-  const [isJoinModalOpen, setIsJoinModalOpen] = useState<boolean>(false);
-
-  const openCreateModal = () => {
-    setIsCreateModalOpen(true);
-  };
-
-  const closeCreateModal = () => {
-    setIsCreateModalOpen(false);
-  };
-
-  const openJoinModal = () => {
-    setIsJoinModalOpen(true);
-  };
-
-  const closeJoinModal = () => {
-    setIsJoinModalOpen(false);
-  };
-
+const NoOrganizationInfo: React.FC<NoOrganizationInfoProps> = ({
+  openCreateModal,
+  openJoinModal,
+}) => {
   return (
     <>
       <section className={styles.wrapper}>
@@ -40,14 +22,13 @@ const NoOrganizationInfo: React.FC = () => {
           </Button>
         </div>
       </section>
-
-      {isCreateModalOpen && (
-        <CreateOrganizationModal closeModal={closeCreateModal} />
-      )}
-
-      {isJoinModalOpen && <JoinOrganizationModal closeModal={closeJoinModal} />}
     </>
   );
 };
+
+interface NoOrganizationInfoProps {
+  openCreateModal: () => void;
+  openJoinModal: () => void;
+}
 
 export default NoOrganizationInfo;
