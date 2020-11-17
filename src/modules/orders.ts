@@ -141,3 +141,28 @@ export const createOrder = (
     );
   }
 };
+
+export const deleteOrder = (
+  id: string,
+  redirect: (path: string) => void
+): AppThunk => async (dispatch) => {
+  try {
+    await axios.delete(`${rootApi}/api/v1/orders/${id}`);
+
+    dispatch(setLoading(true));
+    dispatch(getAllOrders());
+
+    redirect('/');
+
+    dispatch(
+      showAlert({
+        message: 'Order deleted',
+        alertType: 'success',
+      })
+    );
+  } catch (error) {
+    dispatch(
+      showAlert({ message: error.response.data.error, alertType: 'error' })
+    );
+  }
+};
