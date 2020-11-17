@@ -35,14 +35,14 @@ const ModalTemplate: React.FC<ModalTemplateProps> = ({
       window.removeEventListener('keydown', handleKeydown);
       window.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  });
 
   return (
     <div className={styles.backdrop}>
-      <div ref={wrapperRef} className={styles.wrapper}>
+      <div ref={wrapperRef} className={cx(styles.wrapper, className)}>
         {wizard && <WizardSteps wizard={wizard} />}
 
-        <div className={cx(styles.board, className)}>
+        <div className={styles.board}>
           <CloseButton closeModal={closeModal} />
           {children}
           {wizard && <PrevStepButton wizard={wizard} />}

@@ -20,12 +20,12 @@
   @include flex-center;
   flex-direction: column;
   width: 100%;
+  max-width: 400px;
 }
 
 .board {
   padding: 65px 40px 40px;
   width: 100%;
-  max-width: 400px;
   margin: 0 20px;
   background-color: $white;
   display: flex;
