@@ -36,11 +36,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ closeOrderWizard }) => {
   };
 
   return (
-    <ModalTemplate
-      className={styles.wizard}
-      wizard={wizard}
-      closeModal={closeOrderWizard}
-    >
+    <ModalTemplate wizard={wizard} closeModal={closeOrderWizard}>
       <div className={styles.wrapper}>
         <Formik
           initialValues={initialValues}

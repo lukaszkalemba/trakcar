@@ -39,10 +39,10 @@ const ModalTemplate: React.FC<ModalTemplateProps> = ({
 
   return (
     <div className={styles.backdrop}>
-      <div ref={wrapperRef} className={cx(styles.wrapper, className)}>
+      <div ref={wrapperRef} className={styles.wrapper}>
         {wizard && <WizardSteps wizard={wizard} />}
 
-        <div className={styles.board}>
+        <div className={cx(styles.board, className)}>
           <CloseButton closeModal={closeModal} />
           {children}
           {wizard && <PrevStepButton wizard={wizard} />}
