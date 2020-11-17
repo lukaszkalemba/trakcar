@@ -1,0 +1,12 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+
+.name {
+  margin: 0;
+  font-size: $xl;
+  font-weight: $semibold;
+
+  @include media('>=tablet') {
+    font-size: $xxl;
+  }
+}

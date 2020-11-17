@@ -1,0 +1,18 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+
+.text {
+  margin-top: 20px;
+  font-size: $m;
+  font-weight: $regular;
+  line-height: 1.5em;
+  opacity: 0.8;
+
+  @include media('>=tablet') {
+    font-size: $l;
+  }
+
+  @include media('>1120px') {
+    max-width: 80%;
+  }
+}

@@ -1,11 +1,14 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss';
 import cx from 'classnames';
-import { format } from 'date-fns';
 import { Order as OrderProps } from 'modules/orders';
 import { getOrderColors } from 'helpers/getOrderColors';
 import Layout from 'components/layout/Layout';
 import Sidebar from './sidebar/Sidebar';
+import Time from './time/Time';
+import Name from './name/Name';
+import Car from './car/Car';
+import Description from './description/Description';
 import styles from './Order.module.scss';
 
 const Order: React.FC<OrderProps> = ({
@@ -37,24 +40,15 @@ const Order: React.FC<OrderProps> = ({
         <Sidebar positionId={_id} color={color} />
 
         <div className={styles.content}>
-          <div className={styles.time}>
-            <time>
-              {startTime} - {endTime},{' '}
-              <span className={styles.date}>
-                {format(new Date(date), 'dd.MM.yyyy')}
-              </span>
-            </time>
-          </div>
-
-          <h1 className={styles.title}>{orderName}</h1>
-
-          <div className={styles.car}>
-            {carBrand} {carModel}, {principalName}, {cost}$
-          </div>
-
-          <div>
-            <div className={styles.description}>{description}</div>
-          </div>
+          <Time startTime={startTime} endTime={endTime} date={date} />
+          <Name>{orderName}</Name>
+          <Car
+            brand={carBrand}
+            model={carModel}
+            principal={principalName}
+            cost={cost}
+          />
+          <Description text={description} />
         </div>
       </div>
     </Layout>
