@@ -14,20 +14,6 @@
   }
 }
 
-.sidebar {
-  background-color: lightgreen;
-  height: 35px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row-reverse;
-
-  @include media('>1120px') {
-    flex-direction: column;
-    height: 100%;
-    width: 150px;
-  }
-}
-
 .title {
   margin: 0;
 }

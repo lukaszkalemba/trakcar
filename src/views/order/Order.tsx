@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Order as OrderProps } from 'modules/orders';
 import Layout from 'components/layout/Layout';
+import Sidebar from './sidebar/Sidebar';
 import styles from './Order.module.scss';
 
 const Order: React.FC<OrderProps> = ({
@@ -17,17 +17,10 @@ const Order: React.FC<OrderProps> = ({
   endTime,
   startTime,
 }) => {
-  console.log(color);
-
   return (
     <Layout>
       <div className={styles.wrapper}>
-        <div className={styles.sidebar}>
-          <Link to="/">Back</Link>
-          <button type="button" onClick={() => console.log(_id)}>
-            Bin
-          </button>
-        </div>
+        <Sidebar positionId={_id} color={color} />
 
         <div>
           <div>
