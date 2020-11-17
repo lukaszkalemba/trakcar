@@ -7,7 +7,7 @@
     "selector-type-no-unknown": [
       true,
       {
-        "ignoreTypes": ["gridArrangement", "dynamicStyles"]
+        "ignoreTypes": ["dynamicStyles"]
       }
     ]
   }

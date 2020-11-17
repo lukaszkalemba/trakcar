@@ -7,10 +7,11 @@ import { Order as OrderSchema } from 'modules/orders';
 import { calendarDatesSelector } from 'modules/calendar-dates';
 import { generateGridRow } from 'helpers/generateGridRow';
 import { generateGridColumn } from 'helpers/generateGridColumn';
+import { getOrderColors } from 'helpers/getOrderColors';
 import styles from './Order.module.scss';
 
 const Order: React.FC<OrderProps> = ({ order }) => {
-  const { positionId, startTime, endTime, date, orderName } = order;
+  const { positionId, startTime, endTime, date, orderName, color } = order;
 
   const { selectedDate } = useSelector(calendarDatesSelector);
 
@@ -18,11 +19,15 @@ const Order: React.FC<OrderProps> = ({ order }) => {
   const gridRowEnd = generateGridRow(endTime);
   const gridColumnStart = generateGridColumn(positionId);
 
+  const orderColors = getOrderColors(color);
+
   const { dynamicStyles } = createUseStyles({
     dynamicStyles: {
       gridColumnStart,
       gridRowStart,
       gridRowEnd,
+      backgroundColor: orderColors.light,
+      color: orderColors.dark,
     },
   })();
 

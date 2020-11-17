@@ -1,5 +1,8 @@
 import React from 'react';
+import { createUseStyles } from 'react-jss';
+import cx from 'classnames';
 import { Order as OrderProps } from 'modules/orders';
+import { getOrderColors } from 'helpers/getOrderColors';
 import Layout from 'components/layout/Layout';
 import Sidebar from './sidebar/Sidebar';
 import styles from './Order.module.scss';
@@ -17,9 +20,19 @@ const Order: React.FC<OrderProps> = ({
   endTime,
   startTime,
 }) => {
+  const orderColors = getOrderColors(color);
+
+  const { dynamicStyles } = createUseStyles({
+    dynamicStyles: {
+      backgroundColor: orderColors.light,
+    },
+  })();
+
+  const wrapperClass = cx(styles.wrapper, dynamicStyles);
+
   return (
     <Layout>
-      <div className={styles.wrapper}>
+      <div className={wrapperClass}>
         <Sidebar positionId={_id} color={color} />
 
         <div>

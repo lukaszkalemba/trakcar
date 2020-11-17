@@ -23,8 +23,8 @@ const Timetable: React.FC = () => {
     return `${acc} [H${cur.substring(0, 2).replace(':', '')}] 1fr`;
   }, '');
 
-  const { gridArrangement } = createUseStyles({
-    gridArrangement: {
+  const { dynamicStyles } = createUseStyles({
+    dynamicStyles: {
       gridTemplateColumns,
       gridTemplateRows,
     },
@@ -37,7 +37,7 @@ const Timetable: React.FC = () => {
       <div className={styles.gridWrapper}>
         <HoursList timetableHours={timetableHours} />
 
-        <div className={cx(styles.grid, gridArrangement)}>
+        <div className={cx(styles.grid, dynamicStyles)}>
           <GridItems timetableHours={timetableHours} />
           <Orders />
         </div>

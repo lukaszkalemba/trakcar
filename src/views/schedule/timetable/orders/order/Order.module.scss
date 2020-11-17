@@ -1,11 +1,16 @@
 @import 'styles/theme/fonts';
 @import 'styles/theme/colors';
+@import 'styles/theme/media';
 
 .order {
-  background-color: black;
-  color: white;
   padding: 4px;
   display: flex;
+  border-left: 3px solid;
+
+  @include media('>=tablet') {
+    padding: 6px;
+    border-left-width: 4px;
+  }
 
   &.hidden {
     display: none;
@@ -19,11 +24,15 @@
 .link {
   width: 100%;
   height: 100%;
-  color: $white;
+  color: inherit;
   text-decoration: none;
 }
 
 .name {
   font-size: $s;
   font-weight: $medium;
+
+  @include media('>=tablet') {
+    font-size: $m;
+  }
 }
