@@ -1,6 +1,7 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss';
 import cx from 'classnames';
+import { format } from 'date-fns';
 import { Order as OrderProps } from 'modules/orders';
 import { getOrderColors } from 'helpers/getOrderColors';
 import Layout from 'components/layout/Layout';
@@ -35,21 +36,24 @@ const Order: React.FC<OrderProps> = ({
       <div className={wrapperClass}>
         <Sidebar positionId={_id} color={color} />
 
-        <div>
-          <div>
-            <span>
-              <time>{startTime}</time> - <time>{endTime}</time>
-              <time>{date}</time>
-            </span>
+        <div className={styles.content}>
+          <div className={styles.time}>
+            <time>
+              {startTime} - {endTime},{' '}
+              <span className={styles.date}>
+                {format(new Date(date), 'dd.MM.yyyy')}
+              </span>
+            </time>
           </div>
-          <span>
-            {carBrand} {carModel}
-          </span>
+
           <h1 className={styles.title}>{orderName}</h1>
+
+          <div className={styles.car}>
+            {carBrand} {carModel}, {principalName}, {cost}$
+          </div>
+
           <div>
-            <div>{principalName}</div>
-            <div>{cost}$</div>
-            <div>{description}</div>
+            <div className={styles.description}>{description}</div>
           </div>
         </div>
       </div>

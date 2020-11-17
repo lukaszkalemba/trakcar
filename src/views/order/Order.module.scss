@@ -1,4 +1,5 @@
 @import 'styles/theme/media';
+@import 'styles/theme/fonts';
 @import 'styles/theme/colors';
 @import 'styles/theme/box-shadow';
 
@@ -14,6 +15,49 @@
   }
 }
 
+.content {
+  flex-grow: 1;
+  padding: 10px;
+
+  @include media('>phone') {
+    padding: 15px;
+  }
+
+  @include media('>=tablet') {
+    padding: 50px;
+  }
+}
+
+.time,
+.car {
+  font-size: $m;
+  font-weight: $medium;
+  opacity: 0.8;
+  margin: 15px 0;
+}
+
 .title {
   margin: 0;
+  font-size: $xl;
+  font-weight: $semibold;
+
+  @include media('>=tablet') {
+    font-size: $xxl;
+  }
+}
+
+.description {
+  margin-top: 20px;
+  font-size: $m;
+  font-weight: $regular;
+  line-height: 1.5em;
+  opacity: 0.8;
+
+  @include media('>=tablet') {
+    font-size: $l;
+  }
+
+  @include media('>1120px') {
+    max-width: 80%;
+  }
 }
