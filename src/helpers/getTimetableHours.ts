@@ -24,8 +24,12 @@ export const getTimetableHours = (positions: Position[] | null) => {
 
   const timetableHours = [];
 
-  for (let i = startHourNum; i <= endHourNum; i += 1) {
-    timetableHours.push(`${i}:00`);
+  for (let i = startHourNum; i < endHourNum; i += 1) {
+    if (i < 10) {
+      timetableHours.push(`0${i}:00`);
+    } else {
+      timetableHours.push(`${i}:00`);
+    }
   }
 
   return timetableHours;

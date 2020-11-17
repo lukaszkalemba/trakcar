@@ -19,22 +19,26 @@ const GridItems: React.FC<GridItemsProps> = ({ timetableHours }) => {
 
     const hoursRange: string[] = [];
 
-    for (let i = startHourNum; i <= endHourNum; i += 1) {
-      hoursRange.push(`${i}:00`);
+    for (let i = startHourNum; i < endHourNum; i += 1) {
+      if (i < 10) {
+        hoursRange.push(`0${i}:00`);
+      } else {
+        hoursRange.push(`${i}:00`);
+      }
     }
 
     timetableHours.forEach((item) => {
       const gridColumnStart = generateGridColumn(position._id);
       const gridRowStart = generateGridRow(item);
 
-      const { gridPosition } = createUseStyles({
-        gridPosition: {
+      const { dynamicStyles } = createUseStyles({
+        dynamicStyles: {
           gridColumnStart,
           gridRowStart,
         },
       })();
 
-      const gridItemClass = cx(styles.gridItem, gridPosition, {
+      const gridItemClass = cx(styles.gridItem, dynamicStyles, {
         [styles.disabled]: !hoursRange.find((hour) => hour === item),
       });
 
