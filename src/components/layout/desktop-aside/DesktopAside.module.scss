@@ -6,7 +6,7 @@
 .wrapper {
   display: none;
 
-  @include media('>=1120px') {
+  @include media('>1120px') {
     display: flex;
     justify-content: center;
     background-color: $white;

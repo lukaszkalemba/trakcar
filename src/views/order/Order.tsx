@@ -1,11 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Order as OrderProps } from 'modules/orders';
 import Layout from 'components/layout/Layout';
 import styles from './Order.module.scss';
 
 const Order: React.FC<OrderProps> = ({
   _id,
-  positionId,
   orderName,
   principalName,
   carBrand,
@@ -17,23 +17,35 @@ const Order: React.FC<OrderProps> = ({
   endTime,
   startTime,
 }) => {
-  console.log(_id);
-  console.log(positionId);
-  console.log(orderName);
-  console.log(principalName);
-  console.log(carBrand);
-  console.log(carModel);
-  console.log(cost);
   console.log(color);
-  console.log(description);
-  console.log(date);
-  console.log(endTime);
-  console.log(startTime);
 
   return (
     <Layout>
       <div className={styles.wrapper}>
-        <h1 className={styles.title}>{orderName}</h1>
+        <div className={styles.sidebar}>
+          <Link to="/">Back</Link>
+          <button type="button" onClick={() => console.log(_id)}>
+            Bin
+          </button>
+        </div>
+
+        <div>
+          <div>
+            <span>
+              <time>{startTime}</time> - <time>{endTime}</time>
+              <time>{date}</time>
+            </span>
+          </div>
+          <span>
+            {carBrand} {carModel}
+          </span>
+          <h1 className={styles.title}>{orderName}</h1>
+          <div>
+            <div>{principalName}</div>
+            <div>{cost}$</div>
+            <div>{description}</div>
+          </div>
+        </div>
       </div>
     </Layout>
   );
