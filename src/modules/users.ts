@@ -123,12 +123,16 @@ export const signInUser = ({
   }
 };
 
-export const signOutUser = (): AppThunk => async (dispatch) => {
+export const signOutUser = (
+  redirect: (path: string) => void
+): AppThunk => async (dispatch) => {
   dispatch(unsetUser());
   dispatch(unsetOrganization());
   dispatch(unsetPositions());
   dispatch(unsetOrders());
   dispatch(unsetDate());
+
+  redirect('/');
 };
 
 export interface SignupValues extends SigninValues {

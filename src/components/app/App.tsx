@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Schedule from 'views/schedule/Schedule';
 import Positions from 'views/positions/Positions';
@@ -8,7 +8,11 @@ import SignUp from 'views/sign-up/SignUp';
 import SignIn from 'views/sign-in/SignIn';
 import NotFound from 'views/not-found/NotFound';
 import Order from 'views/order/Order';
-import { ordersSelector, Order as OrderSchema } from 'modules/orders';
+import {
+  ordersSelector,
+  Order as OrderSchema,
+  getAllOrders,
+} from 'modules/orders';
 import { setFullHeight } from 'helpers/setFullHeight';
 import { setAuthToken } from 'helpers/setAuthToken';
 import Alerts from './alerts/Alerts';
@@ -21,10 +25,12 @@ if (localStorage.token) {
 }
 
 const App = () => {
+  const dispatch = useDispatch();
   const { orders } = useSelector(ordersSelector);
 
   useEffect(() => {
     setFullHeight();
+    dispatch(getAllOrders());
   }, []);
 
   let ordersRoutes = null;
