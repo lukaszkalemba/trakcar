@@ -1,6 +1,14 @@
-import React, { ReactNode, useRef, useState } from 'react';
+import React, {
+  useRef,
+  useState,
+  useEffect,
+  ReactNode,
+  ChangeEvent,
+} from 'react';
 import { useField } from 'formik';
 import cx from 'classnames';
+import { Position } from 'modules/positions';
+import { PositionTimeRange } from 'views/schedule/order-wizard/OrderWizard.form';
 import Input from './input/Input';
 import Label from './label/Label';
 import Error from './error/Error';
@@ -164,6 +172,74 @@ const Select: React.FC<SelectProps> = ({ label, name, children }) => {
   );
 };
 
+interface PositionSelectProps extends InputProps {
+  positions: Position[] | null;
+  setFieldValue: (name: string, value: string) => void;
+  setPositionTimeRange: ({ startTime, endTime }: PositionTimeRange) => void;
+}
+
+const PositionSelect: React.FC<PositionSelectProps> = ({
+  label,
+  name,
+  positions,
+  setFieldValue,
+  setPositionTimeRange,
+}) => {
+  const [field, meta] = useField({ name });
+
+  useEffect(() => {
+    const selectedPosition = (positions as Position[])[0];
+
+    setPositionTimeRange({
+      startTime: selectedPosition.startTime,
+      endTime: selectedPosition.endTime,
+    });
+  }, [positions, setPositionTimeRange]);
+
+  const isError = handleError(meta.touched, meta.error);
+
+  const selectClass = cx(styles.input, {
+    [styles.error]: isError,
+  });
+
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const selectedPosition = positions?.find(
+      (position) => position._id === e.target.value
+    );
+
+    setPositionTimeRange({
+      startTime: selectedPosition?.startTime,
+      endTime: selectedPosition?.endTime,
+    });
+
+    setFieldValue(name, e.target.value);
+  };
+
+  return (
+    <div className={styles.wrapper}>
+      <select
+        className={selectClass}
+        {...field}
+        onChange={(e) => handleChange(e)}
+      >
+        {(positions as Position[]).map((position) => (
+          <option key={position._id} value={position._id}>
+            {position.positionName}
+          </option>
+        ))}
+      </select>
+      <Label
+        name={name}
+        content={label}
+        isActive={!!field.value}
+        isError={isError}
+        className={styles.staticLabel}
+      />
+      <Error isError={isError} message={meta.error} />
+    </div>
+  );
+};
+
 interface TimeProps extends InputProps {
   step: number;
 }
@@ -240,4 +316,14 @@ const Textarea: React.FC<TextareaProps> = ({ label, name, rows }) => {
   );
 };
 
-export { Text, Email, Password, Number, Select, Time, Date, Textarea };
+export {
+  Text,
+  Email,
+  Password,
+  Number,
+  Select,
+  PositionSelect,
+  Time,
+  Date,
+  Textarea,
+};
