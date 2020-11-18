@@ -13,14 +13,14 @@ export const validationSchema = yup.object({
     .string()
     .matches(
       /^([0-1][0-9]|2[0-3]):00$/,
-      'Start time must contain valid time value'
+      'Start time of work have to be full hour'
     )
     .required('Start time is required'),
   endTime: yup
     .string()
     .matches(
       /^([0-1][0-9]|2[0-3]):00$/,
-      'End time must contain valid time value'
+      'End time of work have to be full hour'
     )
     .required('Start time is required'),
 });

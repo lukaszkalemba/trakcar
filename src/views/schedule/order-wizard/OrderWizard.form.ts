@@ -27,8 +27,20 @@ export const validationSchema = yup.object({
   carModel: yup.string().required('Car model is required'),
   date: yup.string().required('Order date is required'),
   positionId: yup.string().required('Order position is required'),
-  startTime: yup.string().required('Start time of work is required'),
-  endTime: yup.string().required('End time of work is required'),
+  startTime: yup
+    .string()
+    .matches(
+      /^([0-1][0-9]|2[0-3]):00$/,
+      'Start time of the order have to be full hour'
+    )
+    .required('Start time of work is required'),
+  endTime: yup
+    .string()
+    .matches(
+      /^([0-1][0-9]|2[0-3]):00$/,
+      'End time of the order have to be full hour'
+    )
+    .required('End time of work is required'),
   cost: yup.number().required('Order cost is required'),
   color: yup.string().required('Distinctive color is required'),
   description: yup.string().required('Description is required'),
