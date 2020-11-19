@@ -21,8 +21,8 @@ export const getInitialValues = (date: string, positionId: string) => ({
 
 export const getValidationSchema = (
   positionTimeRange: PositionTimeRange | null
-) => {
-  return yup.object({
+) => [
+  yup.object({
     orderName: yup
       .string()
       .min(5, 'Order name must be at least 5 characters')
@@ -33,6 +33,9 @@ export const getValidationSchema = (
       .required('Principal name is required'),
     carBrand: yup.string().required('Car brand is required'),
     carModel: yup.string().required('Car model is required'),
+  }),
+
+  yup.object({
     date: yup.string().required('Order date is required'),
     positionId: yup.string().required('Order position is required'),
     startTime: yup
@@ -134,8 +137,10 @@ export const getValidationSchema = (
 
         return schema;
       }),
+  }),
+  yup.object({
     cost: yup.number().required('Order cost is required'),
     color: yup.string().required('Distinctive color is required'),
     description: yup.string().required('Description is required'),
-  });
-};
+  }),
+];

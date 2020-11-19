@@ -29,8 +29,21 @@ const OrderModal: React.FC<OrderModalProps> = ({ closeOrderWizard }) => {
   const { selectedDate } = useSelector(calendarDatesSelector);
   const { positions } = useSelector(positionsSelector);
 
-  const handleSubmit = (values: CreateOrderValues) => {
-    dispatch(createOrder(values, closeOrderWizard));
+  const handleSubmit = (
+    values: CreateOrderValues,
+    actions: {
+      setTouched: (arg0: {}) => void;
+      setSubmitting: (arg0: boolean) => void;
+    }
+  ) => {
+    if (currentStep === 3) {
+      dispatch(createOrder(values, closeOrderWizard));
+    } else {
+      setCurrentStep((step) => step + 1);
+
+      actions.setTouched({});
+      actions.setSubmitting(false);
+    }
   };
 
   const initialValues = getInitialValues(
@@ -44,7 +57,9 @@ const OrderModal: React.FC<OrderModalProps> = ({ closeOrderWizard }) => {
     steps,
   };
 
-  const validationSchema = getValidationSchema(positionTimeRange);
+  const validationSchema = getValidationSchema(positionTimeRange)[
+    currentStep - 1
+  ];
 
   return (
     <ModalTemplate wizard={wizard} closeModal={closeOrderWizard}>

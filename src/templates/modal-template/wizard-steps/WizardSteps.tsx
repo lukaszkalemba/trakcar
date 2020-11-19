@@ -1,18 +1,17 @@
 import React from 'react';
 import { Wizard } from '../ModalTemplate';
-import StepButton from './step-button/StepButton';
+import WizardStep from './wizard-step/WizardStep';
 import styles from './WizardSteps.module.scss';
 
 const WizardSteps: React.FC<WizardStepsProps> = ({ wizard }) => {
   return (
     <div className={styles.wrapper}>
       {wizard.steps.map(({ stepNumber, stepTitle }) => (
-        <StepButton
+        <WizardStep
           key={stepNumber}
           stepNumber={stepNumber}
           stepTitle={stepTitle}
           currentStep={wizard.currentStep}
-          setCurrentStep={wizard.setCurrentStep}
           isLast={wizard.steps.length === stepNumber}
         />
       ))}

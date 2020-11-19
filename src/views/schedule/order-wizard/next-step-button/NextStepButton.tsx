@@ -8,7 +8,7 @@ const NextStepButton: React.FC<NextStepButtonProps> = ({ setCurrentStep }) => {
   };
 
   return (
-    <Button type="button" icon={arrow_right_icon} onClick={moveToNextStep}>
+    <Button type="submit" icon={arrow_right_icon} onClick={moveToNextStep}>
       next
     </Button>
   );

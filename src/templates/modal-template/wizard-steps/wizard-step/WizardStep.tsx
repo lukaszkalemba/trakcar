@@ -1,42 +1,34 @@
 import React from 'react';
 import cx from 'classnames';
-import styles from './StepButton.module.scss';
+import styles from './WizardStep.module.scss';
 
-const StepButton: React.FC<StepButtonProps> = ({
+const WizardStep: React.FC<WizardStepProps> = ({
   stepNumber,
   stepTitle,
   currentStep,
-  setCurrentStep,
   isLast,
 }) => {
   const wrapperClass = cx(styles.wrapper, {
     [styles.last]: isLast,
   });
 
-  const buttonClass = cx(styles.button, {
+  const numberClass = cx(styles.number, {
     [styles.active]: currentStep === stepNumber,
   });
 
   return (
     <div className={wrapperClass}>
-      <button
-        type="button"
-        className={buttonClass}
-        onClick={() => setCurrentStep(stepNumber)}
-      >
-        {stepNumber}
-      </button>
+      <span className={numberClass}>{stepNumber}</span>
       <p className={styles.title}>{stepTitle}</p>
     </div>
   );
 };
 
-interface StepButtonProps {
+interface WizardStepProps {
   stepNumber: number;
   stepTitle: string;
   currentStep: number;
-  setCurrentStep: (step: number) => void;
   isLast: boolean;
 }
 
-export default StepButton;
+export default WizardStep;
