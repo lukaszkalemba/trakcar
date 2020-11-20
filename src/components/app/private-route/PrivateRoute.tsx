@@ -3,7 +3,10 @@ import { Route, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { usersSelector, loadUserData } from 'modules/users';
 
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ Component, ...rest }) => {
+const PrivateRoute: React.FC<PrivateRouteProps> = ({
+  component: Component,
+  ...rest
+}) => {
   const dispatch = useDispatch();
   const { token } = useSelector(usersSelector);
 
@@ -14,13 +17,15 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ Component, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={() => (!token ? <Redirect to="/sign-in" /> : <Component />)}
+      render={(props: any) =>
+        !token ? <Redirect to="/sign-in" /> : <Component {...props} />
+      }
     />
   );
 };
 
 interface PrivateRouteProps {
-  Component: React.FC;
+  component: React.FC<any>;
   exact?: boolean;
   path?: string;
 }

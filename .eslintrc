@@ -27,6 +27,7 @@
     "no-underscore-dangle": ["error", { "allow": ["_id"] }],
     "react/jsx-props-no-spreading": "off",
     "import/prefer-default-export": "off",
-    "import/no-cycle": "off"
+    "import/no-cycle": "off",
+    "@typescript-eslint/naming-convention": "off"
   }
 }

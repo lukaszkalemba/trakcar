@@ -1,58 +1,49 @@
-import React from 'react';
-import { createUseStyles } from 'react-jss';
-import cx from 'classnames';
-import { Order as OrderProps } from 'modules/orders';
-import { getOrderColors } from 'helpers/getOrderColors';
+import React, { useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { ordersSelector, getAllOrders } from 'modules/orders';
 import Layout from 'components/layout/Layout';
-import Sidebar from './sidebar/Sidebar';
-import Time from './time/Time';
-import Name from './name/Name';
-import Car from './car/Car';
-import Description from './description/Description';
+import LoadingSpinner from 'components/loading-spinner/LoadingSpinner';
+import OrderContent from './order-content/OrderContent';
 import styles from './Order.module.scss';
 
-const Order: React.FC<OrderProps> = ({
-  _id,
-  orderName,
-  principalName,
-  carBrand,
-  carModel,
-  cost,
-  color,
-  description,
-  date,
-  endTime,
-  startTime,
-}) => {
-  const orderColors = getOrderColors(color);
+const Order: React.FC<OrderProps> = ({ match }) => {
+  const dispatch = useDispatch();
+  const { loading, orders } = useSelector(ordersSelector);
 
-  const { dynamicStyles } = createUseStyles({
-    dynamicStyles: {
-      backgroundColor: orderColors.light,
-    },
-  })();
+  useEffect(() => {
+    dispatch(getAllOrders());
+  }, [dispatch]);
 
-  const wrapperClass = cx(styles.wrapper, dynamicStyles);
+  const selectedOrder = orders?.find((order) => order._id === match.params.id);
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className={styles.wrapper}>
+          <LoadingSpinner />
+        </div>
+      </Layout>
+    );
+  }
+
+  if (!selectedOrder) {
+    return <Redirect to="/404" />;
+  }
 
   return (
     <Layout>
-      <div className={wrapperClass}>
-        <Sidebar positionId={_id} color={color} />
-
-        <div className={styles.content}>
-          <Time startTime={startTime} endTime={endTime} date={date} />
-          <Name>{orderName}</Name>
-          <Car
-            brand={carBrand}
-            model={carModel}
-            principal={principalName}
-            cost={cost}
-          />
-          <Description text={description} />
-        </div>
-      </div>
+      <OrderContent {...selectedOrder} />
     </Layout>
   );
 };
+
+interface OrderProps {
+  match: {
+    params: {
+      id: string;
+    };
+  };
+}
 
 export default Order;

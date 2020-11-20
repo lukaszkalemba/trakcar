@@ -1,5 +1,6 @@
-export const getOrderColors = (color: string) => {
+export const getOrderColors = (color?: string) => {
   switch (color) {
+    default:
     case 'red':
       return {
         dark: 'hsl(331, 100%, 50%)',
@@ -28,12 +29,6 @@ export const getOrderColors = (color: string) => {
       return {
         dark: 'hsl(104, 100%, 41%)',
         light: 'hsl(105, 67%, 95%)',
-      };
-
-    default:
-      return {
-        dark: 'hsl(331, 100%, 50%)',
-        light: 'hsl(333, 100%, 96%)',
       };
   }
 };
