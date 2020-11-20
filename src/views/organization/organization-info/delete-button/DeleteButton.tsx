@@ -1,22 +1,20 @@
 import React, { ReactNode } from 'react';
-import { useDispatch } from 'react-redux';
-import { deleteOrganization } from 'modules/organizations';
+import cx from 'classnames';
 import bin_icon from 'assets/svgs/icon_bin-red.svg';
 import Button from 'components/button/Button';
 import styles from './DeleteButton.module.scss';
 
 const DeleteButton: React.FC<DeleteButtonProps> = ({
+  onClick,
+  className,
   children,
-  organizationId,
 }) => {
-  const dispatch = useDispatch();
-
-  const handleClick = () => {
-    dispatch(deleteOrganization(organizationId as string));
-  };
-
   return (
-    <Button className={styles.button} icon={bin_icon} onClick={handleClick}>
+    <Button
+      className={cx(styles.button, className)}
+      icon={bin_icon}
+      onClick={onClick}
+    >
       {children}
     </Button>
   );
@@ -24,7 +22,8 @@ const DeleteButton: React.FC<DeleteButtonProps> = ({
 
 interface DeleteButtonProps {
   children: ReactNode;
-  organizationId?: string;
+  className?: string;
+  onClick: () => void;
 }
 
 export default DeleteButton;
