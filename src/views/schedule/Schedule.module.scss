@@ -1,5 +1,4 @@
 @import 'styles/theme/media';
-@import 'styles/theme/fonts';
 @import 'styles/theme/colors';
 @import 'styles/theme/box-shadow';
 @import 'styles/mixins';
@@ -35,18 +34,5 @@
 
   @include media('>laptop') {
     margin-top: 130px;
-  }
-}
-
-.link {
-  margin: 35px auto 0;
-
-  @include media('>=tablet') {
-    font-size: $m;
-  }
-
-  & > div {
-    width: 1.1em;
-    height: 1.1em;
   }
 }

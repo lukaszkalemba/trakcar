@@ -69,12 +69,7 @@ const Positions: React.FC = () => {
         <Heading className={styles.heading}>
           You have to be a member of an organization to manage positions.
         </Heading>
-        <Button
-          type="link"
-          to="/organization"
-          icon={organization_icon}
-          className={styles.organizationLink}
-        >
+        <Button type="link" to="/organization" icon={organization_icon}>
           join an organization
         </Button>
       </>

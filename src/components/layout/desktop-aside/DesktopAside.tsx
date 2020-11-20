@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { usersSelector } from 'modules/users';
 import { positionsSelector } from 'modules/positions';
 import { ordersSelector } from 'modules/orders';
+import calendar_icon from 'assets/svgs/icon_calendar-black.svg';
 import plus_icon from 'assets/svgs/icon_circle-plus.svg';
 import car_icon from 'assets/svgs/icon_car-black.svg';
 import organization_icon from 'assets/svgs/icon_organization-black.svg';
@@ -23,6 +24,14 @@ const DesktopAside: React.FC = () => {
   const { orders, loading: ordersLoading } = useSelector(ordersSelector);
 
   const renderResults = () => {
+    if (location.pathname === '/404') {
+      return (
+        <ViewLink to="/" icon={calendar_icon}>
+          Back home
+        </ViewLink>
+      );
+    }
+
     if (userLoading || positionsLoading || ordersLoading) {
       return <LoadingSpinner className={styles.loadingSpinner} />;
     }

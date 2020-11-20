@@ -1,0 +1,34 @@
+@import 'styles/theme/media';
+@import 'styles/theme/fonts';
+@import 'styles/mixins';
+
+.wrapper {
+  @include page-wrapper;
+}
+
+.heading {
+  margin-top: 120px;
+}
+
+.unauthorizedHeading {
+  margin-top: 20px;
+  font-size: $xl;
+
+  @include media('>=tablet') {
+    font-size: $xxl;
+  }
+}
+
+.link {
+  font-size: $m;
+  margin-bottom: 30px;
+
+  @include media('>=tablet') {
+    font-size: $l;
+  }
+
+  & > div {
+    width: 1.1em;
+    height: 1.1em;
+  }
+}

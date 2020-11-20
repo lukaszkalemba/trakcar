@@ -49,6 +49,8 @@
   width: 100%;
   z-index: $level1;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   @include media('>=tablet') {
     padding: 65px 70px;

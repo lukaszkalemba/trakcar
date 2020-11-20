@@ -55,12 +55,7 @@ const Schedule: React.FC = () => {
           <Heading className={styles.heading}>
             You have to be a member of an organization to manage orders.
           </Heading>
-          <Button
-            type="link"
-            to="/organization"
-            icon={organization_icon}
-            className={styles.link}
-          >
+          <Button type="link" to="/organization" icon={organization_icon}>
             join an organization
           </Button>
         </>
@@ -73,12 +68,7 @@ const Schedule: React.FC = () => {
           <Heading className={styles.heading}>
             To book orders you have to create position first.
           </Heading>
-          <Button
-            type="link"
-            to="/positions"
-            icon={car_icon}
-            className={styles.link}
-          >
+          <Button type="link" to="/positions" icon={car_icon}>
             addf first position
           </Button>
         </>

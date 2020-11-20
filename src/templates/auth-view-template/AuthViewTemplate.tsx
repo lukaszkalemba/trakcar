@@ -13,10 +13,9 @@ const AuthViewTemplate: React.FC<AuthViewTemplateProps> = ({
   return (
     <div className={styles.wrapper}>
       <main>
-        <PageToggle messageSchema={pageToggleMessage} />
-
+        {pageToggleMessage && <PageToggle messageSchema={pageToggleMessage} />}
         <div className={styles.board}>
-          <Icon className={styles.logo} src={logo} />
+          {pageToggleMessage && <Icon className={styles.logo} src={logo} />}
           {children}
           {loading && <LoadingSpinner className={styles.loadingSpinner} />}
         </div>
@@ -32,8 +31,8 @@ export interface PageToggleMessage {
 }
 
 interface AuthViewTemplateProps {
-  loading: boolean;
-  pageToggleMessage: PageToggleMessage;
+  loading?: boolean;
+  pageToggleMessage?: PageToggleMessage;
   children: ReactNode;
 }
 
