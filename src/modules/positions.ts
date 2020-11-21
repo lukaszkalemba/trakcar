@@ -143,6 +143,7 @@ export const updatePosition = (
     dispatch(setLoading(true));
 
     dispatch(getAllPositions());
+    dispatch(getAllOrders());
     dispatch(
       showAlert({
         message: 'Position updated',
