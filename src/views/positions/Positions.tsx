@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllPositions, positionsSelector } from 'modules/positions';
 import { usersSelector } from 'modules/users';
 import organization_icon from 'assets/svgs/icon_organization-black.svg';
+import Seo from 'components/seo/Seo';
 import LoadingSpinner from 'components/loading-spinner/LoadingSpinner';
 import Layout from 'components/layout/Layout';
 import Button from 'components/button/Button';
@@ -77,9 +78,13 @@ const Positions: React.FC = () => {
   };
 
   return (
-    <Layout>
-      <div className={styles.wrapper}>{renderResults()}</div>
-    </Layout>
+    <>
+      <Seo title="positions" />
+
+      <Layout>
+        <div className={styles.wrapper}>{renderResults()}</div>
+      </Layout>
+    </>
   );
 };
 

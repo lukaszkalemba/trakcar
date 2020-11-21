@@ -5,6 +5,7 @@ import {
   loadOrganizationData,
   organizationsSelector,
 } from 'modules/organizations';
+import Seo from 'components/seo/Seo';
 import Layout from 'components/layout/Layout';
 import LoadingSpinner from 'components/loading-spinner/LoadingSpinner';
 import User from './user/User';
@@ -46,33 +47,41 @@ const Organization: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <Layout>
-      <div className={styles.wrapper}>
-        {userLoading || organizationLoading ? (
-          <LoadingSpinner />
-        ) : (
-          <>
-            <User avatar={user?.avatar} name={user?.name} email={user?.email} />
-            {organization ? (
-              <OrganizationInfo />
-            ) : (
-              <NoOrganizationInfo
-                openCreateModal={openCreateModal}
-                openJoinModal={openJoinModal}
+    <>
+      <Seo title="organization" />
+
+      <Layout>
+        <div className={styles.wrapper}>
+          {userLoading || organizationLoading ? (
+            <LoadingSpinner />
+          ) : (
+            <>
+              <User
+                avatar={user?.avatar}
+                name={user?.name}
+                email={user?.email}
               />
-            )}
-          </>
-        )}
+              {organization ? (
+                <OrganizationInfo />
+              ) : (
+                <NoOrganizationInfo
+                  openCreateModal={openCreateModal}
+                  openJoinModal={openJoinModal}
+                />
+              )}
+            </>
+          )}
 
-        {isCreateModalOpen && (
-          <CreateOrganizationModal closeModal={closeCreateModal} />
-        )}
+          {isCreateModalOpen && (
+            <CreateOrganizationModal closeModal={closeCreateModal} />
+          )}
 
-        {isJoinModalOpen && (
-          <JoinOrganizationModal closeModal={closeJoinModal} />
-        )}
-      </div>
-    </Layout>
+          {isJoinModalOpen && (
+            <JoinOrganizationModal closeModal={closeJoinModal} />
+          )}
+        </div>
+      </Layout>
+    </>
   );
 };
 

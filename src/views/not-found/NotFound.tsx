@@ -4,6 +4,7 @@ import { usersSelector } from 'modules/users';
 import calendar_icon from 'assets/svgs/icon_calendar-black.svg';
 import arrow_icon from 'assets/svgs/icon_arrow-right-black.svg';
 import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
+import Seo from 'components/seo/Seo';
 import Layout from 'components/layout/Layout';
 import Heading from 'components/heading/Heading';
 import Button from 'components/button/Button';
@@ -14,29 +15,39 @@ const NotFound: React.FC = () => {
 
   if (token) {
     return (
-      <Layout>
-        <div className={styles.wrapper}>
-          <Heading className={styles.heading}>Page not found.</Heading>
-          <Button type="link" to="/" icon={calendar_icon}>
-            Back home
-          </Button>
-        </div>
-      </Layout>
+      <>
+        <Seo title="404" />
+
+        <Layout>
+          <div className={styles.wrapper}>
+            <Heading className={styles.heading}>Page not found.</Heading>
+            <Button type="link" to="/" icon={calendar_icon}>
+              Back home
+            </Button>
+          </div>
+        </Layout>
+      </>
     );
   }
 
   return (
-    <AuthViewTemplate>
-      <Heading className={styles.unauthorizedHeading}>Page not found.</Heading>
-      <Button
-        type="link"
-        to="/sign-in"
-        icon={arrow_icon}
-        className={styles.link}
-      >
-        sign in
-      </Button>
-    </AuthViewTemplate>
+    <>
+      <Seo title="404" />
+
+      <AuthViewTemplate>
+        <Heading className={styles.unauthorizedHeading}>
+          Page not found.
+        </Heading>
+        <Button
+          type="link"
+          to="/sign-in"
+          icon={arrow_icon}
+          className={styles.link}
+        >
+          sign in
+        </Button>
+      </AuthViewTemplate>
+    </>
   );
 };
 

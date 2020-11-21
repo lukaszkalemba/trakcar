@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { ordersSelector, getAllOrders } from 'modules/orders';
+import Seo from 'components/seo/Seo';
 import Layout from 'components/layout/Layout';
 import LoadingSpinner from 'components/loading-spinner/LoadingSpinner';
 import OrderContent from './order-content/OrderContent';
@@ -32,9 +33,13 @@ const Order: React.FC<OrderProps> = ({ match }) => {
   }
 
   return (
-    <Layout>
-      <OrderContent {...selectedOrder} />
-    </Layout>
+    <>
+      <Seo title={selectedOrder.orderName} />
+
+      <Layout>
+        <OrderContent {...selectedOrder} />
+      </Layout>
+    </>
   );
 };
 

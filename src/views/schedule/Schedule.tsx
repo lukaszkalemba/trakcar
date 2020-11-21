@@ -5,6 +5,7 @@ import { positionsSelector } from 'modules/positions';
 import { ordersSelector } from 'modules/orders';
 import organization_icon from 'assets/svgs/icon_organization-black.svg';
 import car_icon from 'assets/svgs/icon_car-black.svg';
+import Seo from 'components/seo/Seo';
 import Layout from 'components/layout/Layout';
 import LoadingSpinner from 'components/loading-spinner/LoadingSpinner';
 import Heading from 'components/heading/Heading';
@@ -98,9 +99,13 @@ const Schedule: React.FC = () => {
   };
 
   return (
-    <Layout>
-      <div className={styles.wrapper}>{renderResults()}</div>
-    </Layout>
+    <>
+      <Seo title="schedule" />
+
+      <Layout>
+        <div className={styles.wrapper}>{renderResults()}</div>
+      </Layout>
+    </>
   );
 };
 

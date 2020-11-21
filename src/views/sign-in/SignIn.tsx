@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { signInUser, SigninValues, usersSelector } from 'modules/users';
 import AuthViewTemplate from 'templates/auth-view-template/AuthViewTemplate';
+import Seo from 'components/seo/Seo';
 import Button from 'components/button/Button';
 import * as Inputs from 'components/inputs/Inputs';
 import { initialValues, validationSchema } from './SignIn.form';
@@ -27,21 +28,25 @@ const SignIn: React.FC = () => {
   };
 
   return (
-    <AuthViewTemplate loading={loading} pageToggleMessage={pageToggleMessage}>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {() => (
-          <Form>
-            <Inputs.Email label="email" name="email" />
-            <Inputs.Password label="password" name="password" />
-            <Button type="submit">sign in</Button>
-          </Form>
-        )}
-      </Formik>
-    </AuthViewTemplate>
+    <>
+      <Seo title="sign in" />
+
+      <AuthViewTemplate loading={loading} pageToggleMessage={pageToggleMessage}>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {() => (
+            <Form>
+              <Inputs.Email label="email" name="email" />
+              <Inputs.Password label="password" name="password" />
+              <Button type="submit">sign in</Button>
+            </Form>
+          )}
+        </Formik>
+      </AuthViewTemplate>
+    </>
   );
 };
 
