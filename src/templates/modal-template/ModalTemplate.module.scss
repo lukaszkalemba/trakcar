@@ -14,6 +14,11 @@
   @include flex-center;
   flex-direction: column;
   z-index: $level2;
+  padding: 15px;
+
+  @include media('>phone') {
+    padding: 20px;
+  }
 }
 
 .wrapper {
