@@ -22,5 +22,32 @@ export const validationSchema = yup.object({
       /^([0-1][0-9]|2[0-3]):00$/,
       'End time of work have to be full hour'
     )
-    .required('Start time is required'),
+    .required('Start time is required')
+    .when('startTime', (startTime: string, schema: any) => {
+      if (startTime) {
+        const comparedStartTime = parseInt(
+          (startTime as string).substring(0, 2),
+          10
+        );
+
+        return schema.test(
+          'is-end-time-later',
+          'End time have to be later than start time',
+          (value: string) => {
+            if (value) {
+              const comparedEndTime = parseInt(
+                (value as string).substring(0, 2),
+                10
+              );
+
+              return comparedEndTime > comparedStartTime;
+            }
+
+            return true;
+          }
+        );
+      }
+
+      return schema;
+    }),
 });
