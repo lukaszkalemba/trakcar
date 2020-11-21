@@ -6,8 +6,6 @@
     "airbnb-typescript",
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:testing-library/recommended",
-    "plugin:jest-dom/recommended",
     "prettier",
     "prettier/react"
   ],
