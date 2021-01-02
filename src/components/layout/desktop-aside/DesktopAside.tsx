@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { usersSelector } from 'modules/users';
@@ -82,4 +82,4 @@ const DesktopAside: React.FC = () => {
   return <aside className={styles.wrapper}>{renderResults()}</aside>;
 };
 
-export default DesktopAside;
+export default memo(DesktopAside);

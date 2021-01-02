@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Position } from 'modules/positions';
 import PositionListItem from './position-list-item/PositionListItem';
 import styles from './PositionsList.module.scss';
@@ -17,4 +17,4 @@ interface PositionsListProps {
   positions: Position[];
 }
 
-export default PositionsList;
+export default memo(PositionsList);

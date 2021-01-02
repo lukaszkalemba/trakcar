@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './Organization.module.scss';
 
 const Organization: React.FC<OrganizationProps> = ({ name, userType }) => {
@@ -15,4 +15,4 @@ interface OrganizationProps {
   userType: 'admin' | 'standard user';
 }
 
-export default Organization;
+export default memo(Organization);

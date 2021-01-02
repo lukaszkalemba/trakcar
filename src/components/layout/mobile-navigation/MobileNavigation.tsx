@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { routes } from 'utils/routes';
 import NavItem from './nav-item/NavItem';
 import styles from './MobileNavigation.module.scss';
@@ -17,4 +17,4 @@ const MobileNavigation = () => {
   );
 };
 
-export default MobileNavigation;
+export default memo(MobileNavigation);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Avatar from 'components/avatar/Avatar';
 import styles from './User.module.scss';
 
@@ -22,4 +22,4 @@ interface UserProps {
   avatar?: string;
 }
 
-export default User;
+export default memo(User);

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { memo, ReactNode } from 'react';
 import styles from './Name.module.scss';
 
 const Name: React.FC<NameProps> = ({ children }) => {
@@ -9,4 +9,4 @@ interface NameProps {
   children: ReactNode;
 }
 
-export default Name;
+export default memo(Name);

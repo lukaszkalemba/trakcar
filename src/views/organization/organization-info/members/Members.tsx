@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Member } from 'modules/organizations';
 import styles from './Members.module.scss';
 
@@ -28,4 +28,4 @@ interface MembersProps {
   organizationName?: string;
 }
 
-export default Members;
+export default memo(Members);

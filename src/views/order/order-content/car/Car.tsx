@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './Car.module.scss';
 
 const Car: React.FC<CarProps> = ({ brand, model, principal, cost }) => {
@@ -16,4 +16,4 @@ interface CarProps {
   cost: number;
 }
 
-export default Car;
+export default memo(Car);

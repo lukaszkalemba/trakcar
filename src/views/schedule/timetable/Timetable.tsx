@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { createUseStyles } from 'react-jss';
 import cx from 'classnames';
@@ -46,4 +46,4 @@ const Timetable: React.FC = () => {
   );
 };
 
-export default Timetable;
+export default memo(Timetable);

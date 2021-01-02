@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { memo, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import arrow_right_icon from 'assets/svgs/icon_arrow-right-black.svg';
 import Icon from 'components/icon/Icon';
@@ -52,4 +52,4 @@ interface ButtonProps {
   children: ReactNode;
 }
 
-export default Button;
+export default memo(Button);

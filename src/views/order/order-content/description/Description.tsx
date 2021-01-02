@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './Description.module.scss';
 
 const Description: React.FC<DescriptionProps> = ({ text }) => {
@@ -9,4 +9,4 @@ interface DescriptionProps {
   text: string;
 }
 
-export default Description;
+export default memo(Description);

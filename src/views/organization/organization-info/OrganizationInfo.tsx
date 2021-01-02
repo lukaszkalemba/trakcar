@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { useSelector } from 'react-redux';
 import { organizationsSelector } from 'modules/organizations';
 import { usersSelector } from 'modules/users';
@@ -60,4 +60,4 @@ const OrganizationInfo: React.FC = () => {
   );
 };
 
-export default OrganizationInfo;
+export default memo(OrganizationInfo);

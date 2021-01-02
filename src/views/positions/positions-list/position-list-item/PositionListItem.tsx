@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { Position } from 'modules/positions';
 import Buttons from './buttons/Buttons';
 import UpdatePositionModal from './update-position-modal/UpdatePositionModal';
@@ -35,4 +35,4 @@ interface PositionListItemProps {
   position: Position;
 }
 
-export default PositionListItem;
+export default memo(PositionListItem);

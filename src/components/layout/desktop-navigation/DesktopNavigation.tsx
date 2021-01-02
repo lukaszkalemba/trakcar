@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { routes } from 'utils/routes';
 import NavItem from './nav-item/NavItem';
 import styles from './DesktopNavigation.module.scss';
@@ -19,4 +19,4 @@ const DesktopNavigation: React.FC = () => {
   );
 };
 
-export default DesktopNavigation;
+export default memo(DesktopNavigation);

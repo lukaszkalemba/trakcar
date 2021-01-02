@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { memo, ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Heading.module.scss';
 
@@ -11,4 +11,4 @@ interface HeadingProps {
   children: ReactNode;
 }
 
-export default Heading;
+export default memo(Heading);

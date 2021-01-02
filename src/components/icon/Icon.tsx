@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import SVG from 'react-inlinesvg';
 import cx from 'classnames';
 import styles from './Icon.module.scss';
@@ -16,4 +16,4 @@ interface IconProps {
   className?: string;
 }
 
-export default Icon;
+export default memo(Icon);

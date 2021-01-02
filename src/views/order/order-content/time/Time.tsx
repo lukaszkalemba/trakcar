@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { format } from 'date-fns';
 import styles from './Time.module.scss';
 
@@ -21,4 +21,4 @@ interface TimeProps {
   date: string;
 }
 
-export default Time;
+export default memo(Time);

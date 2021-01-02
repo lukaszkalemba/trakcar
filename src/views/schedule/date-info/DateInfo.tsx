@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { format, addDays, subDays } from 'date-fns';
 import {
@@ -54,4 +54,4 @@ const DateInfo: React.FC = () => {
   );
 };
 
-export default DateInfo;
+export default memo(DateInfo);

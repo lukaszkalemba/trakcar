@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { signOutUser } from 'modules/users';
@@ -6,7 +6,7 @@ import logout_icon from 'assets/svgs/icon_logout.svg';
 import Button from 'components/button/Button';
 import styles from './LogoutButton.module.scss';
 
-const Dropdown: React.FC = () => {
+const LogoutButton: React.FC = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -25,4 +25,4 @@ const Dropdown: React.FC = () => {
   );
 };
 
-export default Dropdown;
+export default memo(LogoutButton);

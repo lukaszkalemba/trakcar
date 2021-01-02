@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Logo from './logo/Logo';
 import LogoutButton from './logout-button/LogoutButton';
 import styles from './TopBar.module.scss';
@@ -12,4 +12,4 @@ const TopBar: React.FC = () => {
   );
 };
 
-export default TopBar;
+export default memo(TopBar);

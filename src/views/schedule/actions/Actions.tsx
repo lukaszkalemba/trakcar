@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import icon_calendar from 'assets/svgs/icon_calendar-black.svg';
 import icon_plus from 'assets/svgs/icon_circle-plus.svg';
 import Icon from 'components/icon/Icon';
@@ -34,4 +34,4 @@ interface ActionsProps {
   openCalendarModal: () => void;
 }
 
-export default Actions;
+export default memo(Actions);
